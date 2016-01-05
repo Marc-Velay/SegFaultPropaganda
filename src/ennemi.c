@@ -51,7 +51,7 @@ void moveOfficers() {
 }
 
 void doEnnemi(){
-	int tick = Game.timer %25;
+	int tick = Game.timer %23;
 	if(Game.countdown ==0){
 		createWave();
 	}
