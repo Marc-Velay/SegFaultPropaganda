@@ -76,12 +76,13 @@ typedef struct Sprites
 
 enum						//Contient les numéros des cases du tableau sprite contenant chaque image correspondant au nom
 {
-	PLAYER_SPRITE=0,
-	BACKGROUND_SPRITE=1,
-	OFFICER_SPRITE=2,
-	TOURELLE_SPRITE=3,
-	LASER_SPRITE=4,
-	MAX_SPRITES=5
+	PLAYER_R_SPRITE,
+	PLAYER_L_SPRITE,
+	BACKGROUND_SPRITE,
+	OFFICER_SPRITE,
+	TOURELLE_SPRITE,
+	LASER_SPRITE,
+	MAX_SPRITES
 };
 
 SDL_Surface *screen, *Background, *Text;  //initialise les surfaces de la fenetre, fond et où on affiche le texte

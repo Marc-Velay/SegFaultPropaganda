@@ -2,7 +2,7 @@
 
 void initPlayer()
 {
-	Player.sprite = getSprite(PLAYER_SPRITE);
+	Player.sprite = getSprite(PLAYER_L_SPRITE);
 	
 	Player.x = 3*SCREEN_WIDTH / 4;
 	Player.y = SCREEN_HEIGHT / 4;

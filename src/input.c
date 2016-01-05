@@ -68,6 +68,7 @@ void getInput()
         if(in.key[SDLK_d])
         {
             Player.x +=10;
+	    Player.sprite = getSprite(PLAYER_R_SPRITE);
         }
         if(in.key[SDLK_s])
         {
@@ -76,6 +77,7 @@ void getInput()
         if(in.key[SDLK_q] || in.key[SDLK_a])
         {
             Player.x -=10;
+	    Player.sprite = getSprite(PLAYER_L_SPRITE);
         }
         if(in.key[SDLK_z] || in.key[SDLK_w])
         {

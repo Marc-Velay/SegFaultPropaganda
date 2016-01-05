@@ -222,7 +222,8 @@ void freeSprites()
 void loadAllSprites()
 {
 	Font = loadFont("sfd/FreeSans.ttf", 30);
-	loadSprite(PLAYER_SPRITE, "gfx/Roger_Clean.png");
+	loadSprite(PLAYER_R_SPRITE, "gfx/Roger_CleanR.png");
+	loadSprite(PLAYER_L_SPRITE, "gfx/Roger_CleanL.png");
 	loadSprite(BACKGROUND_SPRITE, "gfx/TerrainV1.png");
 	loadSprite(OFFICER_SPRITE, "gfx/Agent_Clean.png");	
 	loadSprite(TOURELLE_SPRITE, "gfx/Tourelle_Clean.png");
