@@ -43,6 +43,7 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
 typedef struct player			// structure de Stephen
 {
   int x, y;
+  int direction;
   SDL_Surface *sprite;
 } player;
 
@@ -102,18 +103,18 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font); //affiche le menu du 1e
 void loadSprite(int index, char *name);	//recup les sprite grace à loadimage, et les place dans un tableau d'images
 SDL_Surface *getSprite(int index);	//recup l'image dans la case index du tableau cree dans loadAllSprite
 void freeSprites();		//libere toutes les images du tableau
-void loadAllSprites();		//
-void updateScreen();
+void loadAllSprites();		//liste des sprites a lister
+void updateScreen();	//fonction utilisee pour refresh l'ecran avec les nouvelles positions des images, apres avoir mis a jour chaque elem du jeu
 
 // ************** init.c
-void init(char *title);
-void cleanup();
+void init(char *title);		//initialise les librairies et certains elements
+void cleanup();			//supprime tous ce qui a ete initialise dans la fct au dessus et les sprites
 
 
 
 // ************** input.c
-void getInput(/*game *Game*/);
-void UpdateEvents(Input* in);
+void getInput();			//fct pour les actions du joueur
+void UpdateEvents(Input* in);	//met à jour le tableau ayant une case par touche du clavier et de la sourie à partir des evenements
 
 
 // ************** main.c
@@ -126,15 +127,15 @@ void initPlayer();
 // ************** ennemi.c
 void initOfficer(int n, int lane);
 void drawOfficer();
-void createWave();
-void createOfficers();
-void moveOfficers();
-void doEnnemi();
+void createWave();			//cree le nombre d'ennemis dans cette vague
+void createOfficers();		//cree les nouveaux officiers jusqu'à la limite de createWave
+void moveOfficers();			//gestion des colisions
+void doEnnemi();			//appel permettant de gerer la creation et le deplacement des ennemis
 
 // ************** tourelle.c
-void initTourelle(int n, int lane);
+void initTourelle(int n, int lane);	
 void drawTourelle();
-void doTourelle();
+void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
 
 // ************** projectile.c
 void initLaser();
