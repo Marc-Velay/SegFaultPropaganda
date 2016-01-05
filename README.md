@@ -12,3 +12,10 @@ git checkout master					// switch sur la branche master
 git merge hotfix					// assemble la branche <hotfix> et le dernier checkout
 
 git push https://github.com/Marc-Velay/SegFaultPropaganda master //envoie sur le serveur
+git pull https://github.com/Marc-Velay/SegFaultPropaganda master //récupère le code du serveur
+
+pour mettre à jour:
+
+git add .			//met tous le dossier en mode commit, pour être ajouté
+git commit -m 'update tourelle.c et readme.txt'	//marque les nouveaux dossiers ayant besoin d'être push
+git push https://github.com/Marc-Velay/SegFaultPropaganda master	//Envoie les fichiers marques à commit sur l'url 
