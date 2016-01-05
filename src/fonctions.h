@@ -94,15 +94,15 @@ laser Laser;
 
 
 // ************** graphics.c
-SDL_Surface *loadImage(char *name);
-TTF_Font *loadFont(char *name, int size);
-void drawImage(SDL_Surface *image, int x, int y);
-void drawString(char *text, int x, int y, TTF_Font *Font);
-void drawMenu(char *text, int x, int y, TTF_Font *Font);
-void loadSprite(int index, char *name);
-SDL_Surface *getSprite(int index);
-void freeSprites();
-void loadAllSprites();
+SDL_Surface *loadImage(char *name);		//fct pour recup les images à partir du disk
+TTF_Font *loadFont(char *name, int size);	// recup la police à partir du disk
+void drawImage(SDL_Surface *image, int x, int y);	//affiche une image à l'écran, en x,y
+void drawString(char *text, int x, int y, TTF_Font *Font);	//affiche du texte sur une surface
+void drawMenu(char *text, int x, int y, TTF_Font *Font); //affiche le menu du 1er ecran
+void loadSprite(int index, char *name);	//recup les sprite grace à loadimage, et les place dans un tableau d'images
+SDL_Surface *getSprite(int index);	//recup l'image dans la case index du tableau cree dans loadAllSprite
+void freeSprites();		//libere toutes les images du tableau
+void loadAllSprites();		//
 void updateScreen();
 
 // ************** init.c
