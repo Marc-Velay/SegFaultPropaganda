@@ -69,7 +69,6 @@ void getInput()
 			Player.x +=10;
 			updateScreen();
 			Game.timer +=1 ;
-			Game.timer = Game.timer%25;
 			SDL_Delay(16);
 		}		
 	}
@@ -79,7 +78,6 @@ void getInput()
 			Player.x -=10;
 			updateScreen();
 			Game.timer +=1 ;
-			Game.timer = Game.timer%25;
 			SDL_Delay(16);
 		}	
 	}
@@ -89,7 +87,6 @@ void getInput()
 			Player.y -=10;
 			updateScreen();
 			Game.timer +=1 ;
-			Game.timer = Game.timer%25;
 			SDL_Delay(16);
 		}	
 	}
@@ -99,7 +96,6 @@ void getInput()
 			Player.y +=10;
 			updateScreen();
 			Game.timer +=1 ;
-			Game.timer = Game.timer%25;
 			SDL_Delay(16);
 		}	
 	}
