@@ -40,20 +40,20 @@ void UpdateEvents(Input* in)
 
 void getInput()
 {
-  
+
   Input in;
   memset(&in,0,sizeof(in));
-  
+
 	//SDL_Event event;
 	UpdateEvents(&in);
 	int moux;
 	int mouy;
 	SDL_GetMouseState(&moux,&mouy);
-	
+
 	if(in.key[SDLK_ESCAPE] || in.quit) {
 	  exit(0);
 	}
-	
+
 	if (in.mousebuttons[SDL_BUTTON_LEFT]) {
 	  if(((moux > 543 && moux < 737) && (mouy >223 && mouy <256)) && Game.stade ==0) {
 	    printf("START GAME CLICKED\n");
@@ -62,44 +62,31 @@ void getInput()
 	//in.mousebuttons[SDL_BUTTON_LEFT] = 0;
 	printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
 	}
-	
-	if(in.key[SDLK_d]) {
-		while(in.key[SDLK_d]){
-			UpdateEvents(&in);
-			Player.x +=10;
-			updateScreen();
-			Game.timer +=1 ;
-			SDL_Delay(16);
-		}		
-	}
-	if(in.key[SDLK_q] || in.key[SDLK_a]){
-		while(in.key[SDLK_q] || in.key[SDLK_a]){
-			UpdateEvents(&in);
-			Player.x -=10;
-			updateScreen();
-			Game.timer +=1 ;
-			SDL_Delay(16);
-		}	
-	}
-	if(in.key[SDLK_z] || in.key[SDLK_w]) {
-		while(in.key[SDLK_z] || in.key[SDLK_w]){
-			UpdateEvents(&in);
-			Player.y -=10;
-			updateScreen();
-			Game.timer +=1 ;
-			SDL_Delay(16);
-		}	
-	}
-	if(in.key[SDLK_s]){
-		while(in.key[SDLK_s]){
-			UpdateEvents(&in);
-			Player.y +=10;
-			updateScreen();
-			Game.timer +=1 ;
-			SDL_Delay(16);
-		}	
-	}
-	
+
+    while(in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w])
+    {
+        if(in.key[SDLK_d])
+        {
+            Player.x +=10;
+        }
+        if(in.key[SDLK_s])
+        {
+            Player.y +=10;
+        }
+        if(in.key[SDLK_q] || in.key[SDLK_a])
+        {
+            Player.x -=10;
+        }
+        if(in.key[SDLK_z] || in.key[SDLK_w])
+        {
+            Player.y -=10;
+        }
+
+	updateScreen();
+	Game.timer +=1;
+	SDL_Delay(16);
+        UpdateEvents(&in);
+    }
 }
 
 
