@@ -23,6 +23,7 @@ void drawTourelle()
 void doTourelle(){
 	if(Game.countdown ==0){
 		initTourelle(0, 2);
+		shoot();
 		Game.countdown ++;
 	}
 }

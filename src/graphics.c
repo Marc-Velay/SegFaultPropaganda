@@ -226,6 +226,7 @@ void loadAllSprites()
 	loadSprite(BACKGROUND_SPRITE, "gfx/TerrainV1.png");
 	loadSprite(OFFICER_SPRITE, "gfx/Agent_Clean.png");	
 	loadSprite(TOURELLE_SPRITE, "gfx/Tourelle_Clean.png");
+	loadSprite(LASER_SPRITE, "gfx/Laser_Clean.png");
 }
 
 
@@ -250,6 +251,7 @@ void updateScreen()
 		drawPlayer();
 		drawOfficer();
 		drawTourelle();
+		updateLaser();
 	    break;
 	    
 	    
