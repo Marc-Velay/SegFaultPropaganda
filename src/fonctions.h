@@ -53,6 +53,14 @@ typedef struct tourelle
   SDL_Surface *sprite;
 } tourelle;
 
+typedef struct laser
+{
+  int x, y;
+  int direction;
+  struct laser* suivant;
+  SDL_Surface *sprite;
+} laser;
+
 typedef struct officer
 {
   int x, y;
@@ -71,7 +79,8 @@ enum
 	BACKGROUND_SPRITE=1,
 	OFFICER_SPRITE=2,
 	TOURELLE_SPRITE=3,
-	MAX_SPRITES=4
+	LASER_SPRITE=4,
+	MAX_SPRITES=5
 };
 
 SDL_Surface *screen, *Background, *Officer1, *Text;  
@@ -81,7 +90,7 @@ officer Officer[MAX_OFFICERS];
 tourelle Tourelle[MAX_TOURELLES];
 game Game;
 Sprites sprite[MAX_SPRITES];
-
+laser Laser;
 
 
 // ************** graphics.c
@@ -126,3 +135,8 @@ void doEnnemi();
 void initTourelle(int n, int lane);
 void drawTourelle();
 void doTourelle();
+
+// ************** projectile.c
+void initLaser();
+void updateLaser();
+void shoot();

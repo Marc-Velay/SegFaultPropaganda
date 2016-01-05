@@ -18,11 +18,14 @@ ennemi.o: src/ennemi.c src/fonctions.h
 tourelle.o: src/tourelle.c src/fonctions.h
 	gcc -Wall -c src/tourelle.c
 	
+projectile.o: src/projectile.c src/fonctions.h
+	gcc -Wall -c src/projectile.c
+	
 main.o: src/main.c src/fonctions.h
 	gcc -Wall -c src/main.c
 
-SegProp: init.o input.o main.o graphics.o player.o ennemi.o tourelle.o
-	gcc -o SegProp init.o input.o main.o graphics.o player.o ennemi.o tourelle.o `sdl-config --libs` -lSDL -lSDL_image -lSDL_ttf
+SegProp: init.o input.o main.o graphics.o player.o ennemi.o tourelle.o projectile.o
+	gcc -o SegProp init.o input.o main.o graphics.o player.o ennemi.o tourelle.o projectile.o `sdl-config --libs` -lSDL -lSDL_image -lSDL_ttf
 	
 execution: 
 	./SegProp
