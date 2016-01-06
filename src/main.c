@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 	Game.timer =0;
 	Game.nbWave=1;
 	Game.nbTourelleCreated=0;
+	Game.nbTourelle=0;
 
 	init("Tower Defense: Stephen VS Langley Falls");
 	atexit(cleanup);
