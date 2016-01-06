@@ -23,7 +23,6 @@ void drawTourelle()
 void createTourelle(int moux, int mouy){
 	int lane=0;
 	int colonne=0;
-	int n=0;
 	while(moux>0){
 		moux -= GRID_STEP;
 		colonne++;
