@@ -11,13 +11,30 @@ void initTir(int x, int y, int dir){
 }
 
 void updateTir(){
+    int i;
+
 	if(Tir.on == 1)
     {
     drawImage(Tir.sprite, Tir.x, Tir.y);
-	if(Tir.dir==0) Tir.x +=50;
-	if(Tir.dir==1) Tir.x -=50;
-	Game.timer +=1;
-	SDL_Delay(16);
+	if(Tir.dir==0)
+    {
+        for(i=0;i<50;i++)
+        {
+            Tir.x +=1;
+            collision();
+        }
+    }
+
+	if(Tir.dir==1)
+    {
+        for(i=0;i<50;i++)
+        {
+            Tir.x -=1;
+            collision();
+        }
+    }
+	//Game.timer +=1;
+	//SDL_Delay(16);
     }
 }
 
