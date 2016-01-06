@@ -43,6 +43,9 @@
 			<Add library="dxguid" />
 			<Add directory="D:/Programmes/CodeBlocks/MinGW/lib" />
 		</Linker>
+		<Unit filename="src/collision.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/ennemi.c">
 			<Option compilerVar="CC" />
 		</Unit>
