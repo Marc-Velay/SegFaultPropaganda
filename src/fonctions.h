@@ -38,6 +38,7 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
   int nbEnnemiAlive;
   int nbTourelleCreated;
   int nbWave;
+  int nbTourelle;
 } game;
 
 typedef struct player			// structure de Stephen
@@ -144,7 +145,7 @@ void moveOfficers();			//gestion des colisions
 void doEnnemi();			//appel permettant de gerer la creation et le deplacement des ennemis
 
 // ************** tourelle.c
-void initTourelle(int n, int lane);
+void initTourelle(int n, int colonne, int lane);
 void drawTourelle();
 void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
 void createTourelle(int moux, int mouy);
