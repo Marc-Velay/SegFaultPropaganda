@@ -8,9 +8,6 @@ void initTir(int x, int y, int dir){
 	Tir.y = y;
 	Tir.on = 1;
 	Tir.reload = 0;
-
-	//drawImage(Tir.sprite, Tir.x, Tir.y);
-
 }
 
 void updateTir(){

@@ -4,7 +4,7 @@
 
 1452008761 D
 
-1452069109 c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\fonctions.h
+1452071437 c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\fonctions.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -278,7 +278,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1452065992 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\graphics.c
+1452070159 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\graphics.c
 	"fonctions.h"
 
 1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\init.c
@@ -299,6 +299,9 @@
 1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tourelle.c
 	"fonctions.h"
 
-1452069109 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tir.c
+1452070284 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tir.c
+	"fonctions.h"
+
+1452071325 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\collision.c
 	"fonctions.h"
 

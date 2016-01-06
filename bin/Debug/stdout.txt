@@ -1,0 +1,11 @@
+index: 0
+index: 1
+index: 2
+index: 3
+index: 4
+index: 5
+START GAME CLICKED
+LEFT BUTTON PRESSED in: 583, 236
+Tourelle 0 at: 780,298
+Officer 0 at: 0,426
+Officer 1 at: 0,362
