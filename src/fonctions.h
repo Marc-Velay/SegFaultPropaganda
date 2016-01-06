@@ -77,6 +77,7 @@ typedef struct officer
 {
   int x, y;
   int alive;
+  int lane;
   SDL_Surface *sprite;
 } officer;
 
