@@ -1,6 +1,6 @@
 #include "fonctions.h"
 
-void initTourelle(int n, int lane)
+void initTourelle(int n, int colonne, int lane)
 {		
 		Tourelle[n].sprite = getSprite(TOURELLE_SPRITE);
 		Tourelle[n].x =SCREEN_WIDTH -500;
@@ -21,7 +21,21 @@ void drawTourelle()
 }
 
 void createTourelle(int moux, int mouy){
-	
+	int lane=0;
+	int colonne=0;
+	int n=0;
+	while(moux>0){
+		moux -= GRID_STEP;
+		colonne++;
+	}
+	while(mouy - PATH_TOP_Y >0){
+		mouy -= GRID_STEP;
+		lane++;
+	}
+	while(Tourelle[n] != NULL){
+		n++;
+	}
+	initTourelle(n,colonne,lane);
 }
 
 void doTourelle(){
