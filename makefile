@@ -21,11 +21,14 @@ tourelle.o: src/tourelle.c src/fonctions.h
 projectile.o: src/projectile.c src/fonctions.h
 	gcc -Wall -c src/projectile.c
 	
+tir.o: src/tir.c src/fonctions.h
+	gcc -Wall -c src/tir.c
+	
 main.o: src/main.c src/fonctions.h
 	gcc -Wall -c src/main.c
 
-SegProp: init.o input.o main.o graphics.o player.o ennemi.o tourelle.o projectile.o
-	gcc -o SegProp init.o input.o main.o graphics.o player.o ennemi.o tourelle.o projectile.o `sdl-config --libs` -lSDL -lSDL_image -lSDL_ttf
+SegProp: init.o input.o main.o graphics.o player.o ennemi.o tourelle.o projectile.o tir.o
+	gcc -o SegProp init.o input.o main.o graphics.o player.o ennemi.o tourelle.o projectile.o tir.o `sdl-config --libs` -lSDL -lSDL_image -lSDL_ttf
 	
 execution: 
 	./SegProp
