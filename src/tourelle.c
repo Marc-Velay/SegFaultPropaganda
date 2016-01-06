@@ -4,7 +4,7 @@ void initTourelle(int n, int lane)
 {		
 		Tourelle[n].sprite = getSprite(TOURELLE_SPRITE);
 		Tourelle[n].x =SCREEN_WIDTH -500;
-		Tourelle[n].y =lane*GRID_STEP+PATH_TOP_Y+20;
+		Tourelle[n].y =lane*GRID_STEP+PATH_TOP_Y;
 		Tourelle[n].alive =1;
 		Game.nbTourelleCreated++;
 		printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
@@ -18,6 +18,10 @@ void drawTourelle()
 		drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
 		}
 	}	
+}
+
+void createTourelle(){
+	
 }
 
 void doTourelle(){

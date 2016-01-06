@@ -147,6 +147,7 @@ void doEnnemi();			//appel permettant de gerer la creation et le deplacement des
 void initTourelle(int n, int lane);
 void drawTourelle();
 void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
+void createTourelle();
 
 // ************** projectile.c
 void initLaser();
