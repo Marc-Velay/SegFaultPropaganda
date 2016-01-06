@@ -31,7 +31,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="D:/Programmes/CodeBlocks/MinGW/include" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/include" />
 		</Compiler>
 		<Linker>
 			<Add library="mingw32" />
@@ -41,8 +41,11 @@
 			<Add library="gdi32" />
 			<Add library="winmm" />
 			<Add library="dxguid" />
-			<Add directory="D:/Programmes/CodeBlocks/MinGW/lib" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/lib" />
 		</Linker>
+		<Unit filename="src/collision.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src/ennemi.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -73,9 +76,7 @@
 		</Unit>
 		<Extensions>
 			<code_completion />
-			<envvars />
 			<debugger />
-			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
