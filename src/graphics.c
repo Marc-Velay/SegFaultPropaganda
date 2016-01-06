@@ -249,10 +249,10 @@ void updateScreen()
 		doEnnemi();
 		doTourelle();
 		drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
-		drawPlayer();
 		drawOfficer();
+		drawPlayer();
 		drawTourelle();
-		updateLaser();
+		//updateLaser();
 		updateTir();
 		collision();
 	    break;

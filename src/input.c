@@ -64,6 +64,7 @@ void getInput()
 	}
 
 	if (in.mousebuttons[SDL_BUTTON_LEFT]) {
+
 	  if(((moux > 1090 && moux < 1280) && (mouy >250 && mouy <520)) && Game.stade ==1) {
 	    printf("CREATE TOURELLE CLICKED\n");
 	    createTourelle(moux, mouy);
@@ -71,6 +72,7 @@ void getInput()
 	//in.mousebuttons[SDL_BUTTON_LEFT] = 0;
 	printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
 	}
+
 
 
     if(in.key[SDLK_SPACE])
