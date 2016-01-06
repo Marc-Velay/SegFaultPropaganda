@@ -65,8 +65,8 @@ void getInput()
 
     if(in.key[SDLK_SPACE])
     {
-        if(Player.sprite == getSprite(PLAYER_R_SPRITE)) initTir(Player.x,Player.y,0);
-        else initTir(Player.x,Player.y,1);
+        if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,0);
+        if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,1);
     }
 
 
@@ -90,9 +90,15 @@ void getInput()
         {
             Player.y -=10;
         }
+        if(in.key[SDLK_SPACE])
+    {
+        if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,0) ;
+        if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,1);
+    }
 
 	updateScreen();
 	Game.timer +=1;
+	Tir.reload +=1;
 	SDL_Delay(16);
         UpdateEvents(&in);
     }

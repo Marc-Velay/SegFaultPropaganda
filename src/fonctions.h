@@ -67,6 +67,7 @@ typedef struct tir
   int x, y;
   int dir;
   int on;
+  int reload;
   //struct tir* suivant;
   SDL_Surface *sprite;
 } tir;

@@ -4,41 +4,50 @@ index: 2
 index: 3
 index: 4
 index: 5
-LEFT BUTTON PRESSED in: 661, 262
 START GAME CLICKED
-LEFT BUTTON PRESSED in: 652, 246
+LEFT BUTTON PRESSED in: 623, 233
 Tourelle 0 at: 780,318
-Officer 0 at: 0,170
-Officer 1 at: 0,170
-Officer 2 at: 0,234
-Officer 3 at: 0,234
-Officer 4 at: 0,298
-Officer 5 at: 0,234
+Officer 0 at: 0,362
+Officer 1 at: 0,362
+Officer 2 at: 0,298
+Officer 3 at: 0,298
+Officer 4 at: 0,234
+Officer 5 at: 0,426
 Officer 6 at: 0,234
-Officer 7 at: 0,298
-Officer 8 at: 0,298
-Officer 9 at: 0,426
-Officer 10 at: 0,362
+Officer 7 at: 0,362
+Officer 8 at: 0,362
+Officer 9 at: 0,298
+Officer 10 at: 0,234
 Officer 11 at: 0,426
 Officer 12 at: 0,170
-Officer 13 at: 0,426
+Officer 13 at: 0,298
 Officer 14 at: 0,362
-Officer 15 at: 0,298
+Officer 15 at: 0,170
 Officer 16 at: 0,170
-Officer 17 at: 0,298
-Officer 18 at: 0,170
-Officer 19 at: 0,362
-Officer 20 at: 0,426
-Officer 21 at: 0,426
-Officer 22 at: 0,298
-Officer 23 at: 0,362
-Officer 24 at: 0,298
-Officer 25 at: 0,362
-Officer 26 at: 0,298
-Officer 27 at: 0,298
-Officer 28 at: 0,234
-Officer 29 at: 0,426
+Officer 17 at: 0,234
+Officer 18 at: 0,426
+Officer 19 at: 0,298
+Officer 20 at: 0,234
+Officer 21 at: 0,362
+Officer 22 at: 0,170
+Officer 23 at: 0,234
+Officer 24 at: 0,362
+Officer 25 at: 0,298
+Officer 26 at: 0,170
+Officer 27 at: 0,362
+Officer 28 at: 0,170
+Officer 29 at: 0,234
 Officer 30 at: 0,298
-Officer 31 at: 0,426
-Officer 32 at: 0,426
-Officer 33 at: 0,426
+Officer 31 at: 0,298
+Officer 32 at: 0,234
+Officer 33 at: 0,362
+Officer 34 at: 0,362
+Officer 35 at: 0,234
+Officer 36 at: 0,170
+Officer 37 at: 0,234
+Officer 38 at: 0,234
+Officer 39 at: 0,298
+Officer 40 at: 0,170
+Officer 41 at: 0,426
+Officer 42 at: 0,426
+Of
