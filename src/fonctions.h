@@ -12,7 +12,7 @@
 #define SCREEN_WIDTH 1280		//Defini la taille de la fenetre
 #define SCREEN_HEIGHT 720
 
-#define PATH_TOP_Y 170			//Coordonne en y de la limite du terrain
+#define PATH_TOP_Y 155			//Coordonne en y de la limite du terrain
 #define PATH_BOTTOM_Y 500
 #define GRID_STEP 64			//Taille des carres de la grille sur le terrain
 
@@ -147,7 +147,6 @@ void doEnnemi();			//appel permettant de gerer la creation et le deplacement des
 void initTourelle(int n, int lane);
 void drawTourelle();
 void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
-void createTourelle();
 
 // ************** projectile.c
 void initLaser();
