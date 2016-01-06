@@ -13,5 +13,5 @@ void updateLaser(){
 void shoot(){
 	if(Game.countdown == 0){
 		initLaser();
-	}	
+	}
 }

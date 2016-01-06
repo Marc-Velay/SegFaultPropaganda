@@ -2,13 +2,13 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="SegPro" />
+		<Option title="SegFaultPropaganda" />
 		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/SegPro" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/SegFaultPropaganda" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
@@ -17,7 +17,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/SegPro" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/SegFaultPropaganda" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
@@ -62,7 +62,10 @@
 		<Unit filename="src/player.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/projectiles.c">
+		<Unit filename="src/projectile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/tir.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/tourelle.c">

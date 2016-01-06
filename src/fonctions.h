@@ -7,7 +7,7 @@
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
 
-
+//caca
 
 #define SCREEN_WIDTH 1280		//Defini la taille de la fenetre
 #define SCREEN_HEIGHT 720
@@ -62,6 +62,15 @@ typedef struct laser
   SDL_Surface *sprite;
 } laser;
 
+typedef struct tir
+{
+  int x, y;
+  int dir;
+  int on;
+  //struct tir* suivant;
+  SDL_Surface *sprite;
+} tir;
+
 typedef struct officer
 {
   int x, y;
@@ -69,7 +78,7 @@ typedef struct officer
   SDL_Surface *sprite;
 } officer;
 
-typedef struct Sprites			
+typedef struct Sprites
 {
 	SDL_Surface *image;
 } Sprites;
@@ -87,13 +96,13 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
 
 SDL_Surface *screen, *Background, *Text;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
 TTF_Font *Font; 						//la police du texte
-player Player;							
+player Player;
 officer Officer[MAX_OFFICERS];			//Tableau contenant les ennemis cree
 tourelle Tourelle[MAX_TOURELLES];
 game Game;
 Sprites sprite[MAX_SPRITES];
 laser Laser;
-
+tir Tir;
 
 // ************** graphics.c
 SDL_Surface *loadImage(char *name);		//fct pour recup les images à partir du disk
@@ -134,7 +143,7 @@ void moveOfficers();			//gestion des colisions
 void doEnnemi();			//appel permettant de gerer la creation et le deplacement des ennemis
 
 // ************** tourelle.c
-void initTourelle(int n, int lane);	
+void initTourelle(int n, int lane);
 void drawTourelle();
 void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
 
@@ -142,3 +151,8 @@ void doTourelle();			//appel permettant de gerer la creation et le deplacement d
 void initLaser();
 void updateLaser();
 void shoot();
+
+void initTir(int x, int y, int dir);
+void updateTir();
+void Tirer(int x, int y, int dir);
+

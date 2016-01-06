@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1451952334 source:c:\users\romain\documents\info\sdl projet\segpro\src\ennemi.c
+1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\ennemi.c
 	"fonctions.h"
 
-1451991741 c:\users\romain\documents\info\sdl projet\segpro\src\fonctions.h
+1452035861 c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\fonctions.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -264,21 +264,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1451952340 source:c:\users\romain\documents\info\sdl projet\segpro\src\graphics.c
+1452036991 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\graphics.c
 	"fonctions.h"
 
-1451952340 source:c:\users\romain\documents\info\sdl projet\segpro\src\init.c
+1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\init.c
 	"fonctions.h"
 
-1451999459 source:c:\users\romain\documents\info\sdl projet\segpro\src\input.c
+1452037754 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\input.c
 	"fonctions.h"
 
-1451952336 source:c:\users\romain\documents\info\sdl projet\segpro\src\main.c
+1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\main.c
 	"fonctions.h"
 
-1451952338 source:c:\users\romain\documents\info\sdl projet\segpro\src\player.c
+1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\player.c
 	"fonctions.h"
 
-1451952338 source:c:\users\romain\documents\info\sdl projet\segpro\src\tourelle.c
+1452033641 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\projectile.c
+	"fonctions.h"
+
+1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tourelle.c
+	"fonctions.h"
+
+1452038097 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tir.c
 	"fonctions.h"
 
