@@ -20,7 +20,7 @@ void drawTourelle()
 	}	
 }
 
-void createTourelle(){
+void createTourelle(int moux, int mouy){
 	
 }
 
