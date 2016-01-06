@@ -7,14 +7,15 @@ void initTir(int x, int y, int dir){
 	if(Tir.dir==1)Tir.x = x - GRID_STEP;
 	Tir.y = y;
 	Tir.on = 1;
+	Tir.reload = 0;
 	//drawImage(Tir.sprite, Tir.x, Tir.y);
 
 }
 
 void updateTir(){
 	if(Tir.on == 1) drawImage(Tir.sprite, Tir.x, Tir.y);
-	if(Tir.dir==0) Tir.x +=10;
-	if(Tir.dir==1) Tir.x -=10;
+	if(Tir.dir==0) Tir.x +=50;
+	if(Tir.dir==1) Tir.x -=50;
 	Game.timer +=1;
 	SDL_Delay(16);
 }
