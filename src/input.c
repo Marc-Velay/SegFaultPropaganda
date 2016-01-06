@@ -65,13 +65,8 @@ void getInput()
 
     if(in.key[SDLK_SPACE])
     {
-<<<<<<< HEAD
         if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,0);
         if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,1);
-=======
-        if((Player.sprite == getSprite(PLAYER_R_SPRITE)) && Tir.reload >= 25) initTir(Player.x,Player.y,0);
-        if((Player.sprite == getSprite(PLAYER_L_SPRITE)) && Tir.reload >= 25) initTir(Player.x,Player.y,1);
->>>>>>> romain
     }
 
     while(in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w])

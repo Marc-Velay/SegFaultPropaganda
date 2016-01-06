@@ -68,10 +68,7 @@ typedef struct tir
   int dir;
   int on;
   int reload;
-<<<<<<< HEAD
   //struct tir* suivant;
-=======
->>>>>>> romain
   SDL_Surface *sprite;
 } tir;
 

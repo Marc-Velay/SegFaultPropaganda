@@ -2,11 +2,9 @@
 1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\ennemi.c
 	"fonctions.h"
 
-<<<<<<< HEAD
-1452068240 c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\fonctions.h
-=======
-1452068107 c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\fonctions.h
->>>>>>> romain
+1452008761 D
+
+1452068909 c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\fonctions.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -15,6 +13,18 @@
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"SDL/SDL_ttf.h"
+
+1452067892 ain
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<time.h>
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	"fonctions.h"
+	"fonctions.h"
 
 1341010376 d:\programmes\codeblocks\mingw\include\stdio.h
 	<_mingw.h>
@@ -274,11 +284,7 @@
 1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\init.c
 	"fonctions.h"
 
-<<<<<<< HEAD
-1452068240 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\input.c
-=======
-1452068107 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\input.c
->>>>>>> romain
+1452068936 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\input.c
 	"fonctions.h"
 
 1452068107 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\main.c
@@ -293,10 +299,5 @@
 1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tourelle.c
 	"fonctions.h"
 
-<<<<<<< HEAD
-1452068240 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tir.c
-=======
 1452067892 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tir.c
->>>>>>> romain
-	"fonctions.h"
 
