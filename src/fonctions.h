@@ -158,3 +158,5 @@ void initTir(int x, int y, int dir);
 void updateTir();
 void Tirer(int x, int y, int dir);
 
+void collision();
+
