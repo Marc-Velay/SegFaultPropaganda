@@ -8,7 +8,11 @@ void initTir(int x, int y, int dir){
 	Tir.y = y;
 	Tir.on = 1;
 	Tir.reload = 0;
+<<<<<<< HEAD
 
+=======
+	//drawImage(Tir.sprite, Tir.x, Tir.y);
+>>>>>>> romain
 
 }
 
@@ -16,6 +20,10 @@ void updateTir(){
 	if(Tir.on == 1) drawImage(Tir.sprite, Tir.x, Tir.y);
 	if(Tir.dir==0) Tir.x +=50;
 	if(Tir.dir==1) Tir.x -=50;
+<<<<<<< HEAD
+=======
+	Game.timer +=1;
+>>>>>>> romain
 	SDL_Delay(16);
 
 }

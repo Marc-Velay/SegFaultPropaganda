@@ -2,7 +2,11 @@
 1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\ennemi.c
 	"fonctions.h"
 
+<<<<<<< HEAD
 1452068240 c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\fonctions.h
+=======
+1452068107 c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\fonctions.h
+>>>>>>> romain
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -270,7 +274,11 @@
 1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\init.c
 	"fonctions.h"
 
+<<<<<<< HEAD
 1452068240 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\input.c
+=======
+1452068107 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\input.c
+>>>>>>> romain
 	"fonctions.h"
 
 1452068107 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\main.c
@@ -285,6 +293,10 @@
 1452008761 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tourelle.c
 	"fonctions.h"
 
+<<<<<<< HEAD
 1452068240 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tir.c
+=======
+1452067892 source:c:\users\romain\documents\info\sdl projet\segfaultpropaganda\src\tir.c
+>>>>>>> romain
 	"fonctions.h"
 
