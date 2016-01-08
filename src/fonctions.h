@@ -11,13 +11,15 @@
 
 #define SCREEN_WIDTH 1280		//Defini la taille de la fenetre
 #define SCREEN_HEIGHT 720
+#define STEPHEN_ACTUAL_HEIGHT 65
+#define STEPHEN_ACTUAL_WIDTH 40
 
 #define PATH_TOP_Y 155			//Coordonne en y de la limite du terrain
 #define PATH_BOTTOM_Y 500
 #define GRID_STEP 64			//Taille des carres de la grille sur le terrain
 
 #define MAX_OFFICERS 100		//Nombre arbitraire du nb max d'ennemis
-#define MAX_TOURELLES 20		//Nombre arbitraire du nb max de tourelles
+#define MAX_TOURELLES 40		//Nombre arbitraire du nb max de tourelles
 
 typedef struct Input			//structure utilisée pour récuperer les touches clavier/ sourie appuyé
 {

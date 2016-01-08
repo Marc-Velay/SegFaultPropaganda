@@ -7,7 +7,6 @@ void initOfficer(int n, int lane)
 		Officer[n].y = lane*GRID_STEP+PATH_TOP_Y;
 		Officer[n].alive = 1;
 		Officer[n].lane = lane;
-		printf("Officer %d at: %d,%d\n", n, Officer[n].x, Officer[n].y);
 }
 
 void createWave(){

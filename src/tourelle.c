@@ -24,18 +24,18 @@ void createTourelle(int moux, int mouy){
 	int lane=0;
 	int colonne=0;
 	int temp=0;
-	while(temp<Player.x -GRID_STEP){
+	while(temp<Player.x -GRID_STEP + STEPHEN_ACTUAL_WIDTH){
 		temp += GRID_STEP;
 		colonne++;
 	}
 	temp =0;
-	while(temp < Player.y - PATH_TOP_Y -GRID_STEP){
+	while(temp <= Player.y - PATH_TOP_Y -GRID_STEP + STEPHEN_ACTUAL_HEIGHT){
 		temp += GRID_STEP;
 		lane++;
 	}
 	Game.nbTourelle++;
-	initTourelle(Game.nbTourelle,colonne,lane);
-	printf("tourelle created");
+	if(lane > 5){lane =5;}
+	initTourelle(Game.nbTourelle,colonne,lane-1);
 }
 
 void doTourelle(){

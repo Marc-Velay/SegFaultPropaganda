@@ -64,7 +64,7 @@ void getInput()
 
 	if (in.mousebuttons[SDL_BUTTON_LEFT]) {
 
-	  if(((moux > 30 && moux < 100) && (mouy >615 && mouy <690)) && Game.stade ==1 && Game.nbTourelle < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y ) {
+	  if(((moux > 30 && moux < 100) && (mouy >615 && mouy <690)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y ) {
 	    printf("CREATE TOURELLE CLICKED\n");
 	    for(i=0; i<Game.nbTourelle; i++){
 		    
@@ -81,25 +81,25 @@ void getInput()
         if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,1);
     }
 
-    while(in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w])
+    while(in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_DOWN] || in.key[SDLK_UP] || in.key[SDLK_LEFT] || in.key[SDLK_RIGHT])
     {
-        if(in.key[SDLK_d])
+        if(in.key[SDLK_d] || in.key[SDLK_RIGHT])
         {
             Player.sprite = getSprite(PLAYER_R_SPRITE);
             Player.x +=10;
 
         }
-        if(in.key[SDLK_s])
+        if(in.key[SDLK_s] || in.key[SDLK_DOWN])
         {
             Player.y +=10;
         }
-        if(in.key[SDLK_q] || in.key[SDLK_a])
+        if(in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_LEFT])
         {
             Player.sprite = getSprite(PLAYER_L_SPRITE);
             Player.x -=10;
 
         }
-        if(in.key[SDLK_z] || in.key[SDLK_w])
+        if(in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_UP])
         {
             Player.y -=10;
         }

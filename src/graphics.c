@@ -176,7 +176,6 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
 void loadSprite(int index, char *name)
 {
 	/* Load the image into the next slot in the sprite bank */
-	printf("index: %d\n", index);
 	if (index >= MAX_SPRITES || index < 0)
 	{
 		printf("Invalid index for sprite! Index: %d Maximum: %d\n", index, MAX_SPRITES);
