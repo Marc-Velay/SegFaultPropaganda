@@ -84,34 +84,38 @@ void getInput()
         {
             Player.sprite = getSprite(PLAYER_R_SPRITE);
             Player.x +=10;
+	    if(Player.x > SCREEN_WIDTH - STEPHEN_ACTUAL_WIDTH) { Player.x = SCREEN_WIDTH - STEPHEN_ACTUAL_WIDTH;}
 
         }
         if(in.key[SDLK_s] || in.key[SDLK_DOWN])
         {
             Player.y +=10;
+	     if(Player.y > SCREEN_HEIGHT - STEPHEN_ACTUAL_HEIGHT - MENU_HEIGHT) { Player.y = SCREEN_HEIGHT - STEPHEN_ACTUAL_HEIGHT - MENU_HEIGHT;}
         }
         if(in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_LEFT])
         {
             Player.sprite = getSprite(PLAYER_L_SPRITE);
             Player.x -=10;
+	    if(Player.x < 0) {Player.x =0;}
 
         }
         if(in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_UP])
         {
             Player.y -=10;
+	    if(Player.y < 0) {Player.y =0;}
         }
         if(in.key[SDLK_SPACE])
     {
         if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,0) ;
         if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,1);
     }
-
+/*
          if(in.key[SDLK_SPACE])
     {
         if((Player.sprite == getSprite(PLAYER_R_SPRITE)) && Tir.reload >= 25) initTir(Player.x,Player.y,0);
         if((Player.sprite == getSprite(PLAYER_L_SPRITE)) && Tir.reload >= 25) initTir(Player.x,Player.y,1);
     }
-
+*/
 	updateScreen();
 	Game.timer +=1;
 	Tir.reload +=1;
