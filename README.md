@@ -19,3 +19,4 @@ pour mettre à jour:
 git add .			//met tous le dossier en mode commit, pour être ajouté
 git commit -m 'update tourelle.c et readme.txt'	//marque les nouveaux dossiers ayant besoin d'être push
 git push https://github.com/Marc-Velay/SegFaultPropaganda master	//Envoie les fichiers marques à commit sur l'url 
+

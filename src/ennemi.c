@@ -52,7 +52,7 @@ void drawOfficer()
 void moveOfficers() {
 	int i;
 
-	for(i=0; i<=Game.nbEnnemiCreated;i++){
+	for(i=0; i<= Game.nbEnnemiCreated;i++){
 		if(Officer[i].alive == 1){
 
                 if( Officer[i].lane == 0 || Officer[i].lane == 4 )
