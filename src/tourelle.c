@@ -24,7 +24,7 @@ void createTourelle(int moux, int mouy){
 	int lane=0;
 	int colonne=0;
 	int temp=0;
-	int empty =0;
+	int empty =0; 
 	while(temp<Player.x -GRID_STEP + STEPHEN_ACTUAL_WIDTH /2){
 		temp += GRID_STEP;
 		colonne++;

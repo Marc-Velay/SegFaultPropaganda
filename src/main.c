@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	Game.stade=0;
 	Game.countdown =0;
 	Game.timer =0;
-	Game.nbWave=0;
+	Game.nbWave=1;
 	Game.nbTourelleCreated=0;
 	Game.nbTourelle=0;
 	Game.nbEnnemiAlive=0;
@@ -23,8 +23,11 @@ int main(int argc, char *argv[])
 	{
 		if(Game.nbEnnemiAlive==0 && Game.stade >= 1){
 			Game.nbWave+=1;
-			printf("Vague numéro: %d\n", Game.nbEnnemiAlive);
+			Game.nbEnnemiCreated =0;
+			printf("Vague numéro: %d\n", Game.nbWave);
 			Game.countdown =0;
+			doEnnemi();
+			SDL_Delay(3);
 		}
 		getInput();
 		updateScreen();		

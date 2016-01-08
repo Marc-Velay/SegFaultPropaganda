@@ -149,6 +149,7 @@ void createWave();			//cree le nombre d'ennemis dans cette vague
 void createOfficers();		//cree les nouveaux officiers jusqu'à la limite de createWave
 void moveOfficers();			//gestion des colisions
 void doEnnemi();			//appel permettant de gerer la creation et le deplacement des ennemis
+void getEnnemiAlive(); 
 
 // ************** tourelle.c
 void initTourelle(int n, int colonne, int lane);
