@@ -13,6 +13,7 @@
 #define SCREEN_HEIGHT 720
 #define STEPHEN_ACTUAL_HEIGHT 65
 #define STEPHEN_ACTUAL_WIDTH 35
+#define MENU_HEIGHT 145
 
 #define PATH_TOP_Y 155			//Coordonne en y de la limite du terrain
 #define PATH_BOTTOM_Y 500

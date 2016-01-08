@@ -13,11 +13,11 @@ void createWave(){
 
 	time_t t;
 	srand((unsigned) time(&t));
-	Game.nbEnnemiWave = rand() %Game.nbWave +100+Game.nbWave;
+	Game.nbEnnemiWave = rand() %Game.nbWave +2;
 	if(Game.nbEnnemiWave >= MAX_OFFICERS){
 		Game.nbEnnemiWave = MAX_OFFICERS-1;
 	}
-
+	printf("nombre d'ennemis pour la vague: %d", Game.nbEnnemiWave);
 }
 
 void createOfficers(){
@@ -27,6 +27,7 @@ void createOfficers(){
 		lane = rand()%5;
 		initOfficer(Game.nbEnnemiCreated, lane);
 		Game.nbEnnemiCreated++;
+		Game.nbEnnemiAlive++;
 	}
 }
 
@@ -70,9 +71,11 @@ void moveOfficers() {
 }
 
 void doEnnemi(){
-	int tick = Game.timer %23;
+	int tick = Game.timer %25;
 	if(Game.countdown ==0){
 		createWave();
+		printf("test\n");
+		Game.countdown=1;
 	}
 	if(tick ==0){
 		createOfficers();
