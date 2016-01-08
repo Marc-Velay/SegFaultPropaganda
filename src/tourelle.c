@@ -25,22 +25,22 @@ void createTourelle(int moux, int mouy){
 	int colonne=0;
 	int temp=0;
 	int empty =0;
-	while(temp<Player.x -GRID_STEP + STEPHEN_ACTUAL_WIDTH){
+	while(temp<Player.x -GRID_STEP + STEPHEN_ACTUAL_WIDTH /2){
 		temp += GRID_STEP;
 		colonne++;
 	}
 	temp =0;
-	while(temp <= Player.y - PATH_TOP_Y -GRID_STEP + STEPHEN_ACTUAL_HEIGHT){
+	while(temp <= Player.y - PATH_TOP_Y -GRID_STEP + STEPHEN_ACTUAL_HEIGHT /4){
 		temp += GRID_STEP;
 		lane++;
 	}
-	if(lane > 5){lane =5;}
+	if(lane > 4){lane =4;}
 	for(temp=0; temp<=Game.nbTourelleCreated; temp++){
-		    if(Tourelle[temp].x == colonne*GRID_STEP && Tourelle[temp].y == (lane-1)*GRID_STEP+PATH_TOP_Y+30) { empty =1;}
+		    if(Tourelle[temp].x == colonne*GRID_STEP && Tourelle[temp].y == (lane)*GRID_STEP+PATH_TOP_Y+30) { empty =1;}
 	    }
 	    if(empty ==0) {
 		    Game.nbTourelle++;
-		    initTourelle(Game.nbTourelle,colonne,lane-1);
+		    initTourelle(Game.nbTourelle,colonne,lane);
 	    } else { printf("La case est déjà occupé\n"); }
 	
 	

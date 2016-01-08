@@ -12,7 +12,7 @@
 #define SCREEN_WIDTH 1280		//Defini la taille de la fenetre
 #define SCREEN_HEIGHT 720
 #define STEPHEN_ACTUAL_HEIGHT 65
-#define STEPHEN_ACTUAL_WIDTH 40
+#define STEPHEN_ACTUAL_WIDTH 35
 
 #define PATH_TOP_Y 155			//Coordonne en y de la limite du terrain
 #define PATH_BOTTOM_Y 500
@@ -20,6 +20,7 @@
 
 #define MAX_OFFICERS 100		//Nombre arbitraire du nb max d'ennemis
 #define MAX_TOURELLES 40		//Nombre arbitraire du nb max de tourelles
+#define MAX_LASERDEFENSE 100
 
 typedef struct Input			//structure utilisée pour récuperer les touches clavier/ sourie appuyé
 {
@@ -57,13 +58,14 @@ typedef struct tourelle
   SDL_Surface *sprite;
 } tourelle;
 
-typedef struct laser
+typedef struct laserDefense
 {
   int x, y;
   int direction;
-  struct laser* suivant;
+  int on;
+  int reload;
   SDL_Surface *sprite;
-} laser;
+} laserDefense;
 
 typedef struct tir
 {
@@ -106,7 +108,7 @@ officer Officer[MAX_OFFICERS];			//Tableau contenant les ennemis cree
 tourelle Tourelle[MAX_TOURELLES];
 game Game;
 Sprites sprite[MAX_SPRITES];
-laser Laser;
+laserDefense Laserdef[MAX_LASERDEFENSE];
 tir Tir;
 
 // ************** graphics.c
