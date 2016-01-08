@@ -14,7 +14,6 @@ void createWave(){
 	time_t t;	
 	Game.countdown=1;
 	srand((unsigned) time(&t));
-	memset(&Officer,0,sizeof(Officer[MAX_OFFICERS]));
 
 	Game.nbEnnemiWave = (rand() %Game.nbWave) +2;
 	if(Game.nbEnnemiWave >= MAX_OFFICERS){
@@ -28,8 +27,10 @@ void createOfficers(){
 
 	if( Game.nbEnnemiCreated<=Game.nbEnnemiWave){
 		lane = rand()%5;
+		Game.nbEnnemiAlive++;		
 		initOfficer(Game.nbEnnemiCreated, lane);
 		Game.nbEnnemiCreated++;
+		
 	}
 }
 
@@ -87,6 +88,7 @@ void doEnnemi(){
 	getEnnemiAlive();
 	if(Game.countdown ==0){
 		createWave();
+		createOfficers();
 	}
 	if(tick ==0){
 		createOfficers();
