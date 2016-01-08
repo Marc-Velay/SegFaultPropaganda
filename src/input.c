@@ -40,7 +40,6 @@ void UpdateEvents(Input* in)
 
 void getInput()
 {
-	int i;
 	Input in;
 	memset(&in,0,sizeof(in));
 
@@ -66,10 +65,8 @@ void getInput()
 
 	  if(((moux > 30 && moux < 100) && (mouy >615 && mouy <690)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y ) {
 	    printf("CREATE TOURELLE CLICKED\n");
-	    for(i=0; i<Game.nbTourelle; i++){
-		    
-	    }
 	    createTourelle(moux, mouy);
+	    printf("TOURELLE CREATED\n");
 	  }
 	}
 

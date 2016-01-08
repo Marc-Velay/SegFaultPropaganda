@@ -2,18 +2,18 @@
 
 void initTourelle(int n, int colonne, int lane)
 {		
+		Game.nbTourelleCreated++;
 		Tourelle[n].sprite = getSprite(TOURELLE_SPRITE);
 		Tourelle[n].x = colonne*GRID_STEP;
 		Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y+30;
 		Tourelle[n].alive =1;
-		Game.nbTourelleCreated++;
 		printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
 }
 
 void drawTourelle()
 {
 	int i;
-	for(i=0; i<Game.nbTourelleCreated; i++){
+	for(i=0; i<=Game.nbTourelleCreated; i++){
 		if(Tourelle[i].alive == 1){
 		drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
 		}
@@ -24,6 +24,7 @@ void createTourelle(int moux, int mouy){
 	int lane=0;
 	int colonne=0;
 	int temp=0;
+	int empty =0;
 	while(temp<Player.x -GRID_STEP + STEPHEN_ACTUAL_WIDTH){
 		temp += GRID_STEP;
 		colonne++;
@@ -33,9 +34,17 @@ void createTourelle(int moux, int mouy){
 		temp += GRID_STEP;
 		lane++;
 	}
-	Game.nbTourelle++;
 	if(lane > 5){lane =5;}
-	initTourelle(Game.nbTourelle,colonne,lane-1);
+	for(temp=0; temp<=Game.nbTourelleCreated; temp++){
+		    if(Tourelle[temp].x == colonne*GRID_STEP && Tourelle[temp].y == (lane-1)*GRID_STEP+PATH_TOP_Y+30) { empty =1;}
+	    }
+	    if(empty ==0) {
+		    Game.nbTourelle++;
+		    initTourelle(Game.nbTourelle,colonne,lane-1);
+	    } else { printf("La case est déjà occupé\n"); }
+	
+	
+	
 }
 
 void doTourelle(){
