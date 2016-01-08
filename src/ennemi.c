@@ -7,18 +7,19 @@ void initOfficer(int n, int lane)
 		Officer[n].y = lane*GRID_STEP+PATH_TOP_Y;
 		Officer[n].alive = 1;
 		Officer[n].lane = lane;
-		printf("Officer %d at: %d,%d\n", n, Officer[n].x, Officer[n].y);
 }
 
 void createWave(){
 
-	time_t t;
+	time_t t;	
+	Game.countdown=1;
 	srand((unsigned) time(&t));
-	Game.nbEnnemiWave = rand() %Game.nbWave +100+Game.nbWave;
+
+	Game.nbEnnemiWave = (rand() %Game.nbWave) +2;
 	if(Game.nbEnnemiWave >= MAX_OFFICERS){
 		Game.nbEnnemiWave = MAX_OFFICERS-1;
 	}
-
+	printf("nombre d'ennemis pour la vague %d: %d\n", Game.nbWave, Game.nbEnnemiWave);
 }
 
 void createOfficers(){
@@ -26,8 +27,10 @@ void createOfficers(){
 
 	if( Game.nbEnnemiCreated<=Game.nbEnnemiWave){
 		lane = rand()%5;
+		Game.nbEnnemiAlive++;		
 		initOfficer(Game.nbEnnemiCreated, lane);
 		Game.nbEnnemiCreated++;
+		
 	}
 }
 
@@ -48,11 +51,21 @@ void drawOfficer()
 
 }
 
+void getEnnemiAlive(){
+	int i; 
+	int alive=0;
+	for(i=0; i<Game.nbEnnemiCreated;i++) {
+		if(Officer[i].alive == 1) {
+			alive +=1;
+		}
+	}
+	 Game.nbEnnemiAlive= alive;
+}
 
 void moveOfficers() {
 	int i;
 
-	for(i=0; i<= Game.nbEnnemiCreated;i++){
+	for(i=0; i<=Game.nbEnnemiCreated;i++){
 		if(Officer[i].alive == 1){
 
                 if( Officer[i].lane == 0 || Officer[i].lane == 4 )
@@ -71,9 +84,11 @@ void moveOfficers() {
 }
 
 void doEnnemi(){
-	int tick = Game.timer %23;
+	int tick = Game.timer %25;
+	getEnnemiAlive();
 	if(Game.countdown ==0){
 		createWave();
+		createOfficers();
 	}
 	if(tick ==0){
 		createOfficers();

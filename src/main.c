@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 	Game.nbWave=1;
 	Game.nbTourelleCreated=0;
 	Game.nbTourelle=0;
+	Game.nbEnnemiAlive=0;
 
 	init("Tower Defense: Stephen VS Langley Falls");
 	atexit(cleanup);
@@ -20,8 +21,16 @@ int main(int argc, char *argv[])
 
 	while (go == 1)
 	{
+		if(Game.nbEnnemiAlive==0 && Game.stade >= 1){
+			Game.nbWave+=1;
+			Game.nbEnnemiCreated =0;
+			printf("Vague numéro: %d\n", Game.nbWave);
+			Game.countdown =0;
+			doEnnemi();
+			SDL_Delay(3);
+		}
 		getInput();
-		updateScreen();
+		updateScreen();		
 		Game.timer +=1 ;
 		Tir.reload +=1;
 		SDL_Delay(16);

@@ -33,8 +33,6 @@ void updateTir(){
             collision();
         }
     }
-	//Game.timer +=1;
-	//SDL_Delay(16);
     }
 }
 
