@@ -40,9 +40,9 @@ void UpdateEvents(Input* in)
 
 void getInput()
 {
-
-  Input in;
-  memset(&in,0,sizeof(in));
+	int i;
+	Input in;
+	memset(&in,0,sizeof(in));
 
 	//SDL_Event event;
 	UpdateEvents(&in);
@@ -59,18 +59,18 @@ void getInput()
 	    printf("START GAME CLICKED\n");
 	    Game.stade = 1;
 	  }
-	//in.mousebuttons[SDL_BUTTON_LEFT] = 0;
 	printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
 	}
 
 	if (in.mousebuttons[SDL_BUTTON_LEFT]) {
 
-	  if(((moux > 1090 && moux < 1280) && (mouy >250 && mouy <520)) && Game.stade ==1) {
+	  if(((moux > 30 && moux < 100) && (mouy >615 && mouy <690)) && Game.stade ==1 && Game.nbTourelle < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y ) {
 	    printf("CREATE TOURELLE CLICKED\n");
+	    for(i=0; i<Game.nbTourelle; i++){
+		    
+	    }
 	    createTourelle(moux, mouy);
 	  }
-	//in.mousebuttons[SDL_BUTTON_LEFT] = 0;
-	printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
 	}
 
 
