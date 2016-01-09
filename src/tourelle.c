@@ -8,6 +8,7 @@ void initTourelle(int n, int colonne, int lane)
 		Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y+30;
 		Tourelle[n].alive =1;
 		Tourelle[n].hpTourelle=10;
+		Tourelle[n].lane = lane;
 		printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
 }
 
