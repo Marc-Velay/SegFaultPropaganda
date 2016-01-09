@@ -74,8 +74,8 @@ void getInput()
 
 
 	if(in.key[SDLK_SPACE]) {
-		if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& ((*newTir).reload >= 25)) initTir(Player.x,Player.y,0);
-		if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& ((*newTir).reload >= 25)) initTir(Player.x,Player.y,1);  
+		if(Player.sprite == getSprite(PLAYER_R_SPRITE)) {initTir(Player.x,Player.y,0); }
+		if(Player.sprite == getSprite(PLAYER_L_SPRITE)) {initTir(Player.x,Player.y,1);  }
 	}
 
     while(in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_DOWN] || in.key[SDLK_UP] || in.key[SDLK_LEFT] || in.key[SDLK_RIGHT])
@@ -105,8 +105,8 @@ void getInput()
 	    if(Player.y < 0) {Player.y =0;}
         }
 	if(in.key[SDLK_SPACE]) {
-		if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& ((*newTir).reload >= 25)) initTir(Player.x,Player.y,0);
-		if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& ((*newTir).reload >= 25)) initTir(Player.x,Player.y,1);  
+		if(Player.sprite == getSprite(PLAYER_R_SPRITE)) {initTir(Player.x,Player.y,0); }
+		if(Player.sprite == getSprite(PLAYER_L_SPRITE)) {initTir(Player.x,Player.y,1);  }
 	}
 
 	updateScreen();

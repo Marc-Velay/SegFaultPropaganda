@@ -1,19 +1,20 @@
 #include "fonctions.h"
 
 void initTir(int x, int y, int dir){
-	tir *newTir;
+	tir *newTir =Tir;
+	tir *addTir = Tir;
 	int created=0;
-	
-	if(Tir == NULL){
-		Tir = (tir*)malloc(sizeof(tir));
-		(*Tir).suivant =NULL;
-		(*Tir).sprite = getSprite(LASER_SPRITE);
-		(*Tir).dir = dir;
-		if((*Tir).dir==0) {(*Tir).x = x + (GRID_STEP/2);}
-		if((*Tir).dir==1) {(*Tir).x = x - GRID_STEP;}
-		(*Tir).y = y;
-		(*Tir).on = 1;
-		(*Tir).reload = 0;
+	if(newTir == NULL){
+		newTir = (tir*)malloc(sizeof(tir));
+		(*newTir).suivant =NULL;
+		(*newTir).sprite = getSprite(LASER_SPRITE);
+		(*newTir).dir = dir;
+		if((*newTir).dir==0) {(*newTir).x = x + (GRID_STEP/2);}
+		if((*newTir).dir==1) {(*newTir).x = x - GRID_STEP;}
+		(*newTir).y = y;
+		(*newTir).on = 1;
+		(*newTir).reload = 0;
+		Tir =newTir;
 	}
 	else {
 		newTir=(*Tir).suivant;
@@ -29,13 +30,11 @@ void initTir(int x, int y, int dir){
 				(*newTir).y = y;
 				(*newTir).on = 1;
 				(*newTir).reload = 0;
+				(*addTir).suivant = newTir;
 				created =1;
+				break;
 			}
-			newTir= (*newTir).suivant;
 			if((*newTir).on ==0){
-				newTir = (tir*)malloc(sizeof(tir));
-				(*newTir).suivant =NULL;
-				(*newTir).sprite = getSprite(LASER_SPRITE);
 				(*newTir).dir = dir;
 				if((*newTir).dir==0) {(*newTir).x = x + (GRID_STEP/2);}
 				if((*newTir).dir==1) {(*newTir).x = x - GRID_STEP;}
@@ -44,7 +43,8 @@ void initTir(int x, int y, int dir){
 				(*newTir).reload = 0;
 				created =1;
 			}
-			newTir=(*newTir).suivant;
+			addTir=newTir;
+			newTir=(*newTir).suivant;			
 		}	
 	}
 }
@@ -59,6 +59,7 @@ void updateTir(){
 			if((*newTir).dir==0) {
 			        for(i=0;i<50;i++) {
 			            (*newTir).x +=1;
+				    if((*newTir).x >= SCREEN_WIDTH) {(*newTir).x = (*newTir).y = (*newTir).on =0; }
 			            collision();
 			        }
 			}
@@ -66,6 +67,7 @@ void updateTir(){
 			if((*newTir).dir==1) {
 			        for(i=0;i<50;i++) {
 			            (*newTir).x -=1;
+				    if((*newTir).x <= 0) {(*newTir).x = (*newTir).y = (*newTir).on =0; }
 			            collision();
 			        }
 			}
