@@ -174,4 +174,6 @@ void updateTir();
 void Tirer(int x, int y, int dir);
 
 void collision();
+void collisionTirR_Ennemi();
+void collisionEnnemi_Tourelle();
 
