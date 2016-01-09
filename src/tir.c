@@ -7,7 +7,9 @@ void initTir(int x, int y, int dir){
 	if(Tir.dir==1)Tir.x = x - GRID_STEP;
 	Tir.y = y;
 	Tir.on = 1;
-	Tir.reload = 0;
+	Player.reload = 0;
+
+
 }
 
 void updateTir(){

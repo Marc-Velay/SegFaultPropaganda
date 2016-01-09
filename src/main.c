@@ -30,9 +30,9 @@ int main(int argc, char *argv[])
 			SDL_Delay(3);
 		}
 		getInput();
-		updateScreen();		
+		updateScreen();
 		Game.timer +=1 ;
-		Tir.reload +=1;
+		Player.reload +=1;
 		SDL_Delay(16);
 	}
 

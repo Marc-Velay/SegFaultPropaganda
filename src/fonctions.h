@@ -43,12 +43,15 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
   int nbTourelleCreated;
   int nbWave;
   int nbTourelle;
+  int baseLife;
+  int nbLaserdefCreated;
 } game;
 
 typedef struct player			// structure de Stephen
 {
   int x, y;
   int direction;
+  int reload;
   SDL_Surface *sprite;
 } player;
 
@@ -56,6 +59,7 @@ typedef struct tourelle
 {
   int x, y;
   int alive;
+  int reload;
   SDL_Surface *sprite;
 } tourelle;
 
@@ -73,7 +77,6 @@ typedef struct tir
   int x, y;
   int dir;
   int on;
-  int reload;
   //struct tir* suivant;
   SDL_Surface *sprite;
 } tir;
@@ -149,7 +152,7 @@ void createWave();			//cree le nombre d'ennemis dans cette vague
 void createOfficers();		//cree les nouveaux officiers jusqu'à la limite de createWave
 void moveOfficers();			//gestion des colisions
 void doEnnemi();			//appel permettant de gerer la creation et le deplacement des ennemis
-void getEnnemiAlive(); 
+void getEnnemiAlive();
 
 // ************** tourelle.c
 void initTourelle(int n, int colonne, int lane);

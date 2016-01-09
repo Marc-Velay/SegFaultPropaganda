@@ -1,17 +1,20 @@
 #include "fonctions.h"
 
-void initLaser(){
-	/*Laser.sprite = getSprite(LASER_SPRITE);
-	Laser.x =SCREEN_WIDTH -600;
-	Laser.y =2*GRID_STEP+PATH_TOP_Y+20;*/
+void initLaserdef(int n, int colonne, int lane){
+
+	Game.nbLaserdefCreated++;
+		Laserdef[n].sprite = getSprite(LASER_SPRITE);
+		Laserdef[n].x = colonne*GRID_STEP;
+		Laserdef[n].y =(lane*GRID_STEP)+PATH_TOP_Y+30;
+		printf("Laserdef %d at: %d,%d\n", n, Laserdef[n].x, Laserdef[n].y);
 }
 
-void updateLaser(){
-	//drawImage(Laser.sprite, Laser.x, Laser.y);
+void updateLaser(int n, int colonne, int lane){
+	drawImage(Laserdef[n].sprite, Laserdef[n].x, Laserdef[n].y);
 }
 
-void shoot(){
+void shoot(int n, int colonne, int lane){
 	if(Game.countdown == 0){
-		initLaser();
+		initLaserdef( n, colonne,  lane);
 	}
 }
