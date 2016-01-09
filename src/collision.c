@@ -14,6 +14,7 @@ void collision()
 				}			
 				(*newTir).on = (*newTir).x = (*newTir).y = 0;
 			}
+			newTir = (*newTir).suivant;
 		 }
 		
 	}
