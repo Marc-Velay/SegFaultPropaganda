@@ -23,7 +23,7 @@
 #define MAX_TOURELLES 40		//Nombre arbitraire du nb max de tourelles
 #define MAX_LASERDEFENSE 100
 
-typedef struct Input			//structure utilisée pour récuperer les touches clavier/ sourie appuyé
+typedef struct Input			//structure utilisée pour récuperer les touches clavier/ sourie appuyées
 {
 	char key[SDLK_LAST];
 	int mousex,mousey;
@@ -58,6 +58,7 @@ typedef struct tourelle
   int x, y;
   int alive;
   int hpTourelle;
+  int lane;
   SDL_Surface *sprite;
 } tourelle;
 
@@ -86,6 +87,8 @@ typedef struct officer
   int alive;
   int lane;
   int hpOfficer;
+  int attack;
+  int reload;
   SDL_Surface *sprite;
 } officer;
 
@@ -114,6 +117,7 @@ game Game;
 Sprites sprite[MAX_SPRITES];
 laserDefense Laserdef[MAX_LASERDEFENSE];
 tir *Tir;
+
 
 // ************** graphics.c
 SDL_Surface *loadImage(char *name);		//fct pour recup les images à partir du disk
@@ -152,7 +156,7 @@ void createWave();			//cree le nombre d'ennemis dans cette vague
 void createOfficers();		//cree les nouveaux officiers jusqu'à la limite de createWave
 void moveOfficers();			//gestion des colisions
 void doEnnemi();			//appel permettant de gerer la creation et le deplacement des ennemis
-void getEnnemiAlive(); 
+void getEnnemiAlive();
 
 // ************** tourelle.c
 void initTourelle(int n, int colonne, int lane);

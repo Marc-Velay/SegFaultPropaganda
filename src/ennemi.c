@@ -12,7 +12,7 @@ void initOfficer(int n, int lane)
 
 void createWave(){
 
-	time_t t;	
+	time_t t;
 	Game.countdown=1;
 	srand((unsigned) time(&t));
 
@@ -28,10 +28,10 @@ void createOfficers(){
 
 	if( Game.nbEnnemiCreated<=Game.nbEnnemiWave){
 		lane = rand()%5;
-		Game.nbEnnemiAlive++;		
+		Game.nbEnnemiAlive++;
 		initOfficer(Game.nbEnnemiCreated, lane);
 		Game.nbEnnemiCreated++;
-		
+
 	}
 }
 
@@ -53,7 +53,7 @@ void drawOfficer()
 }
 
 void getEnnemiAlive(){
-	int i; 
+	int i;
 	int alive=0;
 	for(i=0; i<Game.nbEnnemiCreated;i++) {
 		if(Officer[i].alive == 1) {
@@ -67,7 +67,7 @@ void moveOfficers() {
 	int i;
 
 	for(i=0; i<=Game.nbEnnemiCreated;i++){
-		if(Officer[i].alive == 1){
+		if(Officer[i].alive == 1 && Officer[i].attack != 1){
 
                 if( Officer[i].lane == 0 || Officer[i].lane == 4 )
                 {
