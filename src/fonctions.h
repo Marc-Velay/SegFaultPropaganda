@@ -43,15 +43,13 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
   int nbTourelleCreated;
   int nbWave;
   int nbTourelle;
-  int baseLife;
-  int nbLaserdefCreated;
+  int hpBase;
 } game;
 
 typedef struct player			// structure de Stephen
 {
   int x, y;
   int direction;
-  int reload;
   SDL_Surface *sprite;
 } player;
 
@@ -59,7 +57,7 @@ typedef struct tourelle
 {
   int x, y;
   int alive;
-  int reload;
+  int hpTourelle;
   SDL_Surface *sprite;
 } tourelle;
 
@@ -77,7 +75,8 @@ typedef struct tir
   int x, y;
   int dir;
   int on;
-  //struct tir* suivant;
+  int reload;
+  struct tir* suivant;
   SDL_Surface *sprite;
 } tir;
 
@@ -86,6 +85,7 @@ typedef struct officer
   int x, y;
   int alive;
   int lane;
+  int hpOfficer;
   SDL_Surface *sprite;
 } officer;
 
@@ -113,7 +113,7 @@ tourelle Tourelle[MAX_TOURELLES];
 game Game;
 Sprites sprite[MAX_SPRITES];
 laserDefense Laserdef[MAX_LASERDEFENSE];
-tir Tir;
+tir *Tir;
 
 // ************** graphics.c
 SDL_Surface *loadImage(char *name);		//fct pour recup les images à partir du disk
@@ -152,7 +152,7 @@ void createWave();			//cree le nombre d'ennemis dans cette vague
 void createOfficers();		//cree les nouveaux officiers jusqu'à la limite de createWave
 void moveOfficers();			//gestion des colisions
 void doEnnemi();			//appel permettant de gerer la creation et le deplacement des ennemis
-void getEnnemiAlive();
+void getEnnemiAlive(); 
 
 // ************** tourelle.c
 void initTourelle(int n, int colonne, int lane);
