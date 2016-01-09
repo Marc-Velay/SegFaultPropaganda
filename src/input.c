@@ -42,6 +42,7 @@ void getInput()
 {
 	Input in;
 	memset(&in,0,sizeof(in));
+	tir *newTir=Tir;
 
 	//SDL_Event event;
 	UpdateEvents(&in);
@@ -72,11 +73,10 @@ void getInput()
 
 
 
-    if(in.key[SDLK_SPACE])
-    {
-        if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,0);
-        if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,1);
-    }
+	if(in.key[SDLK_SPACE]) {
+		if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& ((*newTir).reload >= 25)) initTir(Player.x,Player.y,0);
+		if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& ((*newTir).reload >= 25)) initTir(Player.x,Player.y,1);  
+	}
 
     while(in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_DOWN] || in.key[SDLK_UP] || in.key[SDLK_LEFT] || in.key[SDLK_RIGHT])
     {
@@ -104,21 +104,18 @@ void getInput()
             Player.y -=10;
 	    if(Player.y < 0) {Player.y =0;}
         }
-        if(in.key[SDLK_SPACE])
-    {
-        if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,0) ;
-        if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& (Tir.reload >= 25)) initTir(Player.x,Player.y,1);
-    }
-/*
-         if(in.key[SDLK_SPACE])
-    {
-        if((Player.sprite == getSprite(PLAYER_R_SPRITE)) && Tir.reload >= 25) initTir(Player.x,Player.y,0);
-        if((Player.sprite == getSprite(PLAYER_L_SPRITE)) && Tir.reload >= 25) initTir(Player.x,Player.y,1);
-    }
-*/
+	if(in.key[SDLK_SPACE]) {
+		if((Player.sprite == getSprite(PLAYER_R_SPRITE))&& ((*newTir).reload >= 25)) initTir(Player.x,Player.y,0);
+		if((Player.sprite == getSprite(PLAYER_L_SPRITE))&& ((*newTir).reload >= 25)) initTir(Player.x,Player.y,1);  
+	}
+
 	updateScreen();
 	Game.timer +=1;
-	Tir.reload +=1;
+	newTir = Tir;
+	while(newTir != NULL){
+		(*newTir).reload +=1;
+		newTir = (*newTir).suivant;
+	}
 	SDL_Delay(16);
         UpdateEvents(&in);
     }

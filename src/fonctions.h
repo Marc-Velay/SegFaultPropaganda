@@ -43,6 +43,7 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
   int nbTourelleCreated;
   int nbWave;
   int nbTourelle;
+  int hpBase;
 } game;
 
 typedef struct player			// structure de Stephen
@@ -56,6 +57,7 @@ typedef struct tourelle
 {
   int x, y;
   int alive;
+  int hpTourelle;
   SDL_Surface *sprite;
 } tourelle;
 
@@ -74,7 +76,7 @@ typedef struct tir
   int dir;
   int on;
   int reload;
-  //struct tir* suivant;
+  struct tir* suivant;
   SDL_Surface *sprite;
 } tir;
 
@@ -83,6 +85,7 @@ typedef struct officer
   int x, y;
   int alive;
   int lane;
+  int hpOfficer;
   SDL_Surface *sprite;
 } officer;
 
@@ -110,7 +113,7 @@ tourelle Tourelle[MAX_TOURELLES];
 game Game;
 Sprites sprite[MAX_SPRITES];
 laserDefense Laserdef[MAX_LASERDEFENSE];
-tir Tir;
+tir *Tir;
 
 // ************** graphics.c
 SDL_Surface *loadImage(char *name);		//fct pour recup les images à partir du disk

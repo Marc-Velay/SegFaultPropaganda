@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 	Game.nbTourelleCreated=0;
 	Game.nbTourelle=0;
 	Game.nbEnnemiAlive=0;
+	Game.hpBase=0;
 
 	init("Tower Defense: Stephen VS Langley Falls");
 	atexit(cleanup);
@@ -32,7 +33,6 @@ int main(int argc, char *argv[])
 		getInput();
 		updateScreen();		
 		Game.timer +=1 ;
-		Tir.reload +=1;
 		SDL_Delay(16);
 	}
 

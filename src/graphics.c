@@ -251,7 +251,6 @@ void updateScreen()
 		drawOfficer();
 		drawPlayer();
 		drawTourelle();
-		//updateLaser();
 		updateTir();
 		collision();
 	    break;
