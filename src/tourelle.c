@@ -1,7 +1,7 @@
 #include "fonctions.h"
 
 void initTourelle(int n, int colonne, int lane)
-{		
+{
 		Game.nbTourelleCreated++;
 		Tourelle[n].sprite = getSprite(TOURELLE_SPRITE);
 		Tourelle[n].x = colonne*GRID_STEP;
@@ -17,14 +17,15 @@ void drawTourelle()
 		if(Tourelle[i].alive == 1){
 		drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
 		}
-	}	
+	}
 }
 
 void createTourelle(int moux, int mouy){
 	int lane=0;
 	int colonne=0;
 	int temp=0;
-	int empty =0; 
+	int empty =0;
+
 	while(temp<Player.x -GRID_STEP + STEPHEN_ACTUAL_WIDTH /2){
 		temp += GRID_STEP;
 		colonne++;
@@ -42,9 +43,9 @@ void createTourelle(int moux, int mouy){
 		    Game.nbTourelle++;
 		    initTourelle(Game.nbTourelle,colonne,lane);
 	    } else { printf("La case est déjà occupé\n"); }
-	
-	
-	
+
+
+
 }
 
 void doTourelle(){
