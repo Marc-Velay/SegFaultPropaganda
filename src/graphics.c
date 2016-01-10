@@ -258,6 +258,7 @@ void updateScreen()
 
 	  case 2:
 	    drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
+	    drawMenu("GAME OVER !", 0, 0, Font);
 	    break;
 	}
 

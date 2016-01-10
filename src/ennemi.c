@@ -6,8 +6,10 @@ void initOfficer(int n, int lane)
 		Officer[n].x = 0;
 		Officer[n].y = lane*GRID_STEP+PATH_TOP_Y;
 		Officer[n].alive = 1;
-		Officer[n].hpOfficer = 3;
+		Officer[n].hpOfficer = 10;
 		Officer[n].lane = lane;
+		Officer[n].attack = 0;
+		Officer[n].reloadrate = 20;
 }
 
 void createWave(){

@@ -13,12 +13,11 @@ void initTir(int x, int y, int dir){
 		if((*newTir).dir==1) {(*newTir).x = x - GRID_STEP;}
 		(*newTir).y = y;
 		(*newTir).on = 1;
-		(*newTir).reload = 0;
 		Tir =newTir;
 	}
 	else {
 		newTir=(*Tir).suivant;
-		
+
 		while(created !=1 ){
 			if(newTir == NULL) {
 				newTir = (tir*)malloc(sizeof(tir));
@@ -29,7 +28,6 @@ void initTir(int x, int y, int dir){
 				if((*newTir).dir==1) {(*newTir).x = x - GRID_STEP;}
 				(*newTir).y = y;
 				(*newTir).on = 1;
-				(*newTir).reload = 0;
 				(*addTir).suivant = newTir;
 				created =1;
 				break;
@@ -40,12 +38,11 @@ void initTir(int x, int y, int dir){
 				if((*newTir).dir==1) {(*newTir).x = x - GRID_STEP;}
 				(*newTir).y = y;
 				(*newTir).on = 1;
-				(*newTir).reload = 0;
 				created =1;
 			}
 			addTir=newTir;
-			newTir=(*newTir).suivant;			
-		}	
+			newTir=(*newTir).suivant;
+		}
 	}
 }
 
@@ -55,12 +52,12 @@ void updateTir(){
 	while(newTir !=NULL){
 		if((*newTir).on == 1) {
 		    drawImage((*newTir).sprite, (*newTir).x, (*newTir).y);
-		    
+
 			if((*newTir).dir==0) {
 			        for(i=0;i<50;i++) {
 			            (*newTir).x +=1;
 				    if((*newTir).x >= SCREEN_WIDTH) {(*newTir).x = (*newTir).y = (*newTir).on =0; }
-			            collision();
+			            collisionTir_Ennemi();
 			        }
 			}
 
@@ -68,7 +65,7 @@ void updateTir(){
 			        for(i=0;i<50;i++) {
 			            (*newTir).x -=1;
 				    if((*newTir).x <= 0) {(*newTir).x = (*newTir).y = (*newTir).on =0; }
-			            collision();
+			            collisionTir_Ennemi();
 			        }
 			}
 		 }

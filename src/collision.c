@@ -2,11 +2,12 @@
 
 void collision()
 {
-    collisionTirR_Ennemi();
+    collisionTir_Ennemi();
     collisionEnnemi_Tourelle();
+    collisionEnnemi_Base();
 }
 
-void collisionTirR_Ennemi()
+void collisionTir_Ennemi()
 {
 	int i;
 	tir *newTir = Tir;
@@ -34,12 +35,75 @@ void collisionEnnemi_Tourelle()
         {
             for(j=0;j<=Game.nbTourelleCreated;j++)
             {
-                if(Officer[i].x >= Tourelle[j].x - GRID_STEP/2 && Officer[i].lane == Tourelle[j].lane && Tourelle[j].alive == 1 /*&& Officer[i].reload >= 25*/)
+                if(Officer[i].x >= Tourelle[j].x - GRID_STEP/2 && Officer[i].lane == Tourelle[j].lane  /*&& Officer[i].reload >= 25*/)
                 {
-                    Officer[i].attack = 1;
-                    Tourelle[i].hpTourelle --;
-                    Officer[i].reload = 0;
+
+                    if(Tourelle[j].alive == 1 )
+                    {
+
+                        if( Game.timer % Officer[i].reloadrate == 0 )
+                        {
+                        Tourelle[j].hpTourelle --;
+                        if(Tourelle[j].hpTourelle == 0)
+                            {
+                                Tourelle[j].alive = 0;
+                                Tourelle[j].x = 0;
+                                Tourelle[j].y = 0;
+                            }
+                        }
+                        Officer[i].attack = 1;
+                    }
+                    else
+                    {
+                        Officer[i].attack = 0;
+                    }
                 }
+
+
+
             }
+        }
+}
+
+void collisionEnnemi_Base()
+{
+    int i;
+        for(i=0;i<Game.nbEnnemiCreated;i++)
+        {
+             if( Officer[i].lane == 0 || Officer[i].lane == 4 )
+                {
+                    if(Officer[i].x >= (SCREEN_WIDTH - 3*GRID_STEP/2))
+                    {
+
+                        if( Game.timer % Officer[i].reloadrate == 0 )
+                        {
+
+                        Game.hpBase --;
+
+                        if(Game.hpBase == 0)
+                            {
+                               Game.stade = 2;
+                            }
+                        }
+                    }
+                }
+
+                else
+                {
+                    if(Officer[i].x >= (SCREEN_WIDTH - 3*GRID_STEP))
+                       {
+
+                        if( Game.timer % Officer[i].reloadrate == 0 )
+                        {
+
+                        Game.hpBase --;
+
+                        if(Game.hpBase == 0)
+                            {
+                               Game.stade = 2;
+                            }
+                        }
+                    }
+                }
         }
 }

@@ -50,6 +50,7 @@ typedef struct player			// structure de Stephen
 {
   int x, y;
   int direction;
+  int reload;
   SDL_Surface *sprite;
 } player;
 
@@ -59,6 +60,8 @@ typedef struct tourelle
   int alive;
   int hpTourelle;
   int lane;
+  int reloadrate;
+  int type;
   SDL_Surface *sprite;
 } tourelle;
 
@@ -76,7 +79,6 @@ typedef struct tir
   int x, y;
   int dir;
   int on;
-  int reload;
   struct tir* suivant;
   SDL_Surface *sprite;
 } tir;
@@ -88,7 +90,7 @@ typedef struct officer
   int lane;
   int hpOfficer;
   int attack;
-  int reload;
+  int reloadrate;
   SDL_Surface *sprite;
 } officer;
 
@@ -159,10 +161,10 @@ void doEnnemi();			//appel permettant de gerer la creation et le deplacement des
 void getEnnemiAlive();
 
 // ************** tourelle.c
-void initTourelle(int n, int colonne, int lane);
+void initTourelle(int n, int colonne, int lane, int type);
 void drawTourelle();
 void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
-void createTourelle(int moux, int mouy);
+void createTourelle(int type);
 
 // ************** projectile.c
 void initLaser();
@@ -174,6 +176,7 @@ void updateTir();
 void Tirer(int x, int y, int dir);
 
 void collision();
-void collisionTirR_Ennemi();
+void collisionTir_Ennemi();
 void collisionEnnemi_Tourelle();
+void collisionEnnemi_Base();
 
