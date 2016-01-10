@@ -42,7 +42,7 @@ void getInput()
 {
 	Input in;
 	memset(&in,0,sizeof(in));
-
+	int i;
 	UpdateEvents(&in);
 	int moux;
 	int mouy;
@@ -103,6 +103,12 @@ void getInput()
 	  if(((moux > 556 && moux < 724) && (mouy >423 && mouy <472)) && Game.stade ==2) {
 	    printf("Restart PRESSED\n");
 	    init("Tower Defense: Stephen VS Langley Falls");
+	    for(i=0; i<=Game.nbEnnemiCreated; i++) {
+		    Officer[i].alive = 0;
+		    Officer[i].x=Officer[i].y=0;
+	    }
+	    Game.nbEnnemiAlive=0;
+	    Game.nbWave=1;
 	    Game.stade = 1;
 	  }
 	}

@@ -173,6 +173,57 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
 }
 
 
+void drawText(char *text, int x, int y, TTF_Font *textFont)
+{
+	SDL_Rect dest;
+	SDL_Surface *surface;
+	SDL_Color foregroundColor, backgroundColor;
+
+	/* White text on a black background */
+
+	foregroundColor.r = 0;
+	foregroundColor.g = 0;
+	foregroundColor.b = 0;
+
+	backgroundColor.r = 90;
+	backgroundColor.g = 107;
+	backgroundColor.b = 20;
+
+	/* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
+
+	surface = TTF_RenderUTF8_Shaded(textFont, text, foregroundColor, backgroundColor);
+
+	if( surface != NULL )
+        {
+            //Map the color key, 3* 0xFF pour transparent, sans font blanc
+           // Uint32 colorkey = SDL_MapRGB( (*surface).format, 0, 0, 0 );
+           // SDL_SetColorKey( surface, SDL_SRCCOLORKEY, colorkey );
+        }
+
+	if (surface == NULL)
+	{
+		printf("Couldn't create String %s: %s\n", text, SDL_GetError());
+
+		return;
+	}
+
+	/* Blit the entire surface to the screen */
+
+	dest.x = x;
+	dest.y = y;
+	dest.w = (*surface).w;
+	dest.h = (*surface).h;
+
+
+	SDL_BlitSurface(surface, NULL, screen, &dest);
+
+	/* Free the generated string image */
+
+	SDL_FreeSurface(surface);
+}
+
+
+
 void loadSprite(int index, char *name)
 {
 	/* Load the image into the next slot in the sprite bank */
@@ -221,8 +272,10 @@ void freeSprites()
 void loadAllSprites()
 {
 	Font = loadFont("sfd/FreeSans.ttf", 30);
+	textFont = loadFont("sfd/FreeSans.ttf", 15);
 	loadSprite(PLAYER_R_SPRITE, "gfx/Roger_CleanR.png");
 	loadSprite(PLAYER_L_SPRITE, "gfx/Roger_CleanL.png");
+	loadSprite(BACKGROUND_LAUNCH_SPRITE, "gfx/TerrainV2.png");
 	loadSprite(BACKGROUND_SPRITE, "gfx/TerrainV3.png");
 	loadSprite(OFFICER_SPRITE, "gfx/Agent_Clean.png");
 	loadSprite(TOURELLE_SPRITE, "gfx/Tourelle_Clean.png");
@@ -234,10 +287,12 @@ void updateScreen()
 {
 	/* Blank the screen */
 	SDL_FillRect(screen, NULL, 0);
+	char string[20] ;
+	sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
 
 	switch(Game.stade) {
 	  case 0:
-	    drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
+	    drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
 	    drawMenu("START GAME", 0, 0, Font);
 	    drawMenu("ABOUT", 0, 130, Font);
 	    drawMenu("QUIT", 0, 260, Font);
@@ -248,6 +303,8 @@ void updateScreen()
 		doEnnemi();
 		doTourelle();
 		drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
+		drawText("100 Coins", 30, 685, textFont);
+		drawText(string, 1000, 685, textFont);
 		drawOfficer();
 		drawPlayer();
 		drawTourelle();
@@ -257,7 +314,7 @@ void updateScreen()
 
 
 	  case 2:
-	    drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
+	    drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
 	    drawMenu("GAME OVER !", 0, 0, Font);
 	    drawMenu("Play again?", 0, 200, Font);
 	    break;

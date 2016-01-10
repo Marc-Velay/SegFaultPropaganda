@@ -41,7 +41,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
 		Tourelle[n].alive =1;
 		Tourelle[n].hpTourelle=5;
 		Tourelle[n].lane = lane;
-		Tourelle[n].reloadrate=30;
+		Tourelle[n].reloadrate=20;
 		printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
 
     break;
@@ -84,6 +84,7 @@ void createTourelle(int choixTourelle){
 	    if(empty ==0) {
 		    Game.nbTourelle++;
 		    initTourelle(Game.nbTourelle,colonne,lane,choixTourelle);
+		    Player.coins -=100;
 	    } else { printf("La case est déjà occupé\n"); }
 
 

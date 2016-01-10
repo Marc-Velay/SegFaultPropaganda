@@ -92,7 +92,7 @@ void doEnnemi(){
 	if(Game.countdown ==0){
 		createWave();
 		createOfficers();
-		tick++;;
+		tick++;
 	}
 	if(tick ==0){
 		createOfficers();

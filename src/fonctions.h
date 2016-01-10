@@ -51,6 +51,7 @@ typedef struct player			// structure de Stephen
   int x, y;
   int direction;
   int reload;
+  int coins;
   SDL_Surface *sprite;
 } player;
 
@@ -103,6 +104,7 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
 {
 	PLAYER_R_SPRITE,
 	PLAYER_L_SPRITE,
+	BACKGROUND_LAUNCH_SPRITE,
 	BACKGROUND_SPRITE,
 	OFFICER_SPRITE,
 	TOURELLE_SPRITE,
@@ -112,6 +114,7 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
 
 SDL_Surface *screen, *Background, *Text;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
 TTF_Font *Font; 						//la police du texte
+TTF_Font *textFont;
 player Player;
 officer Officer[MAX_OFFICERS];			//Tableau contenant les ennemis cree
 tourelle Tourelle[MAX_TOURELLES];
@@ -127,6 +130,7 @@ TTF_Font *loadFont(char *name, int size);	// recup la police à partir du disk
 void drawImage(SDL_Surface *image, int x, int y);	//affiche une image à l'écran, en x,y
 void drawString(char *text, int x, int y, TTF_Font *Font);	//affiche du texte sur une surface
 void drawMenu(char *text, int x, int y, TTF_Font *Font); //affiche le menu du 1er ecran
+void drawText(char *text, int x, int y, TTF_Font *textFont);
 void loadSprite(int index, char *name);	//recup les sprite grace à loadimage, et les place dans un tableau d'images
 SDL_Surface *getSprite(int index);	//recup l'image dans la case index du tableau cree dans loadAllSprite
 void freeSprites();		//libere toutes les images du tableau
@@ -166,15 +170,12 @@ void drawTourelle();
 void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
 void createTourelle(int type);
 
-// ************** projectile.c
-void initLaser();
-void updateLaser();
-void shoot();
-
+// ************** tir.c
 void initTir(int x, int y, int dir);
 void updateTir();
 void Tirer(int x, int y, int dir);
 
+// ************** collision.c
 void collision();
 void collisionTir_Ennemi();
 void collisionEnnemi_Tourelle();
