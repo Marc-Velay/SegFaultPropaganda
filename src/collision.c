@@ -42,8 +42,9 @@ void collisionEnnemi_Tourelle()
     {
         for(j=0; j<=Game.nbTourelleCreated; j++)
         {
-            if(Officer[i].x >= Tourelle[j].x - GRID_STEP/2 && Officer[i].lane == Tourelle[j].lane  /*&& Officer[i].reload >= 25*/)
+            if(Officer[i].x >= Tourelle[j].x - GRID_STEP/2 && Officer[i].x  < Tourelle[j].x + GRID_STEP/2 && Officer[i].lane == Tourelle[j].lane  /*&& Officer[i].reload >= 25*/)
             {
+
 
                 if(Tourelle[j].alive == 1 )
                 {
@@ -65,6 +66,7 @@ void collisionEnnemi_Tourelle()
                     Officer[i].attack = 0;
                 }
             }
+
 
 
 
@@ -135,7 +137,7 @@ void collisionEnnemi_Roger()
                 {
 
                     Player.stun = 1;
-                    Player.stuntime = Game.timer + 200;
+                    Player.stuntime = Game.timer + 300;
 
                 }
             }
@@ -143,7 +145,19 @@ void collisionEnnemi_Roger()
     }
      else
         {
-            if(Game.timer % 200 == 0) {Player.stun = 0;}
+            if(Player.stuntime - Game.timer <= 120) {Player.stun = 0;}
+
+
+                        if((Player.stuntime - Game.timer) > 240)
+                        drawText("3",Player.x,Player.y - GRID_STEP/2,Font);
+
+                        else if((Player.stuntime - Game.timer) > 180)
+                        drawText("2",Player.x,Player.y - GRID_STEP/2,Font);
+
+
+                        else if((Player.stuntime - Game.timer) > 120)
+                        drawText("1",Player.x,Player.y - GRID_STEP/2,Font);
+
 
         }
 

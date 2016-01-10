@@ -18,9 +18,10 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
                 Tourelle[n].x = colonne*GRID_STEP;
                 Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y+30;
                 Tourelle[n].alive =1;
-                Tourelle[n].hpTourelle=5;
+                Tourelle[n].hpTourelle=TOURELLE_1_HP;
                 Tourelle[n].lane = lane;
-                Tourelle[n].reloadrate=20;
+                Tourelle[n].reloadrate=TOURELLE_1_RELOADRATE;
+                Player.coins -= TOURELLE_1_PRICE;
                 recycled = 1;
                 printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
                 break;
@@ -31,9 +32,10 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
                 Tourelle[n].x = colonne*GRID_STEP;
                 Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y+30;
                 Tourelle[n].alive =1;
-                Tourelle[n].hpTourelle=5;
+                Tourelle[n].hpTourelle=TOURELLE_2_HP;
                 Tourelle[n].lane = lane;
-                Tourelle[n].reloadrate=20;
+                Tourelle[n].reloadrate=TOURELLE_2_RELOADRATE;
+                Player.coins -= TOURELLE_2_PRICE;
                 recycled = 1;
                 printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
                 break;
@@ -44,9 +46,10 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
                 Tourelle[n].x = colonne*GRID_STEP;
                 Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y+30;
                 Tourelle[n].alive =1;
-                Tourelle[n].hpTourelle=5;
+                Tourelle[n].hpTourelle=TOURELLE_3_HP;
                 Tourelle[n].lane = lane;
-                Tourelle[n].reloadrate=20;
+                Tourelle[n].reloadrate=TOURELLE_3_RELOADRATE;
+                Player.coins -= TOURELLE_3_PRICE;
                 recycled = 1;
                 printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
                 break;
@@ -67,11 +70,13 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].x = colonne*GRID_STEP;
             Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y+30;
             Tourelle[n].alive =1;
-            Tourelle[n].hpTourelle=5;
+            Tourelle[n].hpTourelle = TOURELLE_1_HP;
             Tourelle[n].lane = lane;
-            Tourelle[n].reloadrate=20;
+            Tourelle[n].reloadrate = TOURELLE_1_RELOADRATE;
+            Player.coins -= TOURELLE_1_PRICE;
             printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
             break;
+
 
         case 2:
             Game.nbTourelleCreated++;
@@ -79,10 +84,10 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].x = colonne*GRID_STEP;
             Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y+30;
             Tourelle[n].alive =1;
-            Tourelle[n].hpTourelle=5;
+            Tourelle[n].hpTourelle = TOURELLE_2_HP;
             Tourelle[n].lane = lane;
-            Tourelle[n].reloadrate=20;
-            recycled = 1;
+            Tourelle[n].reloadrate = TOURELLE_2_RELOADRATE;
+            Player.coins -= TOURELLE_2_PRICE;
             printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
             break;
 
@@ -92,10 +97,10 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].x = colonne*GRID_STEP;
             Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y+30;
             Tourelle[n].alive =1;
-            Tourelle[n].hpTourelle=5;
+            Tourelle[n].hpTourelle = TOURELLE_3_HP;
             Tourelle[n].lane = lane;
-            Tourelle[n].reloadrate=20;
-            recycled = 1;
+            Tourelle[n].reloadrate = TOURELLE_3_RELOADRATE;
+            Player.coins -= TOURELLE_3_PRICE;
             printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
             break;
         default:
@@ -150,7 +155,6 @@ void createTourelle(int choixTourelle)
     {
         Game.nbTourelle++;
         initTourelle(Game.nbTourelle,colonne,lane,choixTourelle);
-        Player.coins -=100;
     }
     else
     {
@@ -177,7 +181,16 @@ void doTourelle()
         {
             if(Tourelle[i].alive == 1 && Game.timer % Tourelle[i].reloadrate == 0 && Tourelle[i].lane == Officer[j].lane && Officer[j].alive == 1)
             {
-                initTir(Tourelle[i].x,Tourelle[i].y,1);
+                if(Tourelle[i].reloadrate == TOURELLE_2_RELOADRATE)
+                {
+                 initTir(Tourelle[i].x,Tourelle[i].y - GRID_STEP/2,1);
+                 initTir(Tourelle[i].x,Tourelle[i].y,1);
+                 initTir(Tourelle[i].x,Tourelle[i].y + GRID_STEP/2,1);
+                }
+                else
+                {
+                    initTir(Tourelle[i].x,Tourelle[i].y,1);
+                }
             }
         }
     }

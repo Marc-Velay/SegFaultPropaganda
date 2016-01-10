@@ -307,8 +307,8 @@ void updateScreen()
         drawText("100 Coins", 30, 685, textFont);
         drawText(string, 1000, 685, textFont);
         drawOfficer();
-        drawPlayer();
         drawTourelle();
+        drawPlayer();
         updateTir();
         collision();
         break;

@@ -19,9 +19,24 @@
 #define PATH_BOTTOM_Y 500
 #define GRID_STEP 64			//Taille des carres de la grille sur le terrain
 
-#define MAX_OFFICERS 100		//Nombre arbitraire du nb max d'ennemis
+#define MAX_OFFICERS 5000		//Nombre arbitraire du nb max d'ennemis
 #define MAX_TOURELLES 40		//Nombre arbitraire du nb max de tourelles
 #define MAX_LASERDEFENSE 100
+
+#define TOURELLE_1_HP 4
+#define TOURELLE_1_RELOADRATE 20
+#define TOURELLE_1_PRICE 100
+
+#define TOURELLE_2_HP 5
+#define TOURELLE_2_RELOADRATE 40
+#define TOURELLE_2_PRICE 125
+
+#define TOURELLE_3_HP 3
+#define TOURELLE_3_RELOADRATE 10
+#define TOURELLE_3_PRICE 200
+
+#define OFFICIER_1_HP 5
+#define OFFICIER_1_RELOADRATE 20
 
 typedef struct Input			//structure utilisée pour récuperer les touches clavier/ sourie appuyées
 {
@@ -175,6 +190,8 @@ void createTourelle(int type);
 void initTir(int x, int y, int dir);
 void updateTir();
 void Tirer(int x, int y, int dir);
+
+int pow(int nb, int pui);
 
 // ************** collision.c
 void collision();

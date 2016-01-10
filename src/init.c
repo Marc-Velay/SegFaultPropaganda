@@ -34,9 +34,6 @@ void init(char *title)
     Game.nbTourelle=0;
     Game.nbEnnemiAlive=0;
     Game.hpBase=10;
-    Player.coins =300;
-    Player.stun = 0;
-    Player.stuntime =  0;
     Tir = NULL;
     loadAllSprites();
     initPlayer();
