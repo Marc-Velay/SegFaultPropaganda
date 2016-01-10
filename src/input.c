@@ -42,9 +42,7 @@ void getInput()
 {
 	Input in;
 	memset(&in,0,sizeof(in));
-	tir *newTir=Tir;
 
-	//SDL_Event event;
 	UpdateEvents(&in);
 	int moux;
 	int mouy;
@@ -53,7 +51,7 @@ void getInput()
 	if(in.key[SDLK_ESCAPE] || in.quit) {
 	  exit(0);
 	}
-
+	/************************************MENU*********************************/
 	if (in.mousebuttons[SDL_BUTTON_LEFT]) {
 	  if(((moux > 543 && moux < 737) && (mouy >223 && mouy <256)) && Game.stade ==0) {
 	    printf("START GAME CLICKED\n");
@@ -61,7 +59,25 @@ void getInput()
 	  }
 	printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
 	}
+	
+	if (in.mousebuttons[SDL_BUTTON_LEFT]) {
+	  if(((moux > 588 && moux < 689) && (mouy >353 && mouy <401)) && Game.stade ==0) {
+	    printf("ABOUT PRESSED\n");
+	    Game.stade = 2;
+	  }
+	}
+	
+	if (in.mousebuttons[SDL_BUTTON_LEFT]) {
+	  if(((moux > 602 && moux < 673) && (mouy >480 && mouy <530)) && Game.stade ==0) {
+	    printf("QUIT PRESSED\n");
+	    SDL_Quit();
+	    exit(0);
+	  }
+	}
 
+	/************************************MENU*********************************/
+	
+	/************************************TOURELLES*********************************/
 	if (in.mousebuttons[SDL_BUTTON_LEFT] ) {
 
 	  if(((moux > 30 && moux < 100) && (mouy >615 && mouy <690)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y ) {
@@ -70,8 +86,27 @@ void getInput()
 	    printf("TOURELLE 1 CREATED\n");
 	  }
 	}
-
-
+	
+	/************************************TOURELLES*********************************/
+	
+	
+	/************************************LAST SCREEN*********************************/
+	if (in.mousebuttons[SDL_BUTTON_LEFT]) {
+	  if(((moux > 540 && moux < 737) && (mouy >223 && mouy <273)) && Game.stade ==2) {
+	    printf("QUIT PRESSED\n");
+	    SDL_Quit();
+	    exit(0);
+	  }
+	}
+	
+	if (in.mousebuttons[SDL_BUTTON_LEFT]) {
+	  if(((moux > 556 && moux < 724) && (mouy >423 && mouy <472)) && Game.stade ==2) {
+	    printf("Restart PRESSED\n");
+	    init("Tower Defense: Stephen VS Langley Falls");
+	    Game.stade = 1;
+	  }
+	}
+	/************************************LAST SCREEN*********************************/
 
 	if(in.key[SDLK_SPACE]) {
 		if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
@@ -127,7 +162,6 @@ void getInput()
 
 	updateScreen();
 	Game.timer +=1;
-	newTir = Tir;
 	Player.reload++;
 	SDL_Delay(16);
         UpdateEvents(&in);

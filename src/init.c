@@ -25,6 +25,18 @@ void init(char *title)
 	 }  
 	
 	SDL_WM_SetCaption(title, NULL);
+	
+	Game.stade=0;
+	Game.countdown =0;
+	Game.timer =0;
+	Game.nbWave=1;
+	Game.nbTourelleCreated=0;
+	Game.nbTourelle=0;
+	Game.nbEnnemiAlive=0;
+	Game.hpBase=10;
+	Tir = NULL;
+	loadAllSprites();
+	initPlayer();
 }
 
 

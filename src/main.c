@@ -5,21 +5,11 @@
 int main(int argc, char *argv[])
 {
 	int go;
-	Game.stade=0;
-	Game.countdown =0;
-	Game.timer =0;
-	Game.nbWave=1;
-	Game.nbTourelleCreated=0;
-	Game.nbTourelle=0;
-	Game.nbEnnemiAlive=0;
-	Game.hpBase=10;
-	Tir = NULL;
+	
 
 	init("Tower Defense: Stephen VS Langley Falls");
 	atexit(cleanup);
 	go = 1;
-	loadAllSprites();
-	initPlayer();
 
 	while (go == 1)
 	{
