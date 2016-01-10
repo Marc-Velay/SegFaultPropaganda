@@ -80,7 +80,7 @@ void getInput()
 	/************************************TOURELLES*********************************/
 	if (in.mousebuttons[SDL_BUTTON_LEFT] ) {
 
-	  if(((moux > 30 && moux < 100) && (mouy >615 && mouy <690)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y ) {
+	  if(((moux > 30 && moux < 100) && (mouy >615 && mouy <690)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y  && Player.coins >= 100) {
 	    printf("CREATE TOURELLE 1 CLICKED\n");
 	    createTourelle(1);
 	    printf("TOURELLE 1 CREATED\n");

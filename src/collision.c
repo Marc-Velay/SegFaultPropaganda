@@ -18,8 +18,10 @@ void collisionTir_Ennemi()
 				if(Officer[i].hpOfficer <=0){
 					Officer[i].alive = 0;
 					Officer[i].x = Officer[i].y = 0;
+					Player.coins+=20;
 				}
-				(*newTir).on = (*newTir).x = (*newTir).y = 0;
+				(*newTir).on = 0;
+				(*newTir).x = (*newTir).y = SCREEN_HEIGHT;
 			}
 			newTir = (*newTir).suivant;
 		 }
