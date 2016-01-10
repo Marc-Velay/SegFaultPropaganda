@@ -78,12 +78,33 @@ void getInput()
 	/************************************MENU*********************************/
 	
 	/************************************TOURELLES*********************************/
+	// bouton Tourelle de gauche
 	if (in.mousebuttons[SDL_BUTTON_LEFT] ) {
 
-	  if(((moux > 30 && moux < 100) && (mouy >615 && mouy <690)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y  && Player.coins >= 100) {
+	  if(((moux > 30 && moux < 100) && (mouy >615 && mouy <682)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y  && Player.coins >= 100) {
 	    printf("CREATE TOURELLE 1 CLICKED\n");
 	    createTourelle(1);
 	    printf("TOURELLE 1 CREATED\n");
+	  }
+	}
+	
+	// bouton Tourelle du centre
+	if (in.mousebuttons[SDL_BUTTON_LEFT] ) {
+
+	  if(((moux > 160 && moux < 226) && (mouy >615 && mouy <682)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y  && Player.coins >= 100) {
+	    printf("CREATE TOURELLE 2 CLICKED\n");
+	    createTourelle(2);
+	    printf("TOURELLE 2 CREATED\n");
+	  }
+	}
+	
+	// bouton Tourelle de droite
+	if (in.mousebuttons[SDL_BUTTON_LEFT] ) {
+
+	  if(((moux > 283 && moux < 355) && (mouy >615 && mouy <682)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y  && Player.coins >= 100) {
+	    printf("CREATE TOURELLE 3 CLICKED\n");
+	    createTourelle(3);
+	    printf("TOURELLE 3 CREATED\n");
 	  }
 	}
 	
