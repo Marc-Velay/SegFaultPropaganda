@@ -128,9 +128,9 @@ void collisionEnnemi_Roger()
 
 
             if( ( (Officer[i].x <  Player.x &&   (Officer[i].x + GRID_STEP/2) > Player.x    &&   (Officer[i].y - GRID_STEP/2) <  Player.y  && (Officer[i].y + GRID_STEP/2) >  Player.y )
-               || (Officer[i].x <  Player.x &&   (Officer[i].x + GRID_STEP/2) > Player.x    &&   (Officer[i].y - GRID_STEP/2) <  (Player.y + GRID_STEP/2)  && (Officer[i].y + GRID_STEP/2) >  (Player.y + GRID_STEP/2) )
-               || (Officer[i].x <  (Player.x + GRID_STEP/2) &&   (Officer[i].x + GRID_STEP/2) > (Player.x + GRID_STEP/2)    &&   Officer[i].y <  Player.y  && (Officer[i].y + GRID_STEP/2) >  Player.y )
-               || (Officer[i].x <  (Player.x + GRID_STEP/2) &&   (Officer[i].x + GRID_STEP/2) > (Player.x + GRID_STEP/2)    &&   Officer[i].y <  (Player.y + GRID_STEP/2)  && (Officer[i].y + GRID_STEP/2) >  (Player.y + GRID_STEP/2) )
+               || (Officer[i].x <  Player.x &&   (Officer[i].x + GRID_STEP/2) > Player.x    &&   (Officer[i].y - GRID_STEP/2) <  (Player.y + STEPHEN_ACTUAL_HEIGHT)  && (Officer[i].y + GRID_STEP/2) >  (Player.y + STEPHEN_ACTUAL_HEIGHT) )
+               || (Officer[i].x <  (Player.x + STEPHEN_ACTUAL_WIDTH) &&   (Officer[i].x + GRID_STEP/2) > (Player.x + STEPHEN_ACTUAL_WIDTH)    &&   Officer[i].y <  Player.y  && (Officer[i].y + GRID_STEP/2) >  Player.y )
+               || (Officer[i].x <  (Player.x + STEPHEN_ACTUAL_WIDTH) &&   (Officer[i].x + GRID_STEP/2) > (Player.x + STEPHEN_ACTUAL_WIDTH)    &&   Officer[i].y <  (Player.y + STEPHEN_ACTUAL_HEIGHT)  && (Officer[i].y + GRID_STEP/2) >  (Player.y + STEPHEN_ACTUAL_HEIGHT) )
                 ) )
                 {
 
@@ -144,6 +144,7 @@ void collisionEnnemi_Roger()
      else
         {
             if(Game.timer % 200 == 0) {Player.stun = 0;}
+
         }
 
 }
