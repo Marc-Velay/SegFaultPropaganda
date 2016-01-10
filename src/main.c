@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
 		if(Game.nbEnnemiAlive==0 && Game.stade >= 1){
 			Game.nbWave+=1;
 			Game.nbEnnemiCreated =0;
-			printf("Vague numéro: %d\n", Game.nbWave);
 			Game.countdown =0;
 			doEnnemi();
 			SDL_Delay(3);
