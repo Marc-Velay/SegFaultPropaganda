@@ -25,91 +25,92 @@
 
 typedef struct Input			//structure utilisée pour récuperer les touches clavier/ sourie appuyées
 {
-	char key[SDLK_LAST];
-	int mousex,mousey;
-	int mousexrel,mouseyrel;
-	char mousebuttons[8];
-        char quit;
+    char key[SDLK_LAST];
+    int mousex,mousey;
+    int mousexrel,mouseyrel;
+    char mousebuttons[8];
+    char quit;
 } Input;
 
 typedef struct game			//toutes les variables du rungame, utilisee pour faire tourner le jeu
 {
-  int stade;
-  int countdown;
-  int timer;
-  int nbEnnemiWave;
-  int nbEnnemiCreated;
-  int nbEnnemiAlive;
-  int nbTourelleCreated;
-  int nbWave;
-  int nbTourelle;
-  int hpBase;
+    int stade;
+    int countdown;
+    int timer;
+    int nbEnnemiWave;
+    int nbEnnemiCreated;
+    int nbEnnemiAlive;
+    int nbTourelleCreated;
+    int nbWave;
+    int nbTourelle;
+    int hpBase;
 } game;
 
 typedef struct player			// structure de Stephen
 {
-  int x, y;
-  int direction;
-  int reload;
-  int coins;
-  SDL_Surface *sprite;
+    int x, y;
+    int direction;
+    int reload;
+    int coins;
+    int stun, stuntime;
+    SDL_Surface *sprite;
 } player;
 
 typedef struct tourelle
 {
-  int x, y;
-  int alive;
-  int hpTourelle;
-  int lane;
-  int reloadrate;
-  int type;
-  SDL_Surface *sprite;
+    int x, y;
+    int alive;
+    int hpTourelle;
+    int lane;
+    int reloadrate;
+    int type;
+    SDL_Surface *sprite;
 } tourelle;
 
 typedef struct laserDefense
 {
-  int x, y;
-  int direction;
-  int on;
-  int reload;
-  SDL_Surface *sprite;
+    int x, y;
+    int direction;
+    int on;
+    int reload;
+    SDL_Surface *sprite;
 } laserDefense;
 
 typedef struct tir
 {
-  int x, y;
-  int dir;
-  int on;
-  struct tir* suivant;
-  SDL_Surface *sprite;
+    int x, y;
+    int dir;
+    int on;
+    struct tir* suivant;
+    SDL_Surface *sprite;
 } tir;
 
 typedef struct officer
 {
-  int x, y;
-  int alive;
-  int lane;
-  int hpOfficer;
-  int attack;
-  int reloadrate;
-  SDL_Surface *sprite;
+    int x, y;
+    int alive;
+    int lane;
+    int hpOfficer;
+    int attack;
+    int reloadrate;
+    SDL_Surface *sprite;
 } officer;
 
 typedef struct Sprites
 {
-	SDL_Surface *image;
+    SDL_Surface *image;
 } Sprites;
 
 enum						//Contient les numéros des cases du tableau sprite contenant chaque image correspondant au nom
 {
-	PLAYER_R_SPRITE,
-	PLAYER_L_SPRITE,
-	BACKGROUND_LAUNCH_SPRITE,
-	BACKGROUND_SPRITE,
-	OFFICER_SPRITE,
-	TOURELLE_SPRITE,
-	LASER_SPRITE,
-	MAX_SPRITES
+    PLAYER_R_SPRITE,
+    PLAYER_L_SPRITE,
+    BACKGROUND_LAUNCH_SPRITE,
+    BACKGROUND_SPRITE,
+    OFFICER_SPRITE,
+    TOURELLE_SPRITE,
+    LASER_SPRITE,
+    MAX_SPRITES
 };
 
 SDL_Surface *screen, *Background, *Text;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
@@ -180,4 +181,5 @@ void collision();
 void collisionTir_Ennemi();
 void collisionEnnemi_Tourelle();
 void collisionEnnemi_Base();
+void collisionEnnemi_Roger();
 

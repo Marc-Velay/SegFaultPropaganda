@@ -2,13 +2,13 @@
 
 void initPlayer()
 {
-	Player.sprite = getSprite(PLAYER_L_SPRITE);
-	
-	Player.x = 3*SCREEN_WIDTH / 4;
-	Player.y = SCREEN_HEIGHT / 4;
+    Player.sprite = getSprite(PLAYER_L_SPRITE);
+
+    Player.x = 3*SCREEN_WIDTH / 4;
+    Player.y = SCREEN_HEIGHT / 4;
 }
 
 void drawPlayer()
 {
-	drawImage(Player.sprite, Player.x, Player.y);
+    drawImage(Player.sprite, Player.x, Player.y);
 }
