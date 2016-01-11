@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
 	int go;
-	
+
 
 	init("Tower Defense: Stephen VS Langley Falls");
 	atexit(cleanup);
@@ -13,12 +13,11 @@ int main(int argc, char *argv[])
 
 	while (go == 1)
 	{
-		if(Game.nbEnnemiAlive==0 && Game.stade >= 1){
+		if(Game.nbEnnemiAlive==0 && Game.stade == 1){
 			Game.nbWave+=1;
 			Game.nbEnnemiCreated =0;
 			Game.countdown =0;
 			doEnnemi();
-			SDL_Delay(3);
 		}
 		getInput();
 		updateScreen();

@@ -94,6 +94,7 @@ void moveOfficers()
             }
 
             else
+
             {
                 if(Officer[i].x < (SCREEN_WIDTH - 3*GRID_STEP))
                     Officer[i].x += 1 + Game.nbWave;
@@ -109,11 +110,13 @@ void doEnnemi()
     if(Game.nbWave >=24){tick = Game.timer % 2;}
     else{tick = Game.timer % (25-Game.nbWave);}
     getEnnemiAlive();
+
     if(Game.countdown ==0)
     {
         createWave();
         createOfficers();
         tick++;
+        Game.countdown++;
     }
     if(tick == 0)
     {
