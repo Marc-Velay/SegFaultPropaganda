@@ -191,8 +191,6 @@ void initTir(int x, int y, int dir);
 void updateTir();
 void Tirer(int x, int y, int dir);
 
-int pow(int nb, int pui);
-
 // ************** collision.c
 void collision();
 void collisionTir_Ennemi();

@@ -16,17 +16,6 @@ void initOfficer(int n, int lane)
     }
 }
 
-int pow(int nb, int pui)
-{
-    int i;
-
-    for(i=0;i<pui;i++)
-    {
-        nb *= nb;
-    }
-    return nb;
-}
-
 void createWave()
 {
 

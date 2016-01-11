@@ -94,6 +94,28 @@ void getInput()
 
     /************************************MENU*********************************/
 
+    
+    /************************************LAST SCREEN*********************************/
+
+
+    if (in.mousebuttons[SDL_BUTTON_LEFT])
+    {
+        if(((moux > 556 && moux < 724) && (mouy >423 && mouy <472)) && Game.stade ==2)
+        {
+            printf("Restart PRESSED\n");
+            init("Tower Defense: Stephen VS Langley Falls");
+            for(i=0; i<=Game.nbEnnemiCreated; i++)
+            {
+                Officer[i].alive = 0;
+                Officer[i].x=Officer[i].y=0;
+            }
+            Game.nbEnnemiAlive=0;
+            Game.nbWave=1;
+            Game.stade = 1;
+        }
+    }
+    /************************************LAST SCREEN*********************************/
+    
     /************************************TOURELLES*********************************/
     // bouton Tourelle de gauche
 
@@ -137,26 +159,6 @@ void getInput()
     /************************************TOURELLES*********************************/
 
 
-    /************************************LAST SCREEN*********************************/
-
-
-    if (in.mousebuttons[SDL_BUTTON_LEFT])
-    {
-        if(((moux > 556 && moux < 724) && (mouy >423 && mouy <472)) && Game.stade ==2)
-        {
-            printf("Restart PRESSED\n");
-            init("Tower Defense: Stephen VS Langley Falls");
-            for(i=0; i<=Game.nbEnnemiCreated; i++)
-            {
-                Officer[i].alive = 0;
-                Officer[i].x=Officer[i].y=0;
-            }
-            Game.nbEnnemiAlive=0;
-            Game.nbWave=1;
-            Game.stade = 1;
-        }
-    }
-    /************************************LAST SCREEN*********************************/
 
     if(in.key[SDLK_SPACE])
     {
