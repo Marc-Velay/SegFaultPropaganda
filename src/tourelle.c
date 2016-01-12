@@ -32,7 +32,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
                 Tourelle[i].hpTourelle=TOURELLE_2_HP;
                 Tourelle[i].lane = lane;
                 Tourelle[i].reloadrate=TOURELLE_2_RELOADRATE;
-                Player.coins -= (TOURELLE_2_PRICE + 10*(Game.nbWave-1));
+                Player.coins -= (TOURELLE_2_PRICE);
                 created = 1;
                 printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
                 break;
@@ -45,7 +45,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
                 Tourelle[i].hpTourelle=TOURELLE_3_HP;
                 Tourelle[i].lane = lane;
                 Tourelle[i].reloadrate=TOURELLE_3_RELOADRATE;
-                Player.coins -= (TOURELLE_3_PRICE + 10*(Game.nbWave-1));
+                Player.coins -= (TOURELLE_3_PRICE);
                 created = 1;
                 printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
                 break;
@@ -84,7 +84,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].hpTourelle = TOURELLE_2_HP;
             Tourelle[n].lane = lane;
             Tourelle[n].reloadrate = TOURELLE_2_RELOADRATE;
-            Player.coins -= (TOURELLE_2_PRICE + 10*(Game.nbWave-1));
+            Player.coins -= (TOURELLE_2_PRICE );
             created =1;
             printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
             break;
@@ -98,7 +98,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].hpTourelle = TOURELLE_3_HP;
             Tourelle[n].lane = lane;
             Tourelle[n].reloadrate = TOURELLE_3_RELOADRATE;
-            Player.coins -= (TOURELLE_3_PRICE + 10*(Game.nbWave-1));
+            Player.coins -= (TOURELLE_3_PRICE );
             created=1;
             printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
             break;
