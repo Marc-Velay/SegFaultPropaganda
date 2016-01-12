@@ -34,6 +34,22 @@ void createWave()
     printf("nombre d'ennemis pour la vague %d: %d\n", Game.nbWave, Game.nbEnnemiWave);
 }
 
+void doWave()
+{
+     if(Game.nbEnnemiAlive==0 && Game.stade == 1 ){
+
+            if(Game.countdown - Game.timer < 0 ){
+                Game.countdown = Game.timer + 120;
+            }
+                else if(Game.countdown - Game.timer == 0)
+                {
+                Game.nbEnnemiCreated = 0;
+                createWave();
+                }
+
+	    }
+}
+
 void createOfficers()
 {
     int lane;

@@ -137,7 +137,7 @@ void collisionEnnemi_Roger()
                 {
 
                     Player.stun = 1;
-                    Player.stuntime = Game.timer + 300;
+                    Player.stuntime = Game.timer + 200;
 
                 }
             }
@@ -145,19 +145,18 @@ void collisionEnnemi_Roger()
     }
      else
         {
-            if(Player.stuntime - Game.timer <= 120) {Player.stun = 0;}
+            if(Player.stuntime - Game.timer <= 110) {Player.stun = 0;}
 
 
-                        if((Player.stuntime - Game.timer) > 240)
+                        if((Player.stuntime - Game.timer) > 170)
                         drawText("3",Player.x,Player.y - GRID_STEP/2,Font,197,150,80);
 
-                        else if((Player.stuntime - Game.timer) > 180)
+                        else if((Player.stuntime - Game.timer) > 140)
                         drawText("2",Player.x,Player.y - GRID_STEP/2,Font,197,150,80);
 
 
-                        else if((Player.stuntime - Game.timer) > 120)
+                        else if((Player.stuntime - Game.timer) > 110)
                         drawText("1",Player.x,Player.y - GRID_STEP/2,Font,197,150,80);
-
 
         }
 

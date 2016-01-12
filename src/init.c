@@ -27,7 +27,7 @@ void init(char *title)
     SDL_WM_SetCaption(title, NULL);
 
     Game.stade=0;
-    Game.countdown =300;
+    Game.countdown =120;
     Game.timer =0;
     Game.nbWave=1;
     Game.nbTourelleCreated=0;

@@ -174,7 +174,8 @@ void initPlayer();
 // ************** ennemi.c
 void initOfficer(int n, int lane);
 void drawOfficer();
-void createWave();			//cree le nombre d'ennemis dans cette vague
+void createWave();
+void doWave();		//cree le nombre d'ennemis dans cette vague
 void createOfficers();		//cree les nouveaux officiers jusqu'à la limite de createWave
 void moveOfficers();			//gestion des colisions
 void doEnnemi();			//appel permettant de gerer la creation et le deplacement des ennemis
