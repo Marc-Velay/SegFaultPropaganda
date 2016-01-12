@@ -43,7 +43,7 @@ void collisionEnnemi_Tourelle()
     {
         for(j=0; j<=Game.nbTourelleCreated; j++)
         {
-            if(Officer[i].x >= Tourelle[j].x - GRID_STEP/2 && Officer[i].x  < Tourelle[j].x + GRID_STEP/2 && Officer[i].lane == Tourelle[j].lane  /*&& Officer[i].reload >= 25*/)
+            if(Officer[i].x >= Tourelle[j].x - GRID_STEP/2 && Officer[i].x  < Tourelle[j].x + GRID_STEP/2 && Officer[i].lane == Tourelle[j].lane )
             {
 
 
@@ -56,13 +56,12 @@ void collisionEnnemi_Tourelle()
                         if(Tourelle[j].hpTourelle == 0)
                         {
                             Tourelle[j].alive = 0;
-                            Tourelle[j].x = 0;
-                            Tourelle[j].y = 0;
+			    
                         }
                     }
                     Officer[i].attack = 1;
                 }
-                else
+               else
                 {
                     Officer[i].attack = 0;
                 }
