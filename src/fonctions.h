@@ -19,20 +19,20 @@
 #define PATH_BOTTOM_Y 500
 #define GRID_STEP 64			//Taille des carres de la grille sur le terrain
 
-#define MAX_OFFICERS 5000		//Nombre arbitraire du nb max d'ennemis
+#define MAX_OFFICERS 500		//Nombre arbitraire du nb max d'ennemis
 #define MAX_TOURELLES 40		//Nombre arbitraire du nb max de tourelles
 #define MAX_LASERDEFENSE 100
 
 #define TOURELLE_1_HP 4
-#define TOURELLE_1_RELOADRATE 20
+#define TOURELLE_1_RELOADRATE 4
 #define TOURELLE_1_PRICE 100
 
 #define TOURELLE_2_HP 5
-#define TOURELLE_2_RELOADRATE 40
+#define TOURELLE_2_RELOADRATE 60
 #define TOURELLE_2_PRICE 125
 
 #define TOURELLE_3_HP 3
-#define TOURELLE_3_RELOADRATE 10
+#define TOURELLE_3_RELOADRATE 20
 #define TOURELLE_3_PRICE 200
 
 #define OFFICIER_1_HP 5
@@ -146,7 +146,7 @@ TTF_Font *loadFont(char *name, int size);	// recup la police à partir du disk
 void drawImage(SDL_Surface *image, int x, int y);	//affiche une image à l'écran, en x,y
 void drawString(char *text, int x, int y, TTF_Font *Font);	//affiche du texte sur une surface
 void drawMenu(char *text, int x, int y, TTF_Font *Font); //affiche le menu du 1er ecran
-void drawText(char *text, int x, int y, TTF_Font *textFont);
+void drawText(char *text, int x, int y, TTF_Font *textFontn, int r, int g, int b);
 void loadSprite(int index, char *name);	//recup les sprite grace à loadimage, et les place dans un tableau d'images
 SDL_Surface *getSprite(int index);	//recup l'image dans la case index du tableau cree dans loadAllSprite
 void freeSprites();		//libere toutes les images du tableau

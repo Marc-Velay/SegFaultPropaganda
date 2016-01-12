@@ -103,15 +103,20 @@ void getInput()
         if(((moux > 556 && moux < 724) && (mouy >423 && mouy <472)) && Game.stade ==2)
         {
             printf("Restart PRESSED\n");
-            init("Tower Defense: Stephen VS Langley Falls");
+            main(0, NULL);
+            /*init("Tower Defense: Stephen VS Langley Falls");
             for(i=0; i<=Game.nbEnnemiCreated; i++)
             {
                 Officer[i].alive = 0;
                 Officer[i].x=Officer[i].y=0;
             }
-            Game.nbEnnemiAlive=0;
-            Game.nbWave=1;
-            Game.stade = 1;
+            for(i=0; i<=MAX_TOURELLES; i++)
+            {
+                Tourelle[i].alive = 0;
+                Tourelle[i].x=Tourelle[i].y=SCREEN_WIDTH*2;
+            }
+            Game.stade = 1;*/
+
         }
     }
     /************************************LAST SCREEN*********************************/

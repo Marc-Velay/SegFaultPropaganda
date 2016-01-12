@@ -13,12 +13,18 @@ int main(int argc, char *argv[])
 
 	while (go == 1)
 	{
-		if(Game.nbEnnemiAlive==0 && Game.stade == 1){
-			Game.nbWave+=1;
-			Game.nbEnnemiCreated =0;
-			Game.countdown =0;
-			doEnnemi();
-		}
+	    if(Game.nbEnnemiAlive==0 && Game.stade == 1 ){
+
+            if(Game.countdown - Game.timer < 0 ){
+                Game.countdown = Game.timer + 150;
+            }
+                else if(Game.countdown - Game.timer == 0)
+                {
+                Game.nbEnnemiCreated =0;
+                createWave();
+                }
+
+	    }
 		getInput();
 		updateScreen();
 		Game.timer +=1;

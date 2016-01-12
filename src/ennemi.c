@@ -6,7 +6,7 @@ void initOfficer(int n, int lane)
     Officer[n].x = 0;
     Officer[n].y = lane*GRID_STEP+PATH_TOP_Y;
     Officer[n].alive = 1;
-    Officer[n].hpOfficer = OFFICIER_1_HP + 3*Game.nbWave/2;
+    Officer[n].hpOfficer = OFFICIER_1_HP + (Game.nbWave*Game.nbWave) - Game.nbWave;
     Officer[n].lane = lane;
     Officer[n].attack = 0;
     Officer[n].reloadrate = OFFICIER_1_RELOADRATE - Game.nbWave;
@@ -16,14 +16,17 @@ void initOfficer(int n, int lane)
     }
 }
 
+
+
 void createWave()
 {
 
+    Game.nbWave+=1;
     time_t t;
-    Game.countdown=1;
+    //Game.countdown=1;
     srand((unsigned) time(&t));
 
-    Game.nbEnnemiWave = (rand() %Game.nbWave) + 4*Game.nbWave;
+    Game.nbEnnemiWave = (rand() %Game.nbWave) + 2+ (Game.nbWave*Game.nbWave);
     if(Game.nbEnnemiWave >= MAX_OFFICERS)
     {
         Game.nbEnnemiWave = MAX_OFFICERS-1;
@@ -111,13 +114,14 @@ void doEnnemi()
     else{tick = Game.timer % (25-Game.nbWave);}
     getEnnemiAlive();
 
-    if(Game.countdown ==0)
+    /*if(Game.countdown == 0)
     {
+        Game.nbWave+=1;
         createWave();
         createOfficers();
         tick++;
-        Game.countdown++;
-    }
+        //Game.countdown++;
+    }*/
     if(tick == 0)
     {
         createOfficers();

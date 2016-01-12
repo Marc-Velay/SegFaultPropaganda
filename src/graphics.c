@@ -173,7 +173,7 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
 }
 
 
-void drawText(char *text, int x, int y, TTF_Font *textFont)
+void drawText(char *text, int x, int y, TTF_Font *textFontn, int r, int g, int b)
 {
     SDL_Rect dest;
     SDL_Surface *surface;
@@ -185,9 +185,9 @@ void drawText(char *text, int x, int y, TTF_Font *textFont)
     foregroundColor.g = 0;
     foregroundColor.b = 0;
 
-    backgroundColor.r = 90;
-    backgroundColor.g = 107;
-    backgroundColor.b = 20;
+    backgroundColor.r = r;
+    backgroundColor.g = g;
+    backgroundColor.b = b;
 
     /* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
@@ -304,8 +304,16 @@ void updateScreen()
         doEnnemi();
         doTourelle();
         drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
-        drawText("100 Coins", 30, 685, textFont);
-        drawText(string, 1000, 685, textFont);
+        drawText("Prix: ", 10, 685, textFont,97,117,18);
+        sprintf(string,"%d", TOURELLE_1_PRICE);
+        drawText(string, 50, 685, textFont,97,117,18);
+        sprintf(string,"%d", TOURELLE_2_PRICE + 10*(Game.nbWave-1));
+        drawText(string, 180, 685, textFont,97,117,18);
+        sprintf(string,"%d", TOURELLE_3_PRICE + 10*(Game.nbWave-1));
+        drawText(string, 310, 685, textFont,97,117,18);
+        drawText("Coins: ", 950, 685, textFont,97,117,18);
+        sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
+        drawText(string, 1000, 685, textFont,97,117,18);
         drawOfficer();
         drawTourelle();
         drawPlayer();
