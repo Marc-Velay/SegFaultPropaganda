@@ -110,6 +110,11 @@ void updateTir()
     }
 }
 
+void freeTir(tir *Tir) {
+	if(Tir != NULL){ freeTir(Tir = (*Tir).suivant;) }
+	free(Tir);	
+}
+
 void Tirer(int x, int y, int dir)
 {
     if(Game.countdown == 0)
