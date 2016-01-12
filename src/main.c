@@ -17,13 +17,18 @@ int main(int argc, char *argv[])
 
         while (restart != 1)
         {
+            printf("test1\n");
             doWave();
+            printf("test2\n");
             getInput();
+            printf("test3\n");
             updateScreen();
+            printf("test4\n");
             Game.timer +=1;
             Player.reload++;
             SDL_Delay(16);
         }
+
     }
 
 	exit(0);
