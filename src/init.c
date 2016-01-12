@@ -3,6 +3,7 @@
 
 void init(char *title)
 {
+    int i;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
@@ -25,6 +26,17 @@ void init(char *title)
     }
 
     SDL_WM_SetCaption(title, NULL);
+
+    for(i=0; i<=MAX_OFFICERS; i++)
+            {
+                Officer[i].alive = 0;
+                Officer[i].x=Officer[i].y=0;
+            }
+            for(i=0; i<=MAX_TOURELLES; i++)
+            {
+                Tourelle[i].alive = 0;
+                Tourelle[i].x=Tourelle[i].y=SCREEN_WIDTH*2;
+            }
 
     Game.stade=0;
     Game.countdown =120;

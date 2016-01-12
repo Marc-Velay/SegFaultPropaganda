@@ -138,6 +138,7 @@ game Game;
 Sprites sprite[MAX_SPRITES];
 laserDefense Laserdef[MAX_LASERDEFENSE];
 tir *Tir;
+int restart;
 
 
 // ************** graphics.c
@@ -198,4 +199,4 @@ void collisionTir_Ennemi();
 void collisionEnnemi_Tourelle();
 void collisionEnnemi_Base();
 void collisionEnnemi_Roger();
-
+void freeTir(tir *Tir);

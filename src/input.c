@@ -104,19 +104,9 @@ void getInput()
         {
             printf("Restart PRESSED\n");
 
-            for(i=0; i<=Game.nbEnnemiCreated; i++)
-            {
-                Officer[i].alive = 0;
-                Officer[i].x=Officer[i].y=0;
-            }
-            for(i=0; i<=MAX_TOURELLES; i++)
-            {
-                Tourelle[i].alive = 0;
-                Tourelle[i].x=Tourelle[i].y=SCREEN_WIDTH*2;
-            }
-            Game.stade = 1;
+            restart = 1;
 
-            main(0, NULL);
+           // main(0, NULL);
 
 
 

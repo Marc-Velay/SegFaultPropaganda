@@ -5,21 +5,26 @@
 int main(int argc, char *argv[])
 {
 	int go;
+    go = 1;
+
+    while(go == 1){
+
+           restart = 0;
+
+        init("Tower Defense: Stephen VS Langley Falls");
+        atexit(cleanup);
 
 
-	init("Tower Defense: Stephen VS Langley Falls");
-	atexit(cleanup);
-	go = 1;
-
-	while (go == 1)
-	{
-        doWave();
-		getInput();
-		updateScreen();
-		Game.timer +=1;
-		Player.reload++;
-		SDL_Delay(16);
-	}
+        while (restart != 1)
+        {
+            doWave();
+            getInput();
+            updateScreen();
+            Game.timer +=1;
+            Player.reload++;
+            SDL_Delay(16);
+        }
+    }
 
 	exit(0);
 }

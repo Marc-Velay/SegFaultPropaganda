@@ -45,6 +45,8 @@ void doWave()
                 {
                 Game.nbEnnemiCreated = 0;
                 createWave();
+                freeTir((*Tir).suivant);
+                (*Tir).suivant = NULL;
                 }
 
 	    }

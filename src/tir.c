@@ -111,8 +111,8 @@ void updateTir()
 }
 
 void freeTir(tir *Tir) {
-	if(Tir != NULL){ freeTir(Tir = (*Tir).suivant;) }
-	free(Tir);	
+	if(Tir != NULL){ freeTir(Tir = (*Tir).suivant); }
+	free(Tir);
 }
 
 void Tirer(int x, int y, int dir)
