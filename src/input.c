@@ -127,10 +127,10 @@ void getInput()
     }
 
    if( Player.stun  == 0){
-    if (in.mousebuttons[SDL_BUTTON_LEFT] )
+    if ((in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 30 && moux < 100) && (mouy >615 && mouy <682) ) || in.key[SDLK_1] )
     {
 
-        if(((moux > 30 && moux < 100) && (mouy >615 && mouy <682)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP  && Player.coins >= TOURELLE_1_PRICE)
+        if( Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP  && Player.coins >= TOURELLE_1_PRICE)
         {
             printf("CREATE TOURELLE 1 CLICKED\n");
             createTourelle(1);
@@ -139,10 +139,10 @@ void getInput()
     }
 
     // bouton Tourelle du centre
-    if (in.mousebuttons[SDL_BUTTON_LEFT] )
+    if ( (in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 160 && moux < 226) && (mouy >615 && mouy <682)) || in.key[SDLK_2]  )
     {
 
-        if(((moux > 160 && moux < 226) && (mouy >615 && mouy <682)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP && Player.coins >= (TOURELLE_2_PRICE + 10*(Game.nbWave-1)))
+        if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP && Player.coins >= (TOURELLE_2_PRICE + 10*(Game.nbWave-1)))
         {
             printf("CREATE TOURELLE 2 CLICKED\n");
             createTourelle(2);
@@ -151,10 +151,10 @@ void getInput()
     }
 
     // bouton Tourelle de droite
-    if (in.mousebuttons[SDL_BUTTON_LEFT] )
+    if ((in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 283 && moux < 355) && (mouy >615 && mouy <682)) || in.key[SDLK_3] )
     {
 
-        if(((moux > 283 && moux < 355) && (mouy >615 && mouy <682)) && Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP &&  Player.coins >= TOURELLE_3_PRICE)
+        if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP &&  Player.coins >= (TOURELLE_3_PRICE + 10*(Game.nbWave-1)))
         {
             printf("CREATE TOURELLE 3 CLICKED\n");
             createTourelle(3);
