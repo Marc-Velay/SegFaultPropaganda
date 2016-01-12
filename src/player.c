@@ -25,3 +25,39 @@ void drawPlayer()
             drawImage(Player.sprite, Player.x, Player.y);
         }
 }
+
+int getColPlayer()
+{
+
+    int colonne=0;
+    int temp=0;
+
+
+    while(temp<Player.x -GRID_STEP + STEPHEN_ACTUAL_WIDTH /2)
+    {
+        temp += GRID_STEP;
+        colonne++;
+    }
+    return colonne;
+
+
+}
+
+int getLanePlayer()
+{
+     int lane=0;
+    int temp=0;
+
+
+    while(temp <= Player.y - PATH_TOP_Y - GRID_STEP + STEPHEN_ACTUAL_HEIGHT /4)
+    {
+        temp += GRID_STEP;
+        lane++;
+    }
+    if(lane > 4)
+    {
+        lane =4;
+    }
+
+    return lane;
+}
