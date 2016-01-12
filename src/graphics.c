@@ -282,6 +282,18 @@ void loadAllSprites()
     loadSprite(LASER_SPRITE, "gfx/Laser_Clean.png");
 }
 
+void doOption()
+{
+
+        if(Game.drawOption == 1)
+        {
+            drawText("Upgrade", Game.xOp+4, Game.yOp+10, textFont,240,240,0);
+            drawText("Vendre  ", Game.xOp+5, Game.yOp+32, textFont,240,240,0);
+
+        }
+}
+
+
 
 void updateScreen()
 {
@@ -314,8 +326,12 @@ void updateScreen()
         drawText("Coins: ", 950, 685, textFont,97,117,18);
         sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
         drawText(string, 1000, 685, textFont,97,117,18);
+
+
+
         drawOfficer();
         drawTourelle();
+        doOption();
         drawPlayer();
         updateTir();
         collision();

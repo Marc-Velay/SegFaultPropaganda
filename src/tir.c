@@ -85,7 +85,7 @@ void updateTir()
                 for(i=0; i<50; i++)
                 {
                     (*newTir).x +=1;
-                    if((*newTir).x >= SCREEN_WIDTH)
+                    if((*newTir).x >= SCREEN_WIDTH || (*newTir).x < 0)
                     {
                         (*newTir).x = (*newTir).y = (*newTir).on =0;
                     }

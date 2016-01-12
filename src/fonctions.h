@@ -59,6 +59,9 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
     int nbWave;
     int nbTourelle;
     int hpBase;
+    int restart;
+    int drawOption,xOp,yOp;
+    int pushBack,doubleShot,deadAIM,AOE;
 } game;
 
 typedef struct player			// structure de Stephen
@@ -138,7 +141,7 @@ game Game;
 Sprites sprite[MAX_SPRITES];
 laserDefense Laserdef[MAX_LASERDEFENSE];
 tir *Tir;
-int restart;
+
 
 
 // ************** graphics.c
@@ -171,6 +174,8 @@ int main(int argc, char *argv[]);
 // ************** player.c
 void drawPlayer();
 void initPlayer();
+int getLanePlayer();
+int getColPlayer();
 
 // ************** ennemi.c
 void initOfficer(int n, int lane);
@@ -187,6 +192,8 @@ void initTourelle(int n, int colonne, int lane, int type);
 void drawTourelle();
 void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
 void createTourelle(int type);
+void SellTourelle(int x, int y);
+void UpgradeTourelle(int x, int y);
 
 // ************** tir.c
 void initTir(int x, int y, int dir);
@@ -200,3 +207,4 @@ void collisionEnnemi_Tourelle();
 void collisionEnnemi_Base();
 void collisionEnnemi_Roger();
 void freeTir(tir *Tir);
+void Jeu();

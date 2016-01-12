@@ -104,7 +104,7 @@ void getInput()
         {
             printf("Restart PRESSED\n");
 
-            restart = 1;
+            Game.restart = 1;
 
            // main(0, NULL);
 
@@ -162,6 +162,64 @@ void getInput()
         }
     }
 
+    if ((in.mousebuttons[SDL_BUTTON_RIGHT] && (moux < SCREEN_WIDTH - 3*GRID_STEP) && (mouy >PATH_TOP_Y && mouy < PATH_BOTTOM_Y)) && Game.stade ==1 )
+        {
+
+
+            for(i=0;i<MAX_TOURELLES;i++)
+            {
+                if(Tourelle[i].x < moux && Tourelle[i].x + 60 > moux  && Tourelle[i].y < mouy && Tourelle[i].y + 50 > mouy && Tourelle[i].alive == 1)
+                {
+                    Game.drawOption = 1;
+                    Game.xOp = Tourelle[i].x ;
+                    Game.yOp = Tourelle[i].y ;
+                }
+
+            }
+        }
+
+        if(in.mousebuttons[SDL_BUTTON_LEFT] && Game.drawOption == 1 )
+        {
+            if((moux > Game.xOp && moux < Game.xOp+60) && (mouy > Game.yOp && mouy < Game.yOp+35))
+            {
+                UpgradeTourelle(Game.xOp,Game.yOp);
+                Game.drawOption = 0;
+            }
+
+            else if((moux > Game.xOp && moux < Game.xOp+60) && (mouy > Game.yOp +35 && mouy < Game.yOp+55))
+            {
+                SellTourelle(Game.xOp,Game.yOp);
+                Game.drawOption = 0;
+            }
+            else
+            {
+                Game.drawOption = 0;
+            }
+        }
+
+        if(in.key[SDLK_4] && Game.stade == 1)
+        {
+            if(Game.pushBack != 1){Game.pushBack = 1;}
+            else{Game.pushBack = 0;}
+        }
+
+       if(in.key[SDLK_5] && Game.stade == 1)
+        {
+            if(Game.doubleShot != 1){Game.doubleShot = 1;}
+            else{Game.doubleShot = 0;}
+
+        }
+        if(in.key[SDLK_6] && Game.stade == 1)
+        {
+            if(Game.deadAIM != 1){Game.deadAIM = 1;}
+            else{Game.deadAIM = 0;}
+        }
+
+        if(in.key[SDLK_7] && Game.stade == 1)
+        {
+            if(Game.AOE != 1){Game.AOE = 1;}
+            else{Game.AOE = 0;}
+        }
     /************************************TOURELLES*********************************/
 
 
