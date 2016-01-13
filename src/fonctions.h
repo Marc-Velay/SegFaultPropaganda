@@ -161,7 +161,6 @@ officer Officer[MAX_OFFICERS];			//Tableau contenant les ennemis cree
 tourelle Tourelle[MAX_TOURELLES];
 game Game;
 Sprites sprite[MAX_SPRITES];
-laserDefense Laserdef[MAX_LASERDEFENSE];
 tir *Tir;
 
 
