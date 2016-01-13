@@ -292,6 +292,7 @@ void loadAllSprites()
     loadSprite(BASE_HEALTH_7_SPRITE, "gfx/HPBar-7.png");
     loadSprite(BASE_HEALTH_8_SPRITE, "gfx/HPBar-8.png");
     loadSprite(BASE_HEALTH_9_SPRITE, "gfx/HPBar-9.png");
+    loadSprite(LIFE_SPRITE, "gfx/Life.png");
     loadSprite(LASER_SPRITE, "gfx/Laser_Clean.png");
 }
 

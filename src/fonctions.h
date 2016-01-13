@@ -82,7 +82,7 @@ typedef struct tourelle
 {
     int x, y;
     int alive;
-    int hpTourelle;
+    float hpTourelle;
     int lane;
     int reloadrate;
     int type;
