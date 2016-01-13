@@ -331,7 +331,11 @@ void doInterface() {
 
 
 void doBaseHealth() {
-	switch(Game.hpBase) {
+	if(Game.stade == 1 && Game.hpBase >0 ) {
+	switch(Game.hpBase%11) {
+		case 0:
+			printf("BASE DIED\n");
+			break;
 		case 1:
 			drawImage(getSprite(BASE_HEALTH_9_SPRITE), 723, 600);
 			break;
@@ -362,11 +366,7 @@ void doBaseHealth() {
 		case 10:
 			drawImage(getSprite(BASE_HEALTH_0_SPRITE), 723, 600);
 			break;
-			
-		default:			
-			drawImage(getSprite(BASE_HEALTH_9_SPRITE), 723, 600);
-			break;
-			
+	}				
 	}
 }
 
@@ -390,12 +390,12 @@ void updateScreen()
         drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
 	
 	doInterface();
+	if(Game.hpBase >0 ) {doBaseHealth();}
         drawOfficer();
         drawTourelle();
         drawPlayer();
         doOption();
         updateTir();
-	doBaseHealth();
         collision();
         break;
 

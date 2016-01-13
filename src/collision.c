@@ -119,10 +119,12 @@ void collisionEnnemi_Base()
                 {
 
                     Game.hpBase --;
+		    if(Game.hpBase <= 0) {Game.hpBase =0;}
 
                     if(Game.hpBase == 0)
                     {
                         Game.stade = 2;
+			Game.hpBase =0;
                     }
                 }
             }
@@ -137,10 +139,12 @@ void collisionEnnemi_Base()
                 {
 
                     Game.hpBase --;
+		    if(Game.hpBase <= 0) {Game.hpBase =0;}
 
                     if(Game.hpBase <= 0)
                     {
                         Game.stade = 2;
+			Game.hpBase =0;
                     }
                 }
             }
