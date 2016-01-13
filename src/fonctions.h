@@ -138,6 +138,7 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     BASE_HEALTH_7_SPRITE,
     BASE_HEALTH_8_SPRITE,
     BASE_HEALTH_9_SPRITE,
+    LIFE_SPRITE,
     LASER_SPRITE,
     MAX_SPRITES
 };
