@@ -309,7 +309,6 @@ void doOption()
 
 void doInterface() {
 	char string[20] ;
-	sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
     
 	drawText("Prix: ", 10, 685, textFont,97,117,18);
         sprintf(string,"%d", TOURELLE_1_PRICE);
@@ -330,6 +329,46 @@ void doInterface() {
             }
 }
 
+
+void doBaseHealth() {
+	switch(Game.hpBase) {
+		case 1:
+			drawImage(getSprite(BASE_HEALTH_9_SPRITE), 723, 600);
+			break;
+		case 2:			
+			drawImage(getSprite(BASE_HEALTH_8_SPRITE), 723, 600);
+			break;
+		case 3:
+			drawImage(getSprite(BASE_HEALTH_7_SPRITE), 723, 600);
+			break;
+		case 4:
+			drawImage(getSprite(BASE_HEALTH_6_SPRITE), 723, 600);
+			break;
+		case 5:
+			drawImage(getSprite(BASE_HEALTH_5_SPRITE), 723, 600);
+			break;
+		case 6:
+			drawImage(getSprite(BASE_HEALTH_4_SPRITE), 723, 600);
+			break;
+		case 7:
+			drawImage(getSprite(BASE_HEALTH_3_SPRITE), 723, 600);
+			break;
+		case 8:
+			drawImage(getSprite(BASE_HEALTH_2_SPRITE), 723, 600);
+			break;
+		case 9:
+			drawImage(getSprite(BASE_HEALTH_1_SPRITE), 723, 600);
+			break;
+		case 10:
+			drawImage(getSprite(BASE_HEALTH_0_SPRITE), 723, 600);
+			break;
+			
+		default:			
+			drawImage(getSprite(BASE_HEALTH_9_SPRITE), 723, 600);
+			break;
+			
+	}
+}
 
 
 void updateScreen()
@@ -356,6 +395,7 @@ void updateScreen()
         drawPlayer();
         doOption();
         updateTir();
+	doBaseHealth();
         collision();
         break;
 

@@ -148,7 +148,7 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     MAX_SPRITES
 };
 
-SDL_Surface *screen, *Background, *Text;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
+SDL_Surface *screen, *Background, *Text, *health;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
 TTF_Font *Font; 						//la police du texte
 TTF_Font *textFont;
 player Player;
@@ -175,7 +175,7 @@ void loadAllSprites();		//liste des sprites a lister
 void updateScreen();	//fonction utilisee pour refresh l'ecran avec les nouvelles positions des images, apres avoir mis a jour chaque elem du jeu
 void doInterface();
 void doOption();
-
+void doBaseHealth();
 
 // ************** init.c
 void init(char *title);		//initialise les librairies et certains elements
