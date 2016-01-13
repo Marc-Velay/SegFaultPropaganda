@@ -139,8 +139,12 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     BASE_HEALTH_8_SPRITE,
     BASE_HEALTH_9_SPRITE,
     LIFE_SPRITE,
+<<<<<<< HEAD
     LASER_L_SPRITE,
     LASER_R_SPRITE,
+=======
+    LASER_SPRITE,
+>>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
     MAX_SPRITES
 };
 
@@ -155,8 +159,12 @@ enum
 };
 
 SDL_Surface *screen, *Background, *Text, *health;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
+<<<<<<< HEAD
 TTF_Font *TitleFont; 						//la police du texte
 TTF_Font *SubTitleFont;
+=======
+TTF_Font *Font; 						//la police du texte
+>>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
 TTF_Font *textFont;
 player Player;
 officer Officer[MAX_OFFICERS];			//Tableau contenant les ennemis cree

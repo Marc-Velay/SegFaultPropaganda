@@ -9,16 +9,26 @@ void initTir(int x, int y, int dir)
     {
         newTir = (tir*)malloc(sizeof(tir));
         (*newTir).suivant =NULL;
+<<<<<<< HEAD
+=======
+        (*newTir).sprite = getSprite(LASER_SPRITE);
+>>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
         (*newTir).dir = dir;
         if((*newTir).dir==0)
         {
             (*newTir).x = x + (GRID_STEP/2);
+<<<<<<< HEAD
             (*newTir).sprite = getSprite(LASER_R_SPRITE);
+=======
+>>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
         }
         if((*newTir).dir==1)
         {
             (*newTir).x = x - GRID_STEP;
+<<<<<<< HEAD
             (*newTir).sprite = getSprite(LASER_L_SPRITE);
+=======
+>>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
         }
         (*newTir).y = y;
         (*newTir).on = 1;
@@ -34,16 +44,26 @@ void initTir(int x, int y, int dir)
             {
                 newTir = (tir*)malloc(sizeof(tir));
                 (*newTir).suivant =NULL;
+<<<<<<< HEAD
+=======
+                (*newTir).sprite = getSprite(LASER_SPRITE);
+>>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
                 (*newTir).dir = dir;
                 if((*newTir).dir==0)
                 {
                     (*newTir).x = x + (GRID_STEP/2);
+<<<<<<< HEAD
                     (*newTir).sprite = getSprite(LASER_R_SPRITE);
+=======
+>>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
                 }
                 if((*newTir).dir==1)
                 {
                     (*newTir).x = x - GRID_STEP;
+<<<<<<< HEAD
                     (*newTir).sprite = getSprite(LASER_L_SPRITE);
+=======
+>>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
                 }
                 (*newTir).y = y;
                 (*newTir).on = 1;
