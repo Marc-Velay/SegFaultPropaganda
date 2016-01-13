@@ -148,12 +148,9 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
 
 enum
 {
-    BASIC_UP,
     PUSH_UP,
-    DOUBLE_UP,
-    DEAD_AIM_UP,
+    SPEED_UP,
     AOE
-
 };
 
 SDL_Surface *screen, *Background, *Text, *health;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
