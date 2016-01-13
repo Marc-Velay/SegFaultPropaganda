@@ -63,7 +63,7 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
     int nbWave;
     int nbTourelle;
     int hpBase;
-    int restart;
+    float restart;
     int drawOption,xOp,yOp;
     int pushBack,doubleShot,deadAIM,AOE;
 } game;
@@ -75,6 +75,7 @@ typedef struct player			// structure de Stephen
     int reload;
     int coins;
     int stun, stuntime;
+    int level;
     SDL_Surface *sprite;
 } player;
 
@@ -86,9 +87,9 @@ typedef struct tourelle
     int lane;
     int reloadrate;
     int type;
-    SDL_Surface *sprite;
     int degat, effet;
     int level;
+    SDL_Surface *sprite;
 } tourelle;
 
 typedef struct tir
@@ -96,9 +97,10 @@ typedef struct tir
     int x, y;
     int dir;
     int on;
+    int degat, effet;
     struct tir* suivant;
     SDL_Surface *sprite;
-    int degat, effet;
+
 } tir;
 
 typedef struct officer

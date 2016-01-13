@@ -30,7 +30,7 @@ void init(char *title)
     for(i=0; i<=MAX_OFFICERS; i++)
             {
                 Officer[i].alive = 0;
-                Officer[i].x=Officer[i].y=0;
+                Officer[i].x=Officer[i].y=-3*SCREEN_WIDTH;
             }
             for(i=0; i<=MAX_TOURELLES; i++)
             {

@@ -55,9 +55,19 @@ void getInput()
     /************************************MENU*********************************/
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 555 && moux < 883) && (mouy >240 && mouy <279)) && Game.stade ==0)
+        if(((moux > 515 && moux < 755) && (mouy >275 && mouy <325)) && Game.stade ==0)
         {
-            printf("START GAME CLICKED\n");
+            printf("START GAME PRESSED\n");
+            Game.stade = 1;
+        }
+        printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
+    }
+
+     if (in.mousebuttons[SDL_BUTTON_LEFT])
+    {
+        if(((moux > 555 && moux < 725) && (mouy >375 && mouy <420)) && Game.stade ==0)
+        {
+            printf("TUTORIAL PRESSED\n");
             Game.stade = 1;
         }
         printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
@@ -65,7 +75,7 @@ void getInput()
 
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 554 && moux < 737) && (mouy >366 && mouy <405)) && Game.stade ==0)
+        if(((moux > 580 && moux < 695) && (mouy >475 && mouy <520)) && Game.stade ==0)
         {
             printf("ABOUT PRESSED\n");
             Game.stade = 2;
@@ -74,7 +84,7 @@ void getInput()
 
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 602 && moux < 673) && (mouy >480 && mouy <530)) && Game.stade ==0)
+        if(((moux > 600 && moux < 675) && (mouy >575 && mouy <620)) && Game.stade ==0)
         {
             printf("QUIT PRESSED\n");
             SDL_Quit();
