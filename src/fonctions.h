@@ -11,7 +11,7 @@
 
 #define SCREEN_WIDTH 1280		//Defini la taille de la fenetre
 #define SCREEN_HEIGHT 720
-#define STEPHEN_ACTUAL_HEIGHT 65 
+#define STEPHEN_ACTUAL_HEIGHT 65
 #define STEPHEN_ACTUAL_WIDTH 35
 #define MENU_HEIGHT 145
 
@@ -35,8 +35,12 @@
 #define TOURELLE_3_RELOADRATE 20
 #define TOURELLE_3_PRICE 200
 
+#define UPGRADE_PRICE 20
+
 #define OFFICIER_1_HP 5
 #define OFFICIER_1_RELOADRATE 20
+
+
 
 typedef struct Input			//structure utilisée pour récuperer les touches clavier/ sourie appuyées
 {

@@ -327,6 +327,11 @@ void updateScreen()
         sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
         drawText(string, 1000, 685, textFont,97,117,18);
 
+        if(Game.countdown - Game.timer > 0 && Game.nbEnnemiAlive == 0 )
+            {
+            sprintf(string,"%d", (Game.countdown+1 - Game.timer)/30 );
+            drawMenu(string, 500, 250, Font);
+            }
 
 
         drawOfficer();

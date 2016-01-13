@@ -36,22 +36,30 @@ void createWave()
 
 void doWave()
 {
-     if(Game.nbEnnemiAlive==0 && Game.stade == 1 ){
+     if(Game.nbEnnemiAlive==0 && Game.stade == 1 )
+        {
 
-            if(Game.countdown - Game.timer < 0 ){
+            if(Game.countdown - Game.timer < 0 )
+            {
+
                 Game.countdown = Game.timer + 120;
-            }
-                else if(Game.countdown - Game.timer == 0)
-                {
-                Game.nbEnnemiCreated = 0;
-                createWave();
-                if(Tir != NULL){
-                freeTir((*Tir).suivant);
-                (*Tir).suivant = NULL;
-                }
-                }
 
-	    }
+                if(Tir != NULL)
+                        {
+                        freeTir((*Tir).suivant);
+                        (*Tir).suivant = NULL;
+                        }
+            }
+
+            else if(Game.countdown - Game.timer == 0 )
+            {
+                    Game.nbEnnemiCreated = 0;
+                    createWave();
+
+
+            }
+
+        }
 }
 
 void createOfficers()
