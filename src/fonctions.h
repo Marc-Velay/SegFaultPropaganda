@@ -173,6 +173,9 @@ SDL_Surface *getSprite(int index);	//recup l'image dans la case index du tableau
 void freeSprites();		//libere toutes les images du tableau
 void loadAllSprites();		//liste des sprites a lister
 void updateScreen();	//fonction utilisee pour refresh l'ecran avec les nouvelles positions des images, apres avoir mis a jour chaque elem du jeu
+void doInterface();
+void doOption();
+
 
 // ************** init.c
 void init(char *title);		//initialise les librairies et certains elements
