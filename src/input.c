@@ -55,7 +55,7 @@ void getInput()
     /************************************MENU*********************************/
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 543 && moux < 737) && (mouy >223 && mouy <256)) && Game.stade ==0)
+        if(((moux > 555 && moux < 883) && (mouy >240 && mouy <279)) && Game.stade ==0)
         {
             printf("START GAME CLICKED\n");
             Game.stade = 1;
@@ -65,7 +65,7 @@ void getInput()
 
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 588 && moux < 689) && (mouy >353 && mouy <401)) && Game.stade ==0)
+        if(((moux > 554 && moux < 737) && (mouy >366 && mouy <405)) && Game.stade ==0)
         {
             printf("ABOUT PRESSED\n");
             Game.stade = 2;

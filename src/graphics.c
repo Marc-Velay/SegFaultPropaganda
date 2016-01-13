@@ -275,10 +275,23 @@ void loadAllSprites()
     textFont = loadFont("sfd/FreeSans.ttf", 15);
     loadSprite(PLAYER_R_SPRITE, "gfx/Roger_CleanR.png");
     loadSprite(PLAYER_L_SPRITE, "gfx/Roger_CleanL.png");
-    loadSprite(BACKGROUND_LAUNCH_SPRITE, "gfx/TerrainV2.png");
-    loadSprite(BACKGROUND_SPRITE, "gfx/TerrainV3.png");
+    loadSprite(BACKGROUND_LAUNCH_SPRITE, "gfx/Menu.png");
+    loadSprite(BACKGROUND_END_SPRITE, "gfx/TerrainV2.png");
+    loadSprite(BACKGROUND_SPRITE, "gfx/TerrainV4.png");
     loadSprite(OFFICER_SPRITE, "gfx/Agent_Clean.png");
-    loadSprite(TOURELLE_SPRITE, "gfx/Tourelle_Clean.png");
+    loadSprite(TOURELLE_1_SPRITE, "gfx/Tourelle_Clean.png");
+    loadSprite(TOURELLE_2_SPRITE, "gfx/Tourelle_Clean2.png");
+    loadSprite(TOURELLE_3_SPRITE, "gfx/Tourelle_Clean.png");    
+    loadSprite(BASE_HEALTH_0_SPRITE, "gfx/FullHPBar.png");
+    loadSprite(BASE_HEALTH_1_SPRITE, "gfx/HPBar-1.png");
+    loadSprite(BASE_HEALTH_2_SPRITE, "gfx/HPBar-2.png");
+    loadSprite(BASE_HEALTH_3_SPRITE, "gfx/HPBar-3.png");
+    loadSprite(BASE_HEALTH_4_SPRITE, "gfx/HPBar-4.png");
+    loadSprite(BASE_HEALTH_5_SPRITE, "gfx/HPBar-5.png");
+    loadSprite(BASE_HEALTH_6_SPRITE, "gfx/HPBar-6.png");
+    loadSprite(BASE_HEALTH_7_SPRITE, "gfx/HPBar-7.png");
+    loadSprite(BASE_HEALTH_8_SPRITE, "gfx/HPBar-8.png");
+    loadSprite(BASE_HEALTH_9_SPRITE, "gfx/HPBar-9.png");
     loadSprite(LASER_SPRITE, "gfx/Laser_Clean.png");
 }
 
@@ -306,8 +319,6 @@ void updateScreen()
     {
     case 0:
         drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
-        drawMenu("START GAME", 0, 0, Font);
-        drawMenu("ABOUT", 0, 130, Font);
         drawMenu("QUIT", 0, 260, Font);
         break;
 
@@ -316,6 +327,7 @@ void updateScreen()
         doEnnemi();
         doTourelle();
         drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
+	
         drawText("Prix: ", 10, 685, textFont,97,117,18);
         sprintf(string,"%d", TOURELLE_1_PRICE);
         drawText(string, 50, 685, textFont,97,117,18);
@@ -331,15 +343,15 @@ void updateScreen()
 
         drawOfficer();
         drawTourelle();
-        doOption();
         drawPlayer();
+        doOption();
         updateTir();
         collision();
         break;
 
 
     case 2:
-        drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
+        drawImage(getSprite(BACKGROUND_END_SPRITE), 0, 0);
         drawMenu("GAME OVER !", 0, 0, Font);
         drawMenu("Play again?", 0, 200, Font);
         break;
