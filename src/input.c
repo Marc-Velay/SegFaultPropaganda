@@ -182,8 +182,17 @@ void getInput()
         {
             if((moux > Game.xOp && moux < Game.xOp+60) && (mouy > Game.yOp && mouy < Game.yOp+35))
             {
-                UpgradeTourelle(Game.xOp,Game.yOp);
-                Game.drawOption = 0;
+                if(Player.coins >= UPGRADE_PRICE)
+                    {
+                    UpgradeTourelle(Game.xOp,Game.yOp);
+                    Game.drawOption = 0;
+                    }
+
+                else
+                    {
+                    Game.drawOption = 0;
+                    }
+
             }
 
             else if((moux > Game.xOp && moux < Game.xOp+60) && (mouy > Game.yOp +35 && mouy < Game.yOp+55))

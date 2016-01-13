@@ -4,7 +4,7 @@
 
 void Jeu()
 {
-    doWave();
+            doWave();
             getInput();
             updateScreen();
             Game.timer +=1;
