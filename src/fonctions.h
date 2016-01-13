@@ -87,16 +87,9 @@ typedef struct tourelle
     int reloadrate;
     int type;
     SDL_Surface *sprite;
+    int degat, effet;
+    int level;
 } tourelle;
-
-typedef struct laserDefense
-{
-    int x, y;
-    int direction;
-    int on;
-    int reload;
-    SDL_Surface *sprite;
-} laserDefense;
 
 typedef struct tir
 {
@@ -105,6 +98,7 @@ typedef struct tir
     int on;
     struct tir* suivant;
     SDL_Surface *sprite;
+    int degat, effet;
 } tir;
 
 typedef struct officer
@@ -146,6 +140,16 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     BASE_HEALTH_9_SPRITE,
     LASER_SPRITE,
     MAX_SPRITES
+};
+
+enum
+{
+    BASIC_UP,
+    PUSH_UP,
+    DOUBLE_UP,
+    DEAD_AIM_UP,
+    AOE
+
 };
 
 SDL_Surface *screen, *Background, *Text, *health;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
