@@ -132,21 +132,12 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
     /* White text on a black background */
 
     foregroundColor.r = 0;
-<<<<<<< HEAD
     foregroundColor.g = 150;
     foregroundColor.b = 200;
 
     backgroundColor.r = 0;
     backgroundColor.g = 0;
     backgroundColor.b = 0;
-=======
-    foregroundColor.g = 0;
-    foregroundColor.b = 0;
-
-    backgroundColor.r = 255;
-    backgroundColor.g = 255;
-    backgroundColor.b = 255;
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
 
     /* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
@@ -280,12 +271,8 @@ void freeSprites()
 
 void loadAllSprites()
 {
-<<<<<<< HEAD
     TitleFont = loadFont("sfd/PIXEL.ttf", 90);
     SubTitleFont = loadFont("sfd/PIXEL.ttf", 50);
-=======
-    Font = loadFont("sfd/FreeSans.ttf", 30);
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
     textFont = loadFont("sfd/FreeSans.ttf", 15);
     loadSprite(PLAYER_R_SPRITE, "gfx/Roger_CleanR.png");
     loadSprite(PLAYER_L_SPRITE, "gfx/Roger_CleanL.png");
@@ -295,11 +282,7 @@ void loadAllSprites()
     loadSprite(OFFICER_SPRITE, "gfx/Agent_Clean.png");
     loadSprite(TOURELLE_1_SPRITE, "gfx/Tourelle_Clean.png");
     loadSprite(TOURELLE_2_SPRITE, "gfx/TourelleTriple.png");
-<<<<<<< HEAD
     loadSprite(TOURELLE_3_SPRITE, "gfx/Tourelle_Clean2.png");
-=======
-    loadSprite(TOURELLE_3_SPRITE, "gfx/Tourelle_Clean2.png");    
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
     loadSprite(BASE_HEALTH_0_SPRITE, "gfx/FullHPBar.png");
     loadSprite(BASE_HEALTH_1_SPRITE, "gfx/HPBar-1.png");
     loadSprite(BASE_HEALTH_2_SPRITE, "gfx/HPBar-2.png");
@@ -311,12 +294,8 @@ void loadAllSprites()
     loadSprite(BASE_HEALTH_8_SPRITE, "gfx/HPBar-8.png");
     loadSprite(BASE_HEALTH_9_SPRITE, "gfx/HPBar-9.png");
     loadSprite(LIFE_SPRITE, "gfx/Life.png");
-<<<<<<< HEAD
     loadSprite(LASER_R_SPRITE, "gfx/Laser_R_Clean.png");
     loadSprite(LASER_L_SPRITE, "gfx/Laser_L_Clean.png");
-=======
-    loadSprite(LASER_SPRITE, "gfx/Laser_Clean.png");
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
 }
 
 void doOption()
@@ -333,11 +312,7 @@ void doOption()
 
 void doInterface() {
 	char string[20] ;
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
 	drawText("Prix: ", 10, 685, textFont,97,117,18);
         sprintf(string,"%d", TOURELLE_1_PRICE);
         drawText(string, 50, 685, textFont,97,117,18);
@@ -348,11 +323,7 @@ void doInterface() {
         drawText("Coins: ", 950, 685, textFont,97,117,18);
         sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
         drawText(string, 1000, 685, textFont,97,117,18);
-<<<<<<< HEAD
 
-=======
-		       
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
 	drawImage(getSprite(TOURELLE_1_SPRITE), 35, 617);
 	drawImage(getSprite(TOURELLE_2_SPRITE), 162, 617);
 	drawImage(getSprite(TOURELLE_3_SPRITE), 292, 617);
@@ -360,11 +331,7 @@ void doInterface() {
         if(Game.countdown - Game.timer > 0 && Game.nbEnnemiAlive == 0 )
             {
             sprintf(string,"%d", (Game.countdown+1 - Game.timer)/30 );
-<<<<<<< HEAD
             drawMenu(string, 500, 250, textFont);
-=======
-            drawMenu(string, 500, 250, Font);
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
             }
 }
 
@@ -378,11 +345,7 @@ void doBaseHealth() {
 		case 1:
 			drawImage(getSprite(BASE_HEALTH_9_SPRITE), 723, 600);
 			break;
-<<<<<<< HEAD
 		case 2:
-=======
-		case 2:			
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
 			drawImage(getSprite(BASE_HEALTH_8_SPRITE), 723, 600);
 			break;
 		case 3:
@@ -409,11 +372,7 @@ void doBaseHealth() {
 		case 10:
 			drawImage(getSprite(BASE_HEALTH_0_SPRITE), 723, 600);
 			break;
-<<<<<<< HEAD
 	}
-=======
-	}				
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
 	}
 }
 
@@ -427,16 +386,12 @@ void updateScreen()
     {
     case 0:
         drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
-<<<<<<< HEAD
         drawMenu("Stephen VS Langley Falls", 0, -120, TitleFont);
         drawMenu("Start Game", 0, 50, SubTitleFont);
         drawMenu("Tutorial", 0, 150, SubTitleFont);
         drawMenu("about", 0, 250, SubTitleFont);
         drawMenu("Quit", 0, 350, SubTitleFont);
         drawImage(getSprite(PLAYER_R_SPRITE), 380, 265);
-=======
-        drawMenu("QUIT", 0, 260, Font);
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
         break;
 
 
@@ -444,11 +399,7 @@ void updateScreen()
         doEnnemi();
         doTourelle();
         drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
 	doInterface();
 	if(Game.hpBase >0 ) {doBaseHealth();}
         drawOfficer();
@@ -462,13 +413,8 @@ void updateScreen()
 
     case 2:
         drawImage(getSprite(BACKGROUND_END_SPRITE), 0, 0);
-<<<<<<< HEAD
         drawMenu("GAME OVER !", 0, 0, SubTitleFont);
         drawMenu("Play again?", 0, 200, SubTitleFont);
-=======
-        drawMenu("GAME OVER !", 0, 0, Font);
-        drawMenu("Play again?", 0, 200, Font);
->>>>>>> 4c3c756d3e9f483b0898a3b67f61ce85b68a7bf8
         break;
     }
 
