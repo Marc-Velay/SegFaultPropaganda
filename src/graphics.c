@@ -307,13 +307,35 @@ void doOption()
 }
 
 
+void doInterface() {
+	char string[20] ;
+	sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
+    
+	drawText("Prix: ", 10, 685, textFont,97,117,18);
+        sprintf(string,"%d", TOURELLE_1_PRICE);
+        drawText(string, 50, 685, textFont,97,117,18);
+        sprintf(string,"%d", TOURELLE_2_PRICE + 10*(Game.nbWave-1));
+        drawText(string, 180, 685, textFont,97,117,18);
+        sprintf(string,"%d", TOURELLE_3_PRICE + 10*(Game.nbWave-1));
+        drawText(string, 310, 685, textFont,97,117,18);
+        drawText("Coins: ", 950, 685, textFont,97,117,18);
+        sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
+        drawText(string, 1000, 685, textFont,97,117,18);
+		       
+
+        if(Game.countdown - Game.timer > 0 && Game.nbEnnemiAlive == 0 )
+            {
+            sprintf(string,"%d", (Game.countdown+1 - Game.timer)/30 );
+            drawMenu(string, 500, 250, Font);
+            }
+}
+
+
 
 void updateScreen()
 {
     /* Blank the screen */
     SDL_FillRect(screen, NULL, 0);
-    char string[20] ;
-    sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
 
     switch(Game.stade)
     {
@@ -328,24 +350,7 @@ void updateScreen()
         doTourelle();
         drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
 	
-        drawText("Prix: ", 10, 685, textFont,97,117,18);
-        sprintf(string,"%d", TOURELLE_1_PRICE);
-        drawText(string, 50, 685, textFont,97,117,18);
-        sprintf(string,"%d", TOURELLE_2_PRICE + 10*(Game.nbWave-1));
-        drawText(string, 180, 685, textFont,97,117,18);
-        sprintf(string,"%d", TOURELLE_3_PRICE + 10*(Game.nbWave-1));
-        drawText(string, 310, 685, textFont,97,117,18);
-        drawText("Coins: ", 950, 685, textFont,97,117,18);
-        sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
-        drawText(string, 1000, 685, textFont,97,117,18);
-
-        if(Game.countdown - Game.timer > 0 && Game.nbEnnemiAlive == 0 )
-            {
-            sprintf(string,"%d", (Game.countdown+1 - Game.timer)/30 );
-            drawMenu(string, 500, 250, Font);
-            }
-
-
+	doInterface();
         drawOfficer();
         drawTourelle();
         drawPlayer();
