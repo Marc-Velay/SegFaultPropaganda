@@ -280,8 +280,8 @@ void loadAllSprites()
     loadSprite(BACKGROUND_SPRITE, "gfx/TerrainV4.png");
     loadSprite(OFFICER_SPRITE, "gfx/Agent_Clean.png");
     loadSprite(TOURELLE_1_SPRITE, "gfx/Tourelle_Clean.png");
-    loadSprite(TOURELLE_2_SPRITE, "gfx/Tourelle_Clean2.png");
-    loadSprite(TOURELLE_3_SPRITE, "gfx/Tourelle_Clean.png");    
+    loadSprite(TOURELLE_2_SPRITE, "gfx/TourelleTriple.png");
+    loadSprite(TOURELLE_3_SPRITE, "gfx/Tourelle_Clean2.png");    
     loadSprite(BASE_HEALTH_0_SPRITE, "gfx/FullHPBar.png");
     loadSprite(BASE_HEALTH_1_SPRITE, "gfx/HPBar-1.png");
     loadSprite(BASE_HEALTH_2_SPRITE, "gfx/HPBar-2.png");

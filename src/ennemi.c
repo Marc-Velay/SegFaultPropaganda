@@ -89,6 +89,7 @@ void drawOfficer()
             {
 
                 drawImage(Officer[i].sprite, Officer[i].x, Officer[i].y);
+		
             }
         }
     }
