@@ -347,8 +347,8 @@ void doInterface() {
 
 
 void doBaseHealth() {
-	if(Game.stade == 1 && Game.hpBase >0 ) {
-	switch(Game.hpBase%11) {
+	if(Game.stade == 1 ) {
+	switch(Game.hpBase%10) {
 		case 0:
 			printf("BASE DIED\n");
 			break;
@@ -387,6 +387,10 @@ void doBaseHealth() {
 }
 
 
+void drawMenuPointer() {	
+        drawImage(getSprite(PLAYER_R_SPRITE), 380, Game.MenuPointer);
+}
+
 void updateScreen()
 {
     /* Blank the screen */
@@ -401,7 +405,7 @@ void updateScreen()
         drawMenu("Tutorial", 0, 150, SubTitleFont);
         drawMenu("about", 0, 250, SubTitleFont);
         drawMenu("Quit", 0, 350, SubTitleFont);
-        drawImage(getSprite(PLAYER_R_SPRITE), 380, 265);
+	drawMenuPointer();
         break;
 
 

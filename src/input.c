@@ -55,7 +55,7 @@ void getInput()
     /************************************MENU*********************************/
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 515 && moux < 755) && (mouy >275 && mouy <325)) && Game.stade ==0)
+        if(((moux > 521 && moux < 760) && (mouy >277 && mouy <319)) && Game.stade ==0)
         {
             printf("START GAME PRESSED\n");
             Game.stade = 1;
@@ -65,17 +65,16 @@ void getInput()
 
      if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 555 && moux < 725) && (mouy >375 && mouy <420)) && Game.stade ==0)
+        if(((moux > 550 && moux < 726) && (mouy >379 && mouy <416)) && Game.stade ==0)
         {
             printf("TUTORIAL PRESSED\n");
             Game.stade = 1;
         }
-        printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
     }
 
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 580 && moux < 695) && (mouy >475 && mouy <520)) && Game.stade ==0)
+        if(((moux > 581 && moux < 696) && (mouy >477 && mouy <518)) && Game.stade ==0)
         {
             printf("ABOUT PRESSED\n");
             Game.stade = 2;
@@ -84,23 +83,37 @@ void getInput()
 
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 600 && moux < 675) && (mouy >575 && mouy <620)) && Game.stade ==0)
+        if(((moux > 595 && moux < 684) && (mouy >580 && mouy <620)) && Game.stade ==0)
         {
             printf("QUIT PRESSED\n");
             SDL_Quit();
             exit(0);
         }
     }
-
-      if (in.mousebuttons[SDL_BUTTON_LEFT])
+	
+	if (Game.stade == 0)
     {
-        if(((moux > 540 && moux < 737) && (mouy >223 && mouy <273)) && Game.stade ==2)
+        if(((moux > 521 && moux < 760) && (mouy >277 && mouy <319)) && Game.stade ==0)
         {
-            printf("QUIT PRESSED\n");
-            SDL_Quit();
-            exit(0);
+            Game.MenuPointer = 260;
         }
-    }
+    
+   
+        if(((moux > 550 && moux < 726) && (mouy >379 && mouy <416)) && Game.stade ==0)
+        {
+            Game.MenuPointer = 360;
+        }
+     
+        if(((moux > 581 && moux < 696) && (mouy >477 && mouy <518)) && Game.stade ==0)
+        {
+            Game.MenuPointer = 460;
+        }
+    
+        if(((moux > 595 && moux < 684) && (mouy >580 && mouy <620)) && Game.stade ==0)
+        {
+           Game.MenuPointer = 560;
+        }
+    } 
 
     /************************************MENU*********************************/
 
@@ -115,11 +128,17 @@ void getInput()
             printf("Restart PRESSED\n");
 
             Game.restart = 1;
-
-           // main(0, NULL);
-
-
-
+        }
+    }
+    
+    
+      if (in.mousebuttons[SDL_BUTTON_LEFT])
+    {
+        if(((moux > 540 && moux < 737) && (mouy >223 && mouy <273)) && Game.stade ==2)
+        {
+            printf("QUIT PRESSED\n");
+            SDL_Quit();
+            exit(0);
         }
     }
     /************************************LAST SCREEN*********************************/
@@ -255,12 +274,12 @@ void getInput()
     {
         if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
         {
-            initTir(Player.x,Player.y,0,-1,0);
+            initTir(Player.x,Player.y+19,0,-1,0);
             Player.reload = 0;
         }
         if(Player.sprite == getSprite(PLAYER_L_SPRITE) && Player.reload > 20)
         {
-            initTir(Player.x,Player.y,1,-1,0);
+            initTir(Player.x,Player.y+19,1,-1,0);
             Player.reload = 0;
         }
     }
@@ -308,12 +327,12 @@ void getInput()
             {
                 if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
                 {
-                    initTir(Player.x,Player.y,0,-1,0);
+                    initTir(Player.x,Player.y+19,0,-1,0);
                     Player.reload = 0;
                 }
                 if(Player.sprite == getSprite(PLAYER_L_SPRITE) && Player.reload > 20)
                 {
-                    initTir(Player.x,Player.y,1,-1,0);
+                    initTir(Player.x,Player.y+19,1,-1,0);
                     Player.reload = 0;
                 }
             }

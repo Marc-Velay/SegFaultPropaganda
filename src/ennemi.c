@@ -4,7 +4,7 @@ void initOfficer(int n, int lane)
 {
     Officer[n].sprite = getSprite(OFFICER_SPRITE);
     Officer[n].x = 0;
-    Officer[n].y = lane*GRID_STEP+PATH_TOP_Y;
+    Officer[n].y = lane*GRID_STEP+PATH_TOP_Y-36;
     Officer[n].alive = 1;
     Officer[n].hpOfficer = OFFICIER_1_HP + (Game.nbWave*Game.nbWave/4) - Game.nbWave;
     Officer[n].lane = lane;

@@ -15,7 +15,7 @@
 #define STEPHEN_ACTUAL_WIDTH 35
 #define MENU_HEIGHT 145
 
-#define PATH_TOP_Y 155			//Coordonne en y de la limite du terrain
+#define PATH_TOP_Y 193			//Coordonne en y de la limite du terrain
 #define PATH_BOTTOM_Y 500
 #define GRID_STEP 64			//Taille des carres de la grille sur le terrain
 
@@ -66,6 +66,7 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
     float restart;
     int drawOption,xOp,yOp,iOp;
     int pushBack,doubleShot,deadAIM,AOE;
+    int MenuPointer;
 } game;
 
 typedef struct player			// structure de Stephen
@@ -185,6 +186,7 @@ void updateScreen();	//fonction utilisee pour refresh l'ecran avec les nouvelles
 void doInterface();
 void doOption();
 void doBaseHealth();
+void drawMenuPointer();
 
 // ************** init.c
 void init(char *title);		//initialise les librairies et certains elements
