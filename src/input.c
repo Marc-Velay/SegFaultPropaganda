@@ -183,6 +183,7 @@ void getInput()
                     Game.drawOption = 1;
                     Game.xOp = Tourelle[i].x ;
                     Game.yOp = Tourelle[i].y ;
+                    Game.iOp = i;
                 }
 
             }
@@ -192,8 +193,13 @@ void getInput()
         {
             if((moux > Game.xOp && moux < Game.xOp+60) && (mouy > Game.yOp && mouy < Game.yOp+35))
             {
-                if(Player.coins >= UPGRADE_PRICE)
+                if(Tourelle[Game.iOp].level == 3)
+                {
+                    Game.drawOption = 2;
+                }
+                else if(Player.coins >= UPGRADE_PRICE )
                     {
+
                     UpgradeTourelle(Game.xOp,Game.yOp);
                     Game.drawOption = 0;
                     }
@@ -216,29 +222,31 @@ void getInput()
             }
         }
 
-        if(in.key[SDLK_4] && Game.stade == 1)
+        if(in.mousebuttons[SDL_BUTTON_LEFT] && Game.drawOption == 2 )
         {
-            if(Game.pushBack != 1){Game.pushBack = 1;}
-            else{Game.pushBack = 0;}
-        }
+            if((moux > Game.xOp +57 && moux < Game.xOp+107) && (mouy > Game.yOp +10 && mouy < Game.yOp+85))
+            {
+                if(mouy < Game.yOp+35)
+                    {
+                        Tourelle[Game.iOp].effet = 1;
+                        printf("%d",Tourelle[Game.iOp].effet);
+                        Game.drawOption = 0;
+                    }
+                if(mouy < Game.yOp+60)
+                    {
+                        Tourelle[Game.iOp].effet = 2;
+                        Game.drawOption = 0;
+                    }
+                else
+                    {
+                        Tourelle[Game.iOp].effet = 3;
+                        Game.drawOption = 0;
+                    }
+            }
+        }drawText("PUSH      ", Game.xOp+57, Game.yOp+10, textFont,240,240,0);
+            drawText("DOUBLE ", Game.xOp+57, Game.yOp+32, textFont,240,240,0);
+            drawText("AOE         ", Game.xOp+56, Game.yOp+54, textFont,240,240,0);
 
-       if(in.key[SDLK_5] && Game.stade == 1)
-        {
-            if(Game.doubleShot != 1){Game.doubleShot = 1;}
-            else{Game.doubleShot = 0;}
-
-        }
-        if(in.key[SDLK_6] && Game.stade == 1)
-        {
-            if(Game.deadAIM != 1){Game.deadAIM = 1;}
-            else{Game.deadAIM = 0;}
-        }
-
-        if(in.key[SDLK_7] && Game.stade == 1)
-        {
-            if(Game.AOE != 1){Game.AOE = 1;}
-            else{Game.AOE = 0;}
-        }
     /************************************TOURELLES*********************************/
 
 
@@ -247,12 +255,12 @@ void getInput()
     {
         if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
         {
-            initTir(Player.x,Player.y,0);
+            initTir(Player.x,Player.y,0,-1,0);
             Player.reload = 0;
         }
         if(Player.sprite == getSprite(PLAYER_L_SPRITE) && Player.reload > 20)
         {
-            initTir(Player.x,Player.y,1);
+            initTir(Player.x,Player.y,1,-1,0);
             Player.reload = 0;
         }
     }
@@ -300,12 +308,12 @@ void getInput()
             {
                 if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
                 {
-                    initTir(Player.x,Player.y,0);
+                    initTir(Player.x,Player.y,0,-1,0);
                     Player.reload = 0;
                 }
                 if(Player.sprite == getSprite(PLAYER_L_SPRITE) && Player.reload > 20)
                 {
-                    initTir(Player.x,Player.y,1);
+                    initTir(Player.x,Player.y,1,-1,0);
                     Player.reload = 0;
                 }
             }

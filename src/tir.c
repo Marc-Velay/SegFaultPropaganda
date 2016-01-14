@@ -1,6 +1,6 @@
 #include "fonctions.h"
 
-void initTir(int x, int y, int dir)
+void initTir(int x, int y, int dir,int tireur,int effet)
 {
     tir *newTir =Tir;
     tir *addTir = Tir;
@@ -10,6 +10,8 @@ void initTir(int x, int y, int dir)
         newTir = (tir*)malloc(sizeof(tir));
         (*newTir).suivant =NULL;
         (*newTir).dir = dir;
+        (*newTir).tireur = tireur;
+        (*newTir).effet = effet;
         if((*newTir).dir==0)
         {
             (*newTir).x = x + (GRID_STEP/2);
@@ -85,9 +87,9 @@ void updateTir()
 
             if((*newTir).dir==0)
             {
-                for(i=0; i<50; i++)
+                for(i=0; i<5; i++)
                 {
-                    (*newTir).x +=1;
+                    (*newTir).x +=10;
                     if((*newTir).x >= SCREEN_WIDTH || (*newTir).x < 0)
                     {
                         (*newTir).x = (*newTir).y = (*newTir).on =0;
@@ -98,9 +100,9 @@ void updateTir()
 
             if((*newTir).dir==1)
             {
-                for(i=0; i<50; i++)
+                for(i=0; i<5; i++)
                 {
-                    (*newTir).x -=1;
+                    (*newTir).x -=10;
                     if((*newTir).x <= 0)
                     {
                         (*newTir).x = (*newTir).y = (*newTir).on =0;
@@ -118,11 +120,5 @@ void freeTir(tir *Tir) {
 	free(Tir);
 }
 
-void Tirer(int x, int y, int dir)
-{
-    if(Game.countdown == 0)
-    {
-        initTir(x,y,dir);
-    }
-}
+
 

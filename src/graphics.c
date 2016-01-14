@@ -296,17 +296,27 @@ void loadAllSprites()
     loadSprite(LIFE_SPRITE, "gfx/Life.png");
     loadSprite(LASER_R_SPRITE, "gfx/Laser_R_Clean.png");
     loadSprite(LASER_L_SPRITE, "gfx/Laser_L_Clean.png");
+    loadSprite(UPGRADE_1_SPRITE,"gfx/Upgrade1.png");
+    loadSprite(UPGRADE_2_SPRITE,"gfx/Upgrade2.png");
+    loadSprite(UPGRADE_3_SPRITE,"gfx/Upgrade3.png");
 }
 
 void doOption()
 {
 
-        if(Game.drawOption == 1)
+        if(Game.drawOption >= 1)
         {
-            drawText("Upgrade", Game.xOp+4, Game.yOp+10, textFont,240,240,0);
-            drawText("Vendre  ", Game.xOp+5, Game.yOp+32, textFont,240,240,0);
+            drawText("Upgrade", Game.xOp+3, Game.yOp+10, textFont,240,240,0);
+            drawText("Vendre  ", Game.xOp+4, Game.yOp+32, textFont,240,240,0);
 
+            if(Game.drawOption == 2)
+            {
+            drawText("PUSH      ", Game.xOp+57, Game.yOp+10, textFont,240,240,0);
+            drawText("DOUBLE ", Game.xOp+57, Game.yOp+32, textFont,240,240,0);
+            drawText("AOE         ", Game.xOp+56, Game.yOp+54, textFont,240,240,0);
+            }
         }
+
 }
 
 

@@ -19,6 +19,8 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
                 Tourelle[i].alive =1;
                 Tourelle[i].hpTourelle=TOURELLE_1_HP;
                 Tourelle[i].lane = lane;
+                Tourelle[i].effet = 0;
+                Tourelle[i].level = 0;
                 Tourelle[i].reloadrate=TOURELLE_1_RELOADRATE;
                 Player.coins -= TOURELLE_1_PRICE;
                 created = 1;
@@ -33,6 +35,8 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
                 Tourelle[i].alive =1;
                 Tourelle[i].hpTourelle=TOURELLE_2_HP;
                 Tourelle[i].lane = lane;
+                Tourelle[i].effet = 0;
+                Tourelle[i].level = 0;
                 Tourelle[i].reloadrate=TOURELLE_2_RELOADRATE;
                 Player.coins -= (TOURELLE_2_PRICE);
                 created = 1;
@@ -47,6 +51,8 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
                 Tourelle[i].alive =1;
                 Tourelle[i].hpTourelle=TOURELLE_3_HP;
                 Tourelle[i].lane = lane;
+                Tourelle[i].effet = 0;
+                Tourelle[i].level = 0;
                 Tourelle[i].reloadrate=TOURELLE_3_RELOADRATE;
                 Player.coins -= (TOURELLE_3_PRICE);
                 created = 1;
@@ -64,7 +70,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
         switch ( choixTourelle )
         {
         case 1:
-            Tourelle[i].type = 1;
+            Tourelle[n].type = 1;
             Game.nbTourelleCreated++;
             Tourelle[n].sprite = getSprite(TOURELLE_1_SPRITE);
             Tourelle[n].x = colonne*GRID_STEP;
@@ -72,6 +78,8 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].alive =1;
             Tourelle[n].hpTourelle = TOURELLE_1_HP;
             Tourelle[n].lane = lane;
+            Tourelle[n].effet = 0;
+            Tourelle[n].level = 0;
             Tourelle[n].reloadrate = TOURELLE_1_RELOADRATE;
             Player.coins -= TOURELLE_1_PRICE;
             created =1;
@@ -80,7 +88,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
 
 
         case 2:
-            Tourelle[i].type = 2;
+            Tourelle[n].type = 2;
             Game.nbTourelleCreated++;
             Tourelle[n].sprite = getSprite(TOURELLE_2_SPRITE);
             Tourelle[n].x = colonne*GRID_STEP;
@@ -88,6 +96,8 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].alive =1;
             Tourelle[n].hpTourelle = TOURELLE_2_HP;
             Tourelle[n].lane = lane;
+            Tourelle[n].effet = 0;
+            Tourelle[n].level = 0;
             Tourelle[n].reloadrate = TOURELLE_2_RELOADRATE;
             Player.coins -= (TOURELLE_2_PRICE );
             created =1;
@@ -95,7 +105,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             break;
 
         case 3:
-            Tourelle[i].type = 3;
+            Tourelle[n].type = 3;
             Game.nbTourelleCreated++;
             Tourelle[n].sprite = getSprite(TOURELLE_3_SPRITE);
             Tourelle[n].x = colonne*GRID_STEP;
@@ -103,6 +113,8 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].alive =1;
             Tourelle[n].hpTourelle = TOURELLE_3_HP;
             Tourelle[n].lane = lane;
+            Tourelle[n].effet = 0;
+            Tourelle[n].level = 0;
             Tourelle[n].reloadrate = TOURELLE_3_RELOADRATE;
             Player.coins -= (TOURELLE_3_PRICE );
             created=1;
@@ -118,11 +130,28 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
 void drawTourelle()
 {
     int i;
+
     for(i=0; i<=MAX_TOURELLES; i++)
     {
         if(Tourelle[i].alive == 1)
         {
+            if(Tourelle[i].level == 1){
             drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
+            drawImage(getSprite(UPGRADE_1_SPRITE),Tourelle[i].x, Tourelle[i].y);
+            }
+
+         else if(Tourelle[i].level == 2){
+            drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
+            drawImage(getSprite(UPGRADE_2_SPRITE),Tourelle[i].x, Tourelle[i].y);
+         }
+
+        else if(Tourelle[i].level == 3){
+            drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
+            drawImage(getSprite(UPGRADE_3_SPRITE),Tourelle[i].x, Tourelle[i].y);
+            }
+        else{
+                drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
+            }
         }
     }
 }
@@ -176,13 +205,13 @@ void doTourelle()
             {
                 if(Tourelle[i].reloadrate == TOURELLE_2_RELOADRATE)
                 {
-                 initTir(Tourelle[i].x,Tourelle[i].y - GRID_STEP/2,1);
-                 initTir(Tourelle[i].x,Tourelle[i].y,1);
-                 initTir(Tourelle[i].x,Tourelle[i].y + GRID_STEP/2,1);
+                 initTir(Tourelle[i].x,Tourelle[i].y - GRID_STEP/2,1,i,Tourelle[i].effet);
+                 initTir(Tourelle[i].x,Tourelle[i].y,1,i,Tourelle[i].effet);
+                 initTir(Tourelle[i].x,Tourelle[i].y + GRID_STEP/2,1,i,Tourelle[i].effet);
                 }
                 else
                 {
-                    initTir(Tourelle[i].x,Tourelle[i].y,1);
+                    initTir(Tourelle[i].x,Tourelle[i].y,1,i,Tourelle[i].effet);
                 }
             }
         }
@@ -199,9 +228,12 @@ void UpgradeTourelle(int x, int y)
             {
                 if(Tourelle[i].x == x && Tourelle[i].y == y)
                 {
+                    printf("hp avant:%lf reload avant:%d",Tourelle[i].hpTourelle,Tourelle[i].reloadrate);
                     Tourelle[i].hpTourelle += 2 + (Game.nbWave*Game.nbWave);
                     Tourelle[i].reloadrate -= 2 + Game.nbWave;
+                    Tourelle[i].level ++;
                     Player.coins -= 20;
+                    printf("hp aprés: %lf reload après: %d",Tourelle[i].hpTourelle,Tourelle[i].reloadrate);
                 }
             }
 }

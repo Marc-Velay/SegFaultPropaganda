@@ -64,7 +64,7 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
     int nbTourelle;
     int hpBase;
     float restart;
-    int drawOption,xOp,yOp;
+    int drawOption,xOp,yOp,iOp;
     int pushBack,doubleShot,deadAIM,AOE;
 } game;
 
@@ -97,6 +97,7 @@ typedef struct tir
     int x, y;
     int dir;
     int on;
+    int tireur;
     int degat, effet;
     struct tir* suivant;
     SDL_Surface *sprite;
@@ -143,14 +144,17 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     LIFE_SPRITE,
     LASER_L_SPRITE,
     LASER_R_SPRITE,
+    UPGRADE_1_SPRITE,
+    UPGRADE_2_SPRITE,
+    UPGRADE_3_SPRITE,
     MAX_SPRITES
 };
 
 enum
 {
     PUSH_UP,
-    SPEED_UP,
-    AOE
+    DOUBLE_UP,
+    AOE_UP
 };
 
 SDL_Surface *screen, *Background, *Text, *health;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
@@ -221,7 +225,7 @@ void SellTourelle(int x, int y);
 void UpgradeTourelle(int x, int y);
 
 // ************** tir.c
-void initTir(int x, int y, int dir);
+void initTir(int x, int y, int dir, int tireur, int effet);
 void updateTir();
 void Tirer(int x, int y, int dir);
 

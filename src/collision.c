@@ -22,24 +22,13 @@ void collisionTir_Ennemi()
                 Officer[i].hpOfficer -=1;
                  (*newTir).on = 0;
 
-
-
-                if(Game.pushBack == 1 && Game.timer%2 == 0)
-                {
+                if((*newTir).effet == 1){
                     Officer[i].x -= GRID_STEP;
-                    Officer[i].attack = 0;
                 }
-
-                if(Game.doubleShot == 1 && Officer[i].alive == 1 )
-                {
-                    Officer[i].hpOfficer --;
+                else if((*newTir).effet == 2){
+                    initTir((*newTir).x,(*newTir).y,(*newTir).dir,(*newTir).tireur,(*newTir).effet);
                 }
-                if(Game.deadAIM == 1 && Game.timer%10 == 0 && Officer[i].alive == 1)
-                {
-                    Officer[i].alive = 0;
-                }
-                if(Game.AOE == 1 )
-                {
+               else if((*newTir).effet == 3){
                     for(j=0;j<MAX_OFFICERS;j++)
                     {
                         if((Officer[j].x > Officer[i].x - 2*GRID_STEP && Officer[j].x < Officer[i].x + 2*GRID_STEP ) && (Officer[j].y > Officer[i].y - GRID_STEP && Officer[j].y < Officer[i].y + GRID_STEP ))
@@ -54,9 +43,8 @@ void collisionTir_Ennemi()
                     Officer[i].alive = 0;
                     Officer[i].x = Officer[i].y = -3 * SCREEN_HEIGHT;
                     Player.coins+=20 + 5*(Game.nbWave/3) ;
+
                 }
-
-
 
                 (*newTir).x = (*newTir).y = SCREEN_HEIGHT;
             }
