@@ -38,7 +38,7 @@ void collisionTir_Ennemi()
                 {
                     for(j=0;j<MAX_OFFICERS;j++)
                     {
-                        if((Officer[j].x > Officer[i].x - 2*GRID_STEP && Officer[j].x < Officer[i].x + 2*GRID_STEP ) && (Officer[j].y > Officer[i].y - GRID_STEP && Officer[j].y < Officer[i].y + GRID_STEP ))
+                        if((Officer[j].x > Officer[i].x - 2*GRID_STEP && Officer[j].x < Officer[i].x + 2*GRID_STEP ) && (Officer[j].y > Officer[i].y - 2*GRID_STEP && Officer[j].y < Officer[i].y + 2*GRID_STEP ))
                         {
                             Officer[j].hpOfficer -= (*newTir).degat;
                         }
