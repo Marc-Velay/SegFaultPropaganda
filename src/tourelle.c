@@ -254,6 +254,7 @@ void UpgradeTourelle(int x, int y)
                     printf("hp avant:%lf reload avant:%d\n",Tourelle[i].hpTourelle,Tourelle[i].reloadrate);
                     Tourelle[i].hpTourelle += 2 + (Game.nbWave*Game.nbWave);
                     Tourelle[i].reloadrate -= 2 + Game.nbWave;
+		    if(Tourelle[i].reloadrate <1) {Tourelle[i].reloadrate =1;}
                     Tourelle[i].level ++;
                     Player.coins -= 20;
                     printf("hp aprés: %lf reload après: %d\n",Tourelle[i].hpTourelle,Tourelle[i].reloadrate);

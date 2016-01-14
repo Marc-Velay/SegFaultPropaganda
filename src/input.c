@@ -46,6 +46,7 @@ void getInput()
     UpdateEvents(&in);
     int moux;
     int mouy;
+    unsigned int frameLimit = SDL_GetTicks() + 60;
     SDL_GetMouseState(&moux,&mouy);
 
     if(in.key[SDLK_ESCAPE] || in.quit)
@@ -337,11 +338,12 @@ void getInput()
                 }
             }
 
-            updateScreen();
-            Game.timer +=1;
-            Player.reload++;
-            SDL_Delay(16);
-            UpdateEvents(&in);
+		updateScreen();
+		Game.timer +=1;
+		Player.reload++;
+		delay(frameLimit);
+		frameLimit = SDL_GetTicks() + 60;
+		UpdateEvents(&in);
         }
     }
 }

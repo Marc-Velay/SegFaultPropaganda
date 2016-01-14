@@ -2,20 +2,13 @@
 
 // Strip images using		 pngcrush -rem allb RogerShadeClean_64x64.png Roger_Clean.png
 
-void Jeu()
-{
-            doWave();
-            getInput();
-            updateScreen();
-            Game.timer +=1;
-            Player.reload++;
-            SDL_Delay(16);
-}
+
 
 int main(int argc, char *argv[])
 {
 	int go;
-    go = 1;
+	unsigned int frameLimit = SDL_GetTicks() + 60;
+	go = 1;
 
     while(go == 1){
 
@@ -27,7 +20,13 @@ int main(int argc, char *argv[])
 
         while (Game.restart != 1)
         {
-            Jeu();
+		doWave();
+		getInput();
+		updateScreen();
+		Game.timer +=1;
+		Player.reload++;
+		delay(frameLimit);
+		frameLimit = SDL_GetTicks() + 60;
         }
 
     }

@@ -113,6 +113,8 @@ void updateTir()
         }
         newTir = (*newTir).suivant;
     }
+    
+            SDL_Delay(1);
 }
 
 void freeTir(tir *Tir) {
