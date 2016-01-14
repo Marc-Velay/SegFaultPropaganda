@@ -33,14 +33,12 @@ int getColPlayer()
     int temp=0;
 
 
-    while(temp<Player.x -GRID_STEP + STEPHEN_ACTUAL_WIDTH /2)
+    while(temp<=Player.x -GRID_STEP + STEPHEN_ACTUAL_WIDTH /2)
     {
         temp += GRID_STEP;
         colonne++;
     }
     return colonne;
-
-
 }
 
 int getLanePlayer()
@@ -49,7 +47,7 @@ int getLanePlayer()
     int temp=0;
 
 
-    while(temp <= Player.y - PATH_TOP_Y - GRID_STEP + STEPHEN_ACTUAL_HEIGHT /4)
+    while(temp <= Player.y - PATH_TOP_Y - GRID_STEP + STEPHEN_ACTUAL_HEIGHT /2)
     {
         temp += GRID_STEP;
         lane++;

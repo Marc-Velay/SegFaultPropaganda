@@ -347,7 +347,7 @@ void doInterface() {
 
 
 void doBaseHealth() {
-	if(Game.stade == 1 && Game.hpBase >0 ) {
+	if(Game.stade == 1 ) {
 	switch(Game.hpBase%11) {
 		case 0:
 			printf("BASE DIED\n");
@@ -387,6 +387,30 @@ void doBaseHealth() {
 }
 
 
+void drawMenuPointer() {
+        drawImage(getSprite(PLAYER_R_SPRITE), 380, Game.MenuPointer);
+}
+
+void delay(unsigned int frameLimit)
+{
+	unsigned int ticks = SDL_GetTicks();
+
+	if (frameLimit < ticks)
+	{
+		return;
+	}
+
+	if (frameLimit > ticks + 16)
+	{
+		SDL_Delay(16);
+	}
+
+	else
+	{
+		SDL_Delay(frameLimit - ticks);
+	}
+}
+
 void updateScreen()
 {
     /* Blank the screen */
@@ -401,7 +425,7 @@ void updateScreen()
         drawMenu("Tutorial", 0, 150, SubTitleFont);
         drawMenu("about", 0, 250, SubTitleFont);
         drawMenu("Quit", 0, 350, SubTitleFont);
-        drawImage(getSprite(PLAYER_R_SPRITE), 380, 265);
+	drawMenuPointer();
         break;
 
 
@@ -422,9 +446,10 @@ void updateScreen()
 
 
     case 2:
-        drawImage(getSprite(BACKGROUND_END_SPRITE), 0, 0);
-        drawMenu("GAME OVER !", 0, 0, SubTitleFont);
-        drawMenu("Play again?", 0, 200, SubTitleFont);
+        drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
+        drawMenu("GaME OVER !", 0, -100, TitleFont);
+        drawMenu("Play again?", 0, 120, SubTitleFont);
+        drawMenu("Quit", 0, 220, SubTitleFont);
         break;
     }
 
