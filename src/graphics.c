@@ -453,6 +453,7 @@ void updateScreen()
         drawMenu("GaME OVER !", 0, -100, TitleFont);
         drawMenu("Play again?", 0, 120, SubTitleFont);
         drawMenu("Quit", 0, 220, SubTitleFont);
+	drawMenuPointer();
         break;
     }
 

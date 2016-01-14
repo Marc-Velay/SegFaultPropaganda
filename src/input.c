@@ -121,27 +121,36 @@ void getInput()
 
     /************************************LAST SCREEN*********************************/
 
-
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 556 && moux < 724) && (mouy >423 && mouy <472)) && Game.stade ==2)
+        if(((moux > 595 && moux < 679) && (mouy >449 && mouy <489)) && Game.stade ==2)
         {
-            printf("Restart PRESSED\n");
-
-            Game.restart = 1;
+		 printf("QUIT PRESSED\n");
+		 SDL_Quit();
+		exit(0);
         }
     }
 
 
       if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 540 && moux < 737) && (mouy >223 && mouy <273)) && Game.stade ==2)
+        if(((moux > 518 && moux < 758) && (mouy >349 && mouy <389)) && Game.stade ==2)
         {
-            printf("QUIT PRESSED\n");
-            SDL_Quit();
-            exit(0);
+           
+            printf("Restart PRESSED\n");
+            Game.restart = 1;
         }
     }
+    
+     if( (mouy >449 && mouy <489) && Game.stade ==2)
+        {
+		 Game.MenuPointer = 440;
+        }
+    
+        if( (mouy >349 && mouy <389) && Game.stade ==2)
+        {
+	           Game.MenuPointer = 340;
+        }
     /************************************LAST SCREEN*********************************/
 
     /************************************TOURELLES*********************************/
