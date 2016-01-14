@@ -130,6 +130,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
 void drawTourelle()
 {
     int i;
+    float tourellehp;
 
     for(i=0; i<=MAX_TOURELLES; i++)
     {
@@ -138,20 +139,42 @@ void drawTourelle()
             if(Tourelle[i].level == 1){
             drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
             drawImage(getSprite(UPGRADE_1_SPRITE),Tourelle[i].x, Tourelle[i].y);
+	    tourellehp = TOURELLE_1_HP;
             }
 
          else if(Tourelle[i].level == 2){
             drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
             drawImage(getSprite(UPGRADE_2_SPRITE),Tourelle[i].x, Tourelle[i].y);
+	    tourellehp = TOURELLE_2_HP;
          }
 
         else if(Tourelle[i].level == 3){
             drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
             drawImage(getSprite(UPGRADE_3_SPRITE),Tourelle[i].x, Tourelle[i].y);
+	    tourellehp = TOURELLE_3_HP;
             }
         else{
                 drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
             }
+            
+             if(Tourelle[i].hpTourelle < tourellehp) {
+			if(Tourelle[i].hpTourelle >= (tourellehp/5)) {					
+				drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x -20 , Tourelle[i].y - 10 );	
+				
+				if(Tourelle[i].hpTourelle >= (2*tourellehp/5)) {							
+					drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x -20 +11, Tourelle[i].y - 10 );			
+					
+					if(Tourelle[i].hpTourelle >= (3*tourellehp/5) ) {							
+						drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x -20 +22, Tourelle[i].y - 10 );	
+						
+						if(Tourelle[i].hpTourelle >= (4*tourellehp/5)) {							
+							drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x -20 +33, Tourelle[i].y - 10 );	
+							
+						}
+					}
+				}
+			}
+	        }
         }
     }
 }
@@ -228,12 +251,12 @@ void UpgradeTourelle(int x, int y)
             {
                 if(Tourelle[i].x == x && Tourelle[i].y == y)
                 {
-                    printf("hp avant:%lf reload avant:%d",Tourelle[i].hpTourelle,Tourelle[i].reloadrate);
+                    printf("hp avant:%lf reload avant:%d\n",Tourelle[i].hpTourelle,Tourelle[i].reloadrate);
                     Tourelle[i].hpTourelle += 2 + (Game.nbWave*Game.nbWave);
                     Tourelle[i].reloadrate -= 2 + Game.nbWave;
                     Tourelle[i].level ++;
                     Player.coins -= 20;
-                    printf("hp aprés: %lf reload après: %d",Tourelle[i].hpTourelle,Tourelle[i].reloadrate);
+                    printf("hp aprés: %lf reload après: %d\n",Tourelle[i].hpTourelle,Tourelle[i].reloadrate);
                 }
             }
 }
