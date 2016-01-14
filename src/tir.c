@@ -1,17 +1,18 @@
 #include "fonctions.h"
 
-void initTir(int x, int y, int dir,int tireur,int effet)
+void initTir(int x, int y, int dir,int tireur, int degat )
 {
     tir *newTir =Tir;
     tir *addTir = Tir;
     int created=0;
+
     if(newTir == NULL)
     {
         newTir = (tir*)malloc(sizeof(tir));
         (*newTir).suivant =NULL;
         (*newTir).dir = dir;
         (*newTir).tireur = tireur;
-        (*newTir).effet = effet;
+        (*newTir).degat = degat;
         if((*newTir).dir==0)
         {
             (*newTir).x = x + (GRID_STEP/2);
@@ -37,6 +38,8 @@ void initTir(int x, int y, int dir,int tireur,int effet)
                 newTir = (tir*)malloc(sizeof(tir));
                 (*newTir).suivant =NULL;
                 (*newTir).dir = dir;
+                (*newTir).tireur = tireur;
+                (*newTir).degat = degat;
                 if((*newTir).dir==0)
                 {
                     (*newTir).x = x + (GRID_STEP/2);
@@ -57,6 +60,8 @@ void initTir(int x, int y, int dir,int tireur,int effet)
             if((*newTir).on ==0)
             {
                 (*newTir).dir = dir;
+                (*newTir).tireur = tireur;
+                (*newTir).degat = degat;
                 if((*newTir).dir==0)
                 {
                     (*newTir).x = x + (GRID_STEP/2);
@@ -65,6 +70,7 @@ void initTir(int x, int y, int dir,int tireur,int effet)
                 {
                     (*newTir).x = x - GRID_STEP;
                 }
+
                 (*newTir).y = y;
                 (*newTir).on = 1;
                 created =1;
@@ -113,7 +119,7 @@ void updateTir()
         }
         newTir = (*newTir).suivant;
     }
-    
+
             SDL_Delay(1);
 }
 

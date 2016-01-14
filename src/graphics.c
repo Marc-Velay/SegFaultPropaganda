@@ -299,6 +299,9 @@ void loadAllSprites()
     loadSprite(UPGRADE_1_SPRITE,"gfx/Upgrade1.png");
     loadSprite(UPGRADE_2_SPRITE,"gfx/Upgrade2.png");
     loadSprite(UPGRADE_3_SPRITE,"gfx/Upgrade3.png");
+    loadSprite(UPGRADE_PUNCH_SPRITE,"gfx/Upgrade_Punch.png");
+    loadSprite(UPGRADE_DOUBLE_SPRITE,"gfx/Upgrade_Double.png");
+    loadSprite(UPGRADE_AOE_SPRITE,"gfx/Upgrade_AOE.png");
 }
 
 void doOption()

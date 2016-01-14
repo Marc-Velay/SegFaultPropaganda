@@ -17,26 +17,35 @@ void collisionTir_Ennemi()
         while(newTir != NULL)
         {
             if( ( ( (Officer[i].x <= (*newTir).x) && ( (Officer[i].x + (GRID_STEP/5)) >= (*newTir).x) ) || ( (Officer[i].x <= (*newTir).x + 3*GRID_STEP/4) && ( (Officer[i].x + (GRID_STEP/5) ) >= (*newTir).x + GRID_STEP/2) ) )
-                && ((Officer[i].y - GRID_STEP/2) <= (*newTir).y) && ((Officer[i].y + GRID_STEP) >= (*newTir).y))
+                && ((Officer[i].y - GRID_STEP/3) <= (*newTir).y) && ((Officer[i].y + GRID_STEP) >= (*newTir).y))
             {
-                Officer[i].hpOfficer -=1;
-                 (*newTir).on = 0;
+                Officer[i].hpOfficer -= (*newTir).degat;
 
-                if((*newTir).effet == 1){
+
+           if((*newTir).tireur > -1 && Tourelle[(*newTir).tireur].level == 4)
+            {
+                if(Tourelle[(*newTir).tireur].effet == 1)
+                {
                     Officer[i].x -= GRID_STEP;
                 }
-                else if((*newTir).effet == 2){
-                    initTir((*newTir).x,(*newTir).y,(*newTir).dir,(*newTir).tireur,(*newTir).effet);
+
+                else if(Tourelle[(*newTir).tireur].effet == 2)
+                {
+                    initTir((*newTir).x,(*newTir).y,(*newTir).dir,(*newTir).tireur,(*newTir).degat);
                 }
-               else if((*newTir).effet == 3){
+
+                else if(Tourelle[(*newTir).tireur].effet == 3)
+                {
                     for(j=0;j<MAX_OFFICERS;j++)
                     {
                         if((Officer[j].x > Officer[i].x - 2*GRID_STEP && Officer[j].x < Officer[i].x + 2*GRID_STEP ) && (Officer[j].y > Officer[i].y - GRID_STEP && Officer[j].y < Officer[i].y + GRID_STEP ))
                         {
-                            Officer[j].hpOfficer -= 1;
+                            Officer[j].hpOfficer -= (*newTir).degat;
                         }
                     }
                 }
+            }
+
 
                 if(Officer[i].hpOfficer <=0)
                 {
@@ -45,7 +54,7 @@ void collisionTir_Ennemi()
                     Player.coins+=20 + 5*(Game.nbWave/3) ;
 
                 }
-
+                 (*newTir).on = 0;
                 (*newTir).x = (*newTir).y = SCREEN_HEIGHT;
             }
             newTir = (*newTir).suivant;
@@ -152,10 +161,10 @@ void collisionEnnemi_Roger()
     {
 
 
-            if( ( (Officer[i].x <  Player.x &&   (Officer[i].x + GRID_STEP/2) > Player.x    &&   (Officer[i].y ) <  Player.y  && (Officer[i].y + 3*GRID_STEP/2) >  Player.y )
-               || (Officer[i].x <  Player.x &&   (Officer[i].x + GRID_STEP/2) > Player.x    &&   (Officer[i].y ) <  (Player.y + STEPHEN_ACTUAL_HEIGHT)  && (Officer[i].y + 3*GRID_STEP/2) >  (Player.y + STEPHEN_ACTUAL_HEIGHT) )
-               || (Officer[i].x <  (Player.x + STEPHEN_ACTUAL_WIDTH) &&   (Officer[i].x + GRID_STEP/2) > (Player.x + STEPHEN_ACTUAL_WIDTH)    &&   Officer[i].y <  Player.y  && (Officer[i].y + 3*GRID_STEP/2) >  Player.y )
-               || (Officer[i].x <  (Player.x + STEPHEN_ACTUAL_WIDTH) &&   (Officer[i].x + GRID_STEP/2) > (Player.x + STEPHEN_ACTUAL_WIDTH)    &&   Officer[i].y <  (Player.y + STEPHEN_ACTUAL_HEIGHT)  && (Officer[i].y + 3*GRID_STEP/2) >  (Player.y + STEPHEN_ACTUAL_HEIGHT) )
+            if( ( (Officer[i].x <  Player.x &&   (Officer[i].x + GRID_STEP/2) > Player.x    &&   (Officer[i].y ) <  Player.y  && (Officer[i].y + 3*GRID_STEP/2) >  Player.y + GRID_STEP/2 )
+               || (Officer[i].x <  Player.x &&   (Officer[i].x + GRID_STEP/2) > Player.x    &&   (Officer[i].y ) <  (Player.y + STEPHEN_ACTUAL_HEIGHT/3)  && (Officer[i].y + 3*GRID_STEP/2) >  (Player.y + STEPHEN_ACTUAL_HEIGHT/3) )
+               || (Officer[i].x <  (Player.x + STEPHEN_ACTUAL_WIDTH) &&   (Officer[i].x + GRID_STEP/2) > (Player.x + STEPHEN_ACTUAL_WIDTH)    &&   Officer[i].y <  Player.y  && (Officer[i].y + 3*GRID_STEP/2) >  Player.y + GRID_STEP/2 )
+               || (Officer[i].x <  (Player.x + STEPHEN_ACTUAL_WIDTH) &&   (Officer[i].x + GRID_STEP/2) > (Player.x + STEPHEN_ACTUAL_WIDTH)    &&   Officer[i].y <  (Player.y + STEPHEN_ACTUAL_HEIGHT/3)  && (Officer[i].y + 3*GRID_STEP/2) >  (Player.y + STEPHEN_ACTUAL_HEIGHT/3) )
                 ) && Officer[i].alive == 1 )
                 {
 

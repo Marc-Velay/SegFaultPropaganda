@@ -39,7 +39,7 @@ void init(char *title)
             }
 
     Game.stade=0;
-    Game.countdown =120;
+    Game.countdown =300;
     Game.timer =0;
     Game.nbWave=1;
     Game.nbTourelleCreated=0;

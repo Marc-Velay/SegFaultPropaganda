@@ -100,7 +100,7 @@ typedef struct tir
     int dir;
     int on;
     int tireur;
-    int degat, effet;
+    int degat;
     struct tir* suivant;
     SDL_Surface *sprite;
 
@@ -149,15 +149,13 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     UPGRADE_1_SPRITE,
     UPGRADE_2_SPRITE,
     UPGRADE_3_SPRITE,
+    UPGRADE_PUNCH_SPRITE,
+    UPGRADE_DOUBLE_SPRITE,
+    UPGRADE_AOE_SPRITE,
     MAX_SPRITES
 };
 
-enum
-{
-    PUSH_UP,
-    DOUBLE_UP,
-    AOE_UP
-};
+
 
 SDL_Surface *screen, *Background, *Text, *health;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
 TTF_Font *TitleFont; 						//la police du texte
@@ -225,11 +223,11 @@ void initTourelle(int n, int colonne, int lane, int type);
 void drawTourelle();
 void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
 void createTourelle(int type);
-void SellTourelle(int x, int y);
-void UpgradeTourelle(int x, int y);
+void SellTourelle(int i);
+void UpgradeTourelle(int i);
 
 // ************** tir.c
-void initTir(int x, int y, int dir, int tireur, int effet);
+void initTir(int x, int y, int dir, int tireur, int degat);
 void updateTir();
 void Tirer(int x, int y, int dir);
 

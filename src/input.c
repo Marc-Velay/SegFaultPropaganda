@@ -91,30 +91,30 @@ void getInput()
             exit(0);
         }
     }
-	
+
 	if (Game.stade == 0)
     {
         if((mouy >277 && mouy <319) && Game.stade ==0)
         {
             Game.MenuPointer = 260;
         }
-    
-   
+
+
         if((mouy >379 && mouy <416) && Game.stade ==0)
         {
             Game.MenuPointer = 360;
         }
-     
+
         if((mouy >477 && mouy <518) && Game.stade ==0)
         {
             Game.MenuPointer = 460;
         }
-    
+
         if((mouy >580 && mouy <620) && Game.stade ==0)
         {
            Game.MenuPointer = 560;
         }
-    } 
+    }
 
     /************************************MENU*********************************/
 
@@ -131,8 +131,8 @@ void getInput()
             Game.restart = 1;
         }
     }
-    
-    
+
+
       if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
         if(((moux > 540 && moux < 737) && (mouy >223 && mouy <273)) && Game.stade ==2)
@@ -209,18 +209,27 @@ void getInput()
             }
         }
 
+        if(in.mousebuttons[SDL_BUTTON_LEFT] && Game.drawOption == 2 )
+        {
+
+            if((!(moux > Game.xOp +57 && moux < Game.xOp+107) && !(mouy > Game.yOp +10 && mouy < Game.yOp+85)) || Player.coins < UPGRADE_PRICE * (Tourelle[Game.iOp].level * Tourelle[Game.iOp].level) + UPGRADE_PRICE)
+            {
+                Game.drawOption = 0;
+            }
+        }
+
         if(in.mousebuttons[SDL_BUTTON_LEFT] && Game.drawOption == 1 )
         {
             if((moux > Game.xOp && moux < Game.xOp+60) && (mouy > Game.yOp && mouy < Game.yOp+35))
             {
-                if(Tourelle[Game.iOp].level == 3)
+                if(Tourelle[Game.iOp].level >= 3)
                 {
                     Game.drawOption = 2;
                 }
-                else if(Player.coins >= UPGRADE_PRICE )
+                else if(Player.coins >= UPGRADE_PRICE * (Tourelle[Game.iOp].level * Tourelle[Game.iOp].level) + UPGRADE_PRICE)
                     {
 
-                    UpgradeTourelle(Game.xOp,Game.yOp);
+                    UpgradeTourelle(Game.iOp);
                     Game.drawOption = 0;
                     }
 
@@ -233,7 +242,7 @@ void getInput()
 
             else if((moux > Game.xOp && moux < Game.xOp+60) && (mouy > Game.yOp +35 && mouy < Game.yOp+55))
             {
-                SellTourelle(Game.xOp,Game.yOp);
+                SellTourelle(Game.iOp);
                 Game.drawOption = 0;
             }
             else
@@ -242,30 +251,38 @@ void getInput()
             }
         }
 
+
+
         if(in.mousebuttons[SDL_BUTTON_LEFT] && Game.drawOption == 2 )
         {
-            if((moux > Game.xOp +57 && moux < Game.xOp+107) && (mouy > Game.yOp +10 && mouy < Game.yOp+85))
+
+            if((moux > Game.xOp +57 && moux < Game.xOp+107) && (mouy > Game.yOp +10 && mouy < Game.yOp+85) && Player.coins >= UPGRADE_PRICE * (Tourelle[Game.iOp].level * Tourelle[Game.iOp].level) + UPGRADE_PRICE)
             {
-                if(mouy < Game.yOp+35)
+                if((moux > Game.xOp +57 && moux < Game.xOp+107) && mouy < Game.yOp+35 )
                     {
+                        Tourelle[Game.iOp].level = 4;
                         Tourelle[Game.iOp].effet = 1;
-                        printf("%d",Tourelle[Game.iOp].effet);
                         Game.drawOption = 0;
                     }
-                if(mouy < Game.yOp+60)
+                else if((moux > Game.xOp +57 && moux < Game.xOp+107) && mouy < Game.yOp+60)
                     {
+                        Tourelle[Game.iOp].level = 4;
                         Tourelle[Game.iOp].effet = 2;
                         Game.drawOption = 0;
                     }
-                else
+                else if((moux > Game.xOp +57 && moux < Game.xOp+107) && mouy < Game.yOp+85)
                     {
+                        Tourelle[Game.iOp].level = 4;
                         Tourelle[Game.iOp].effet = 3;
                         Game.drawOption = 0;
                     }
+
+                    Player.coins -= UPGRADE_PRICE * (3*3)  + UPGRADE_PRICE;
+
             }
-        }drawText("PUSH      ", Game.xOp+57, Game.yOp+10, textFont,240,240,0);
-            drawText("DOUBLE ", Game.xOp+57, Game.yOp+32, textFont,240,240,0);
-            drawText("AOE         ", Game.xOp+56, Game.yOp+54, textFont,240,240,0);
+
+        }
+
 
     /************************************TOURELLES*********************************/
 
@@ -275,12 +292,12 @@ void getInput()
     {
         if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
         {
-            initTir(Player.x,Player.y+19,0,-1,0);
+            initTir(Player.x,Player.y+19,0,-1,1);
             Player.reload = 0;
         }
         if(Player.sprite == getSprite(PLAYER_L_SPRITE) && Player.reload > 20)
         {
-            initTir(Player.x,Player.y+19,1,-1,0);
+            initTir(Player.x,Player.y+19,1,-1,1);
             Player.reload = 0;
         }
     }
@@ -328,12 +345,12 @@ void getInput()
             {
                 if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
                 {
-                    initTir(Player.x,Player.y+19,0,-1,0);
+                    initTir(Player.x,Player.y+19,0,-1,1);
                     Player.reload = 0;
                 }
                 if(Player.sprite == getSprite(PLAYER_L_SPRITE) && Player.reload > 20)
                 {
-                    initTir(Player.x,Player.y+19,1,-1,0);
+                    initTir(Player.x,Player.y+19,1,-1,1);
                     Player.reload = 0;
                 }
             }
