@@ -311,9 +311,9 @@ void doOption()
 
             if(Game.drawOption == 2)
             {
-            drawText("PUSH      ", Game.xOp+57, Game.yOp+10, textFont,240,240,0);
-            drawText("DOUBLE ", Game.xOp+57, Game.yOp+32, textFont,240,240,0);
-            drawText("AOE         ", Game.xOp+56, Game.yOp+54, textFont,240,240,0);
+            drawText("Push   ", Game.xOp+59, Game.yOp+10, textFont,240,240,0);
+            drawText("Double ", Game.xOp+57, Game.yOp+32, textFont,240,240,0);
+            drawText("A.O.E  ", Game.xOp+59, Game.yOp+54, textFont,240,240,0);
             }
         }
 
