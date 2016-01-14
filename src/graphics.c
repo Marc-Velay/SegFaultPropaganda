@@ -399,12 +399,12 @@ void delay(unsigned int frameLimit)
 	{
 		return;
 	}
-	
+
 	if (frameLimit > ticks + 16)
 	{
 		SDL_Delay(16);
 	}
-	
+
 	else
 	{
 		SDL_Delay(frameLimit - ticks);
@@ -447,8 +447,9 @@ void updateScreen()
 
     case 2:
         drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
-        drawMenu("GAME OVER !", 0, 0, SubTitleFont);
-        drawMenu("Play again?", 0, 200, SubTitleFont);
+        drawMenu("GaME OVER !", 0, -100, TitleFont);
+        drawMenu("Play again?", 0, 120, SubTitleFont);
+        drawMenu("Quit", 0, 220, SubTitleFont);
         break;
     }
 
