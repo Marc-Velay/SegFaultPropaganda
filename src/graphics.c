@@ -387,7 +387,7 @@ void doBaseHealth() {
 }
 
 
-void drawMenuPointer() {	
+void drawMenuPointer() {
         drawImage(getSprite(PLAYER_R_SPRITE), 380, Game.MenuPointer);
 }
 
@@ -426,7 +426,7 @@ void updateScreen()
 
 
     case 2:
-        drawImage(getSprite(BACKGROUND_END_SPRITE), 0, 0);
+        drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
         drawMenu("GAME OVER !", 0, 0, SubTitleFont);
         drawMenu("Play again?", 0, 200, SubTitleFont);
         break;
