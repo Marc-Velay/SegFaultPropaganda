@@ -159,7 +159,7 @@ void getInput()
     if ((in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 30 && moux < 100) && (mouy >615 && mouy <682) ) || in.key[SDLK_1] )
     {
 
-        if( Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP  && Player.coins >= TOURELLE_1_PRICE)
+        if( Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y + STEPHEN_ACTUAL_HEIGHT>PATH_TOP_Y && Player.y - STEPHEN_ACTUAL_HEIGHT< PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP  && Player.coins >= TOURELLE_1_PRICE)
         {
             printf("CREATE TOURELLE 1 CLICKED\n");
             createTourelle(1);

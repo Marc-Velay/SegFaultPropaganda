@@ -172,7 +172,7 @@ void createTourelle(int choixTourelle)
 
     for(temp=0; temp<=MAX_TOURELLES; temp++)
     {
-        if(Tourelle[temp].x == colonne*GRID_STEP && Tourelle[temp].y == (lane)*GRID_STEP+PATH_TOP_Y+30 && Tourelle[temp].alive == 1)
+        if(Tourelle[temp].x == colonne*GRID_STEP+8 && Tourelle[temp].y == (lane)*GRID_STEP+PATH_TOP_Y && Tourelle[temp].alive == 1)
         {
             empty =1;
         }

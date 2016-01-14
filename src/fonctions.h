@@ -15,7 +15,7 @@
 #define STEPHEN_ACTUAL_WIDTH 35
 #define MENU_HEIGHT 145
 
-#define PATH_TOP_Y 193			//Coordonne en y de la limite du terrain
+#define PATH_TOP_Y 192			//Coordonne en y de la limite du terrain
 #define PATH_BOTTOM_Y 500
 #define GRID_STEP 64			//Taille des carres de la grille sur le terrain
 
