@@ -14,7 +14,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             case 1:
                 Tourelle[i].type = 1;
                 Tourelle[i].sprite = getSprite(TOURELLE_1_SPRITE);
-                Tourelle[i].x = colonne*GRID_STEP;
+                Tourelle[i].x = colonne*GRID_STEP  +8;
                 Tourelle[i].y =(lane*GRID_STEP)+PATH_TOP_Y;
                 Tourelle[i].alive =1;
                 Tourelle[i].hpTourelle=TOURELLE_1_HP;
@@ -30,7 +30,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             case 2:
                 Tourelle[i].type = 2;
                 Tourelle[i].sprite = getSprite(TOURELLE_2_SPRITE);
-                Tourelle[i].x = colonne*GRID_STEP;
+                Tourelle[i].x = colonne*GRID_STEP  +8;
                 Tourelle[i].y =(lane*GRID_STEP)+PATH_TOP_Y;
                 Tourelle[i].alive =1;
                 Tourelle[i].hpTourelle=TOURELLE_2_HP;
@@ -46,7 +46,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             case 3:
                 Tourelle[i].type = 3;
                 Tourelle[i].sprite = getSprite(TOURELLE_3_SPRITE);
-                Tourelle[i].x = colonne*GRID_STEP;
+                Tourelle[i].x = colonne*GRID_STEP  +8;
                 Tourelle[i].y =(lane*GRID_STEP)+PATH_TOP_Y;
                 Tourelle[i].alive =1;
                 Tourelle[i].hpTourelle=TOURELLE_3_HP;
@@ -73,7 +73,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].type = 1;
             Game.nbTourelleCreated++;
             Tourelle[n].sprite = getSprite(TOURELLE_1_SPRITE);
-            Tourelle[n].x = colonne*GRID_STEP;
+            Tourelle[n].x = colonne*GRID_STEP  +8;
             Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y;
             Tourelle[n].alive =1;
             Tourelle[n].hpTourelle = TOURELLE_1_HP;
@@ -91,7 +91,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].type = 2;
             Game.nbTourelleCreated++;
             Tourelle[n].sprite = getSprite(TOURELLE_2_SPRITE);
-            Tourelle[n].x = colonne*GRID_STEP;
+            Tourelle[n].x = colonne*GRID_STEP  +8;
             Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y;
             Tourelle[n].alive =1;
             Tourelle[n].hpTourelle = TOURELLE_2_HP;
@@ -108,7 +108,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
             Tourelle[n].type = 3;
             Game.nbTourelleCreated++;
             Tourelle[n].sprite = getSprite(TOURELLE_3_SPRITE);
-            Tourelle[n].x = colonne*GRID_STEP;
+            Tourelle[n].x = colonne*GRID_STEP +8;
             Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y;
             Tourelle[n].alive =1;
             Tourelle[n].hpTourelle = TOURELLE_3_HP;

@@ -93,17 +93,17 @@ void drawOfficer()
 		if(Officer[i].hpOfficer < officerhp) {
 			
 			if(Officer[i].hpOfficer < officerhp && Officer[i].hpOfficer > (4*officerhp/5)) {
-				for(k=0; k<4; k++) {					
+				for(k=0; k<5; k++) {					
 					drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 +11*k , Officer[i].y - 10 );
 				}
 			}	
 			if(Officer[i].hpOfficer <= (4*officerhp/5) && Officer[i].hpOfficer > (3*officerhp/5)) {
-				for(k=0; k<3; k++) {					
+				for(k=0; k<4; k++) {					
 					drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 +11*k, Officer[i].y - 10 );
 				}
 			}			
 			if(Officer[i].hpOfficer <= (3*officerhp/5) && Officer[i].hpOfficer*1000 > (2*officerhp/5)) {
-				for(k=0; k<2; k++) {					
+				for(k=0; k<3; k++) {					
 					drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 +11*k , Officer[i].y - 10 );
 				}
 			}
@@ -111,7 +111,7 @@ void drawOfficer()
 				drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 +11, Officer[i].y - 10 );						
 			}
 			if(Officer[i].hpOfficer <= (1+officerhp/5) && Officer[i].hpOfficer > 0) {					
-					drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 , Officer[i].y - 10 );				
+				drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 , Officer[i].y - 10 );				
 			}
 	        }
         }

@@ -348,7 +348,7 @@ void doInterface() {
 
 void doBaseHealth() {
 	if(Game.stade == 1 ) {
-	switch(Game.hpBase%10) {
+	switch(Game.hpBase%11) {
 		case 0:
 			printf("BASE DIED\n");
 			break;
