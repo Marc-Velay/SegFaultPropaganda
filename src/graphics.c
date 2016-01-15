@@ -145,6 +145,7 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
 
     if( surface != NULL )
     {
+
         //Map the color key, 3* 0xFF pour transparent, sans font blanc
         // Uint32 colorkey = SDL_MapRGB( (*surface).format, 0, 0, 0 );
         // SDL_SetColorKey( surface, SDL_SRCCOLORKEY, colorkey );
@@ -173,7 +174,7 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
 }
 
 
-void drawText(char *text, int x, int y, TTF_Font *textFontn, int r, int g, int b)
+void drawText(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)
 {
     SDL_Rect dest;
     SDL_Surface *surface;
@@ -201,6 +202,49 @@ void drawText(char *text, int x, int y, TTF_Font *textFontn, int r, int g, int b
     }
 
     if (surface == NULL)
+    {
+        printf("Couldn't create String %s: %s\n", text, SDL_GetError());
+
+        return;
+    }
+
+    /* Blit the entire surface to the screen */
+
+    dest.x = x;
+    dest.y = y;
+    dest.w = (*surface).w;
+    dest.h = (*surface).h;
+
+
+    SDL_BlitSurface(surface, NULL, screen, &dest);
+
+    /* Free the generated string image */
+
+    SDL_FreeSurface(surface);
+}
+
+void drawCompteur(char *text, int x, int y, TTF_Font *compteurFont)
+{
+    SDL_Rect dest;
+    SDL_Surface *surface;
+    SDL_Color foregroundColor;
+
+    /* White text on a black background */
+
+    foregroundColor.r = 25;
+    foregroundColor.g = 25;
+    foregroundColor.b = 112;
+
+    /* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
+
+    surface = TTF_RenderUTF8_Solid(compteurFont, text, foregroundColor);
+    if( surface != NULL )
+    {
+
+        //Map the color key, 3* 0xFF pour transparent, sans font blanc
+    }
+
+    else
     {
         printf("Couldn't create String %s: %s\n", text, SDL_GetError());
 
@@ -274,6 +318,7 @@ void loadAllSprites()
     TitleFont = loadFont("sfd/PIXEL.ttf", 90);
     SubTitleFont = loadFont("sfd/PIXEL.ttf", 50);
     textFont = loadFont("sfd/FreeSans.ttf", 15);
+    compteurFont = loadFont("sfd/PIXEL.ttf", 30);
     loadSprite(PLAYER_R_SPRITE, "gfx/Roger_CleanR.png");
     loadSprite(PLAYER_L_SPRITE, "gfx/Roger_CleanL.png");
     loadSprite(BACKGROUND_LAUNCH_SPRITE, "gfx/Menu.png");
@@ -340,14 +385,20 @@ void doInterface() {
 	drawImage(getSprite(TOURELLE_1_SPRITE), 35, 617);
 	drawImage(getSprite(TOURELLE_2_SPRITE), 162, 617);
 	drawImage(getSprite(TOURELLE_3_SPRITE), 292, 617);
+    Compteur();
 
-        if(Game.countdown - Game.timer > 0 && Game.countdown - Game.timer < 280 &&  Game.nbEnnemiAlive == 0 )
+    }
+
+void Compteur()
+{
+    char string[20] ;
+
+     if(Game.countdown - Game.timer > 0 && Game.countdown - Game.timer < 280 &&  Game.nbEnnemiAlive == 0 )
             {
-            sprintf(string,"%d", (Game.countdown+1 - Game.timer)/30 );
-            drawMenu(string, 50, 25, textFont);
+            sprintf(string,"Assault dans %d !", (Game.countdown+1 - Game.timer)/30 );
+            drawCompteur(string, SCREEN_WIDTH/3 + 5*GRID_STEP/3 ,  3*GRID_STEP/2, compteurFont);
             }
 }
-
 
 void doBaseHealth() {
 	if(Game.stade == 1 ) {

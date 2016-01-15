@@ -20,14 +20,15 @@ int main(int argc, char *argv[])
 
         while (Game.restart != 1)
         {
-		doWave();
-		getInput();
-		updateScreen();
+        updateScreen();
+        getInput();
 		Game.timer +=1;
+		doWave();
 		Player.reload++;
 		delay(frameLimit);
 		frameLimit = SDL_GetTicks() + 60;
         }
+        highscore();
 
     }
 

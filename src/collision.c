@@ -55,6 +55,7 @@ void collisionTir_Ennemi()
                     Officer[i].alive = 0;
                     Officer[i].x = Officer[i].y = -3 * SCREEN_HEIGHT;
                     Player.coins+=20 + 2*Game.nbWave ;
+                    Game.nbEnnemiKilled++;
 
                 }
                 (*newTir).on = 0;

@@ -61,6 +61,7 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
     int nbEnnemiWave;
     int nbEnnemiCreated;
     int nbEnnemiAlive;
+    int nbEnnemiKilled;
     int nbTourelleCreated;
     int nbWave;
     int nbTourelle;
@@ -162,6 +163,7 @@ SDL_Surface *screen, *Background, *Text, *health;  //initialise les surfaces de 
 TTF_Font *TitleFont; 						//la police du texte
 TTF_Font *SubTitleFont;
 TTF_Font *textFont;
+TTF_Font *compteurFont;
 player Player;
 officer Officer[MAX_OFFICERS];			//Tableau contenant les ennemis cree
 tourelle Tourelle[MAX_TOURELLES];
@@ -188,6 +190,7 @@ void doOption();
 void doBaseHealth();
 void drawMenuPointer();
 void delay(unsigned int frameLimit);
+void Compteur();
 
 // ************** init.c
 void init(char *title);		//initialise les librairies et certains elements
@@ -248,3 +251,6 @@ void Jeu();
 
 //*************** sound.c
 void loadAllMusic();
+
+
+void highscore();
