@@ -6,7 +6,7 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
-#include <SDL/SDL_mixer.h>
+#include "SDL/SDL_mixer.h"
 
 //caca
 
@@ -168,9 +168,8 @@ tourelle Tourelle[MAX_TOURELLES];
 game Game;
 Sprites sprite[MAX_SPRITES];
 tir *Tir;
-Mix_Music *musique;
-
-
+Mix_Music *musiqueMenu;
+Mix_Music *musiqueLaser;
 
 // ************** graphics.c
 SDL_Surface *loadImage(char *name);		//fct pour recup les images à partir du disk
