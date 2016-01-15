@@ -50,6 +50,8 @@ void init(char *title)
     Game.nbTourelleCreated=0;
     Game.nbTourelle=0;
     Game.nbEnnemiAlive=0;
+    Game.nbEnnemiKilled=0;
+    Game.nbEnnemiWave=0;
     Game.hpBase=10;
     Game.MenuPointer =260;
     Tir = NULL;

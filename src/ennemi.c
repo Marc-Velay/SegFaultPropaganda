@@ -37,13 +37,15 @@ void createWave()
 
 void doWave()
 {
+    getEnnemiAlive();
+
      if(Game.nbEnnemiAlive==0 && Game.stade == 1 )
         {
 
             if(Game.countdown - Game.timer < 0 )
             {
 
-                Game.countdown = Game.timer + 350;
+                Game.countdown = Game.timer + 300;
 
                 if(Tir != NULL)
                         {
@@ -158,7 +160,7 @@ void doEnnemi()
 
     if(Game.nbWave >=24){tick = Game.timer % 2;}
     else{tick = Game.timer % (25-Game.nbWave/4);}
-    getEnnemiAlive();
+
 
     if(tick == 0)
     {
