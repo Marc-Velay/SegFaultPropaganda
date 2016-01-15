@@ -64,7 +64,7 @@ void getInput()
         printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
     }
 
-     if (in.mousebuttons[SDL_BUTTON_LEFT])
+    if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
         if(((moux > 550 && moux < 726) && (mouy >379 && mouy <416)) && Game.stade ==0)
         {
@@ -92,7 +92,7 @@ void getInput()
         }
     }
 
-	if (Game.stade == 0)
+    if (Game.stade == 0)
     {
         if((mouy >277 && mouy <319) && Game.stade ==0)
         {
@@ -112,7 +112,7 @@ void getInput()
 
         if((mouy >580 && mouy <620) && Game.stade ==0)
         {
-           Game.MenuPointer = 560;
+            Game.MenuPointer = 560;
         }
     }
 
@@ -125,32 +125,32 @@ void getInput()
     {
         if(((moux > 595 && moux < 679) && (mouy >449 && mouy <489)) && Game.stade ==2)
         {
-		 printf("QUIT PRESSED\n");
-		 SDL_Quit();
-		exit(0);
+            printf("QUIT PRESSED\n");
+            SDL_Quit();
+            exit(0);
         }
     }
 
 
-      if (in.mousebuttons[SDL_BUTTON_LEFT])
+    if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
         if(((moux > 518 && moux < 758) && (mouy >349 && mouy <389)) && Game.stade ==2)
         {
-           
+
             printf("Restart PRESSED\n");
             Game.restart = 1;
         }
     }
-    
-     if( (mouy >449 && mouy <489) && Game.stade ==2)
-        {
-		 Game.MenuPointer = 440;
-        }
-    
-        if( (mouy >349 && mouy <389) && Game.stade ==2)
-        {
-	           Game.MenuPointer = 340;
-        }
+
+    if( (mouy >449 && mouy <489) && Game.stade ==2)
+    {
+        Game.MenuPointer = 440;
+    }
+
+    if( (mouy >349 && mouy <389) && Game.stade ==2)
+    {
+        Game.MenuPointer = 340;
+    }
     /************************************LAST SCREEN*********************************/
 
     /************************************TOURELLES*********************************/
@@ -158,54 +158,55 @@ void getInput()
 
     while(in.key[SDLK_p])
     {
-           updateScreen();
-            Game.timer +=1;
-            Player.reload++;
-            SDL_Delay(1);
-            UpdateEvents(&in);
+        updateScreen();
+        Game.timer +=1;
+        Player.reload++;
+        SDL_Delay(1);
+        UpdateEvents(&in);
     }
 
-   if( Player.stun  == 0){
-    if ((in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 30 && moux < 100) && (mouy >615 && mouy <682) ) || in.key[SDLK_1] )
+    if( Player.stun  == 0)
     {
-
-        if( Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y + STEPHEN_ACTUAL_HEIGHT>PATH_TOP_Y && Player.y - STEPHEN_ACTUAL_HEIGHT< PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP  && Player.coins >= TOURELLE_1_PRICE)
+        if ((in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 30 && moux < 100) && (mouy >615 && mouy <682) ) || in.key[SDLK_1] )
         {
-            printf("CREATE TOURELLE 1 CLICKED\n");
-            createTourelle(1);
-            printf("TOURELLE 1 CREATED\n");
+
+            if( Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y + STEPHEN_ACTUAL_HEIGHT>PATH_TOP_Y && Player.y - STEPHEN_ACTUAL_HEIGHT< PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP  && Player.coins >= TOURELLE_1_PRICE)
+            {
+                printf("CREATE TOURELLE 1 CLICKED\n");
+                createTourelle(1);
+                printf("TOURELLE 1 CREATED\n");
+            }
         }
-    }
 
-    // bouton Tourelle du centre
-    if ( (in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 160 && moux < 226) && (mouy >615 && mouy <682)) || in.key[SDLK_2]  )
-    {
-
-        if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP && Player.coins >= (TOURELLE_2_PRICE + 10*(Game.nbWave-1)))
+        // bouton Tourelle du centre
+        if ( (in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 160 && moux < 226) && (mouy >615 && mouy <682)) || in.key[SDLK_2]  )
         {
-            printf("CREATE TOURELLE 2 CLICKED\n");
-            createTourelle(2);
-            printf("TOURELLE 2 CREATED\n");
+
+            if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP && Player.coins >= (TOURELLE_2_PRICE + 10*(Game.nbWave-1)))
+            {
+                printf("CREATE TOURELLE 2 CLICKED\n");
+                createTourelle(2);
+                printf("TOURELLE 2 CREATED\n");
+            }
         }
-    }
 
-    // bouton Tourelle de droite
-    if ((in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 283 && moux < 355) && (mouy >615 && mouy <682)) || in.key[SDLK_3] )
-    {
-
-        if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP &&  Player.coins >= (TOURELLE_3_PRICE + 10*(Game.nbWave-1)))
+        // bouton Tourelle de droite
+        if ((in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 283 && moux < 355) && (mouy >615 && mouy <682)) || in.key[SDLK_3] )
         {
-            printf("CREATE TOURELLE 3 CLICKED\n");
-            createTourelle(3);
-            printf("TOURELLE 3 CREATED\n");
+
+            if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP &&  Player.coins >= (TOURELLE_3_PRICE + 10*(Game.nbWave-1)))
+            {
+                printf("CREATE TOURELLE 3 CLICKED\n");
+                createTourelle(3);
+                printf("TOURELLE 3 CREATED\n");
+            }
         }
-    }
 
-    if ((in.mousebuttons[SDL_BUTTON_RIGHT] && (moux < SCREEN_WIDTH - 3*GRID_STEP) && (mouy >PATH_TOP_Y && mouy < PATH_BOTTOM_Y)) && Game.stade ==1 )
+        if ((in.mousebuttons[SDL_BUTTON_RIGHT] && (moux < SCREEN_WIDTH - 3*GRID_STEP) && (mouy >PATH_TOP_Y && mouy < PATH_BOTTOM_Y)) && Game.stade ==1 )
         {
 
 
-            for(i=0;i<MAX_TOURELLES;i++)
+            for(i=0; i<MAX_TOURELLES; i++)
             {
                 if(Tourelle[i].x < moux && Tourelle[i].x + 60 > moux  && Tourelle[i].y < mouy && Tourelle[i].y + 50 > mouy && Tourelle[i].alive == 1)
                 {
@@ -236,16 +237,16 @@ void getInput()
                     Game.drawOption = 2;
                 }
                 else if(Player.coins >= UPGRADE_PRICE * (Tourelle[Game.iOp].level * Tourelle[Game.iOp].level) + UPGRADE_PRICE)
-                    {
+                {
 
                     UpgradeTourelle(Game.iOp);
                     Game.drawOption = 0;
-                    }
+                }
 
                 else
-                    {
+                {
                     Game.drawOption = 0;
-                    }
+                }
 
             }
 
@@ -268,48 +269,48 @@ void getInput()
             if((moux > Game.xOp +57 && moux < Game.xOp+107) && (mouy > Game.yOp +10 && mouy < Game.yOp+85) && Player.coins >= UPGRADE_PRICE * (Tourelle[Game.iOp].level * Tourelle[Game.iOp].level) + UPGRADE_PRICE)
             {
                 if((moux > Game.xOp +57 && moux < Game.xOp+107) && mouy < Game.yOp+35 )
-                    {
-                        Tourelle[Game.iOp].level = 4;
-                        Tourelle[Game.iOp].effet = 1;
-                        Game.drawOption = 0;
-                    }
+                {
+                    Tourelle[Game.iOp].level = 4;
+                    Tourelle[Game.iOp].effet = 1;
+                    Game.drawOption = 0;
+                }
                 else if((moux > Game.xOp +57 && moux < Game.xOp+107) && mouy < Game.yOp+60)
-                    {
-                        Tourelle[Game.iOp].level = 4;
-                        Tourelle[Game.iOp].effet = 2;
-                        Game.drawOption = 0;
-                    }
+                {
+                    Tourelle[Game.iOp].level = 4;
+                    Tourelle[Game.iOp].effet = 2;
+                    Game.drawOption = 0;
+                }
                 else if((moux > Game.xOp +57 && moux < Game.xOp+107) && mouy < Game.yOp+85)
-                    {
-                        Tourelle[Game.iOp].level = 4;
-                        Tourelle[Game.iOp].effet = 3;
-                        Game.drawOption = 0;
-                    }
+                {
+                    Tourelle[Game.iOp].level = 4;
+                    Tourelle[Game.iOp].effet = 3;
+                    Game.drawOption = 0;
+                }
 
-                    Player.coins -= UPGRADE_PRICE * (3*3)  + UPGRADE_PRICE;
+                Player.coins -= UPGRADE_PRICE * (3*3)  + UPGRADE_PRICE;
 
             }
 
         }
 
 
-    /************************************TOURELLES*********************************/
+        /************************************TOURELLES*********************************/
 
 
 
-    if(in.key[SDLK_SPACE])
-    {
-        if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
+        if(in.key[SDLK_SPACE])
         {
-            initTir(Player.x,Player.y+19,0,-1,1);
-            Player.reload = 0;
+            if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
+            {
+                initTir(Player.x,Player.y+19,0,-1,1);
+                Player.reload = 0;
+            }
+            if(Player.sprite == getSprite(PLAYER_L_SPRITE) && Player.reload > 20)
+            {
+                initTir(Player.x,Player.y+19,1,-1,1);
+                Player.reload = 0;
+            }
         }
-        if(Player.sprite == getSprite(PLAYER_L_SPRITE) && Player.reload > 20)
-        {
-            initTir(Player.x,Player.y+19,1,-1,1);
-            Player.reload = 0;
-        }
-    }
 
 
         while((in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_DOWN] || in.key[SDLK_UP] || in.key[SDLK_LEFT] || in.key[SDLK_RIGHT]) && Player.stun ==0)
@@ -347,7 +348,7 @@ void getInput()
                 Player.y -=10;
                 if(Player.y < 0)
                 {
-                    Player.y =0;
+                    Player.y = 0;
                 }
             }
             if(in.key[SDLK_SPACE])
@@ -364,12 +365,13 @@ void getInput()
                 }
             }
 
-		updateScreen();
-		Game.timer +=1;
-		Player.reload++;
-		delay(frameLimit);
-		frameLimit = SDL_GetTicks() + 60;
-		UpdateEvents(&in);
+            updateScreen();
+            Game.timer +=1;
+            Player.reload++;
+            delay(frameLimit);
+            frameLimit = SDL_GetTicks() + 60;
+            UpdateEvents(&in);
+
         }
     }
 }

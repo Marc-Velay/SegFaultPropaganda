@@ -26,7 +26,7 @@ void createWave()
     //Game.countdown=1;
     srand((unsigned) time(&t));
 
-    Game.nbEnnemiWave = (rand() %Game.nbWave) + 2+ (Game.nbWave*Game.nbWave/4) - Game.nbWave;
+    Game.nbEnnemiWave = (rand() %Game.nbWave) + 2+ (Game.nbWave*Game.nbWave)/4 - Game.nbWave;
     if(Game.nbEnnemiWave >= MAX_OFFICERS)
     {
         Game.nbEnnemiWave = MAX_OFFICERS-1;
@@ -42,7 +42,7 @@ void doWave()
             if(Game.countdown - Game.timer < 0 )
             {
 
-                Game.countdown = Game.timer + 300;
+                Game.countdown = Game.timer + 350;
 
                 if(Tir != NULL)
                         {
@@ -138,14 +138,14 @@ void moveOfficers()
             if( Officer[i].lane == 0 || Officer[i].lane == 4 )
             {
                 if(Officer[i].x < (SCREEN_WIDTH - 3*GRID_STEP/2))
-                    Officer[i].x += 2 + Game.nbWave/2;
+                    Officer[i].x += 2 + Game.nbWave/4;
             }
 
             else
 
             {
                 if(Officer[i].x < (SCREEN_WIDTH - 3*GRID_STEP))
-                    Officer[i].x += 2 + Game.nbWave/2;
+                    Officer[i].x += 2 + Game.nbWave/4;
             }
         }
     }
@@ -153,20 +153,12 @@ void moveOfficers()
 
 void doEnnemi()
 {
-    int tick = Game.timer % (25-Game.nbWave);
+    int tick = Game.timer % (25-Game.nbWave/4);
 
     if(Game.nbWave >=24){tick = Game.timer % 2;}
-    else{tick = Game.timer % (25-Game.nbWave);}
+    else{tick = Game.timer % (25-Game.nbWave/4);}
     getEnnemiAlive();
 
-    /*if(Game.countdown == 0)
-    {
-        Game.nbWave+=1;
-        createWave();
-        createOfficers();
-        tick++;
-        //Game.countdown++;
-    }*/
     if(tick == 0)
     {
         createOfficers();

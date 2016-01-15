@@ -8,6 +8,8 @@ void collision()
     collisionEnnemi_Roger();
 }
 
+
+
 void collisionTir_Ennemi()
 {
     int i,j;
@@ -29,9 +31,9 @@ void collisionTir_Ennemi()
                     Officer[i].x -= GRID_STEP;
                 }
 
-                else if(Tourelle[(*newTir).tireur].effet == 2)
+                else if(Tourelle[(*newTir).tireur].effet == 2 && (*newTir).degat > Officer[i].hpOfficer)
                 {
-                    initTir((*newTir).x,(*newTir).y,(*newTir).dir,(*newTir).tireur,(*newTir).degat);
+                    initTir((*newTir).x,(*newTir).y,(*newTir).dir,(*newTir).tireur,(*newTir).degat - Officer[i].hpOfficer);
                 }
 
                 else if(Tourelle[(*newTir).tireur].effet == 3)
@@ -51,7 +53,7 @@ void collisionTir_Ennemi()
                 {
                     Officer[i].alive = 0;
                     Officer[i].x = Officer[i].y = -3 * SCREEN_HEIGHT;
-                    Player.coins+=20 + 5*(Game.nbWave/3) ;
+                    Player.coins+=20 + Game.nbWave ;
 
                 }
                  (*newTir).on = 0;
@@ -120,7 +122,7 @@ void collisionEnnemi_Base()
 
                     if(Game.hpBase == 0)
                     {
-			    
+
 			Game.MenuPointer =350;
                         Game.stade = 2;
 			//Game.hpBase =0;
@@ -192,15 +194,8 @@ void collisionEnnemi_Roger()
                         else if((Player.stuntime - Game.timer) > 110)
                         {
                         drawText("1",Player.x,Player.y - GRID_STEP/2,textFont,197,150,80);
-                        drawText("3",Player.x,Player.y - GRID_STEP/2,textFont,197,150,80);
                         }
 
-                        else if((Player.stuntime - Game.timer) > 140)
-                        drawText("2",Player.x,Player.y - GRID_STEP/2,textFont,197,150,80);
-
-
-                        else if((Player.stuntime - Game.timer) > 110)
-                        drawText("1",Player.x,Player.y - GRID_STEP/2,textFont,197,150,80);
         }
 
 }

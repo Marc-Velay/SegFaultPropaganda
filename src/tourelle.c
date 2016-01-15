@@ -246,9 +246,9 @@ void doTourelle()
             {
                 if(Tourelle[i].type == 2)
                 {
-                    initTir(Tourelle[i].x,Tourelle[i].y - GRID_STEP/2,1,i,Tourelle[i].degat);
-                    initTir(Tourelle[i].x,Tourelle[i].y,1,i,Tourelle[i].degat);
-                    initTir(Tourelle[i].x,Tourelle[i].y + GRID_STEP/2,1,i,Tourelle[i].degat);
+                    initTir(Tourelle[i].x,Tourelle[i].y - GRID_STEP/2,1,i,Tourelle[i].degat/3);
+                    initTir(Tourelle[i].x,Tourelle[i].y,1,i,Tourelle[i].degat/3);
+                    initTir(Tourelle[i].x,Tourelle[i].y + GRID_STEP/2,1,i,Tourelle[i].degat/3);
                 }
                 else
                 {
@@ -266,8 +266,6 @@ void UpTourelle1(int i)
     Tourelle[i].hpTourelle += 2 + Tourelle[i].level;
     Tourelle[i].reloadrate -= 3;
     Tourelle[i].degat += 2 + (Tourelle[i].level-1) ;
-    Player.coins -= UPGRADE_PRICE * (Tourelle[Game.iOp].level * Tourelle[Game.iOp].level) + UPGRADE_PRICE ;
-    Tourelle[i].level ++;
 }
 
 void UpTourelle2(int i)

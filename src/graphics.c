@@ -341,10 +341,10 @@ void doInterface() {
 	drawImage(getSprite(TOURELLE_2_SPRITE), 162, 617);
 	drawImage(getSprite(TOURELLE_3_SPRITE), 292, 617);
 
-        if(Game.countdown - Game.timer > 0 && Game.nbEnnemiAlive == 0 )
+        if(Game.countdown - Game.timer > 0 && Game.countdown - Game.timer < 280 &&  Game.nbEnnemiAlive == 0 )
             {
             sprintf(string,"%d", (Game.countdown+1 - Game.timer)/30 );
-            drawMenu(string, 500, 250, textFont);
+            drawMenu(string, 50, 25, textFont);
             }
 }
 

@@ -219,13 +219,18 @@ void doEnnemi();			//appel permettant de gerer la creation et le deplacement des
 void getEnnemiAlive();
 
 // ************** tourelle.c
+void creerTourelle1(int n,int colonne, int lane);
+void creerTourelle2(int n,int colonne, int lane);
+void creerTourelle3(int n,int colonne, int lane);
 void initTourelle(int n, int colonne, int lane, int type);
 void drawTourelle();
 void doTourelle();			//appel permettant de gerer la creation et le deplacement des tourelles
 void createTourelle(int type);
 void SellTourelle(int i);
 void UpgradeTourelle(int i);
-
+void UpTourelle1(int i);
+void UpTourelle2(int i);
+void UpTourelle3(int i);
 // ************** tir.c
 void initTir(int x, int y, int dir, int tireur, int degat);
 void updateTir();
