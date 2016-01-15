@@ -8,6 +8,7 @@ void initTir(int x, int y, int dir,int tireur, int degat )
 
     if(newTir == NULL)
     {
+        Mix_PlayMusic(musique, 1);
         newTir = (tir*)malloc(sizeof(tir));
         (*newTir).suivant =NULL;
         (*newTir).dir = dir;
@@ -35,6 +36,7 @@ void initTir(int x, int y, int dir,int tireur, int degat )
         {
             if(newTir == NULL)
             {
+                Mix_PlayMusic(musique, 1);
                 newTir = (tir*)malloc(sizeof(tir));
                 (*newTir).suivant =NULL;
                 (*newTir).dir = dir;
@@ -59,6 +61,7 @@ void initTir(int x, int y, int dir,int tireur, int degat )
             }
             if((*newTir).on ==0)
             {
+                Mix_PlayMusic(musique, 1);
                 (*newTir).dir = dir;
                 (*newTir).tireur = tireur;
                 (*newTir).degat = degat;

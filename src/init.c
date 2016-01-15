@@ -5,6 +5,11 @@ void init(char *title)
 {
     int i;
 
+     if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)  //Initialisation de l'API Mixer
+    {
+        printf("%s", Mix_GetError());
+    }
+
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         printf("Could not initialize SDL: %s\n", SDL_GetError());
@@ -49,6 +54,7 @@ void init(char *title)
     Game.MenuPointer =260;
     Tir = NULL;
     loadAllSprites();
+    loadAllMusic();
     initPlayer();
 }
 

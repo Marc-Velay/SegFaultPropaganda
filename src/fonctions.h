@@ -6,6 +6,7 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
+#include <SDL/SDL_mixer.h>
 
 //caca
 
@@ -167,6 +168,7 @@ tourelle Tourelle[MAX_TOURELLES];
 game Game;
 Sprites sprite[MAX_SPRITES];
 tir *Tir;
+Mix_Music *musique;
 
 
 
@@ -244,3 +246,6 @@ void collisionEnnemi_Base();
 void collisionEnnemi_Roger();
 void freeTir(tir *Tir);
 void Jeu();
+
+//*************** sound.c
+void loadAllMusic();
