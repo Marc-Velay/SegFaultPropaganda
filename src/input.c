@@ -159,6 +159,7 @@ void getInput()
     while(in.key[SDLK_p])
     {
         updateScreen();
+	doWave();
         Game.timer +=1;
         Player.reload++;
         SDL_Delay(1);
@@ -365,12 +366,13 @@ void getInput()
                 }
             }
 
-            updateScreen();
-            Game.timer +=1;
-            Player.reload++;
-            delay(frameLimit);
-            frameLimit = SDL_GetTicks() + 60;
-            UpdateEvents(&in);
+        updateScreen();	    
+	doWave();
+        Game.timer +=1;
+        Player.reload++;
+        delay(frameLimit);
+        frameLimit = SDL_GetTicks() + 60;
+         UpdateEvents(&in);
 
         }
     }
