@@ -251,5 +251,6 @@ void Jeu();
 //*************** sound.c
 void loadAllMusic();
 
-
+//*************** highscore.c
 void highscore();
+int nbChiffres(int i);
