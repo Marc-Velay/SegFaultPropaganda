@@ -22,9 +22,9 @@ void highscore()
          }
     }
 
-    d = -3;
-    i = 10;
+
     fseek(highscore,0,SEEK_SET);
+
     while(fscanf(highscore, "%d %d", &nbWaveScore, &nbKilledScore) != EOF)
         {
             if(written !=1)
