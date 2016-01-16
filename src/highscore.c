@@ -3,6 +3,20 @@
 #include <stdlib.h>
 #include "fonctions.h"
 
+int nbChiffres(int i)
+{
+
+	int nb = 0;
+
+	do
+    {
+		nb++;
+
+	}while((i /= 10) > 0);
+
+	return nb;
+}
+
 void highscore()
 {
     FILE* highscore = NULL;
@@ -32,12 +46,7 @@ void highscore()
                 if(Game.nbEnnemiKilled > nbKilledScore)
                 {
 
-                    while(Game.nbEnnemiKilled/i > 0)
-                    {
-                        if(Game.nbEnnemiKilled/i != 0){d--;}
-                        if(Game.nbWave/i != 0){d--;}
-                        i*=10;
-                    }
+
 
                     fseek(highscore,-3,SEEK_CUR);
                     fprintf(highscore,"%d %d",Game.nbWave,Game.nbEnnemiKilled);
