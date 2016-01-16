@@ -38,7 +38,8 @@ void highscore()
                         if(Game.nbWave/i != 0){d--;}
                         i*=10;
                     }
-                    fseek(highscore,d,SEEK_CUR);
+
+                    fseek(highscore,-3,SEEK_CUR);
                     fprintf(highscore,"%d %d",Game.nbWave,Game.nbEnnemiKilled);
                     written = 1;
                 }
