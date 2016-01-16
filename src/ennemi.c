@@ -47,11 +47,12 @@ void doWave()
 
                 Game.countdown = Game.timer + 300;
 
-                if(Tir != NULL)
-                        {
-                        freeTir((*Tir).suivant);
-                        (*Tir).suivant = NULL;
-                        }
+               /*if(Tir != NULL) {
+			printf("freeTir\n");                    
+                        free(Tir);
+			showLink(Tir);
+                        Tir = NULL;
+                        }*/
             }
 
             else if(Game.countdown - Game.timer == 0 )

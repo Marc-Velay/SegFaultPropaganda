@@ -9,20 +9,18 @@ void collision()
 }
 
 
-
 void collisionTir_Ennemi()
 {
     int i,j;
     tir *newTir = Tir;
+    tir *prec =Tir;
     for(i=0; i<=Game.nbEnnemiCreated; i++)
     {
         while(newTir != NULL)
         {
             if( ( ( (Officer[i].x <= (*newTir).x) && ( (Officer[i].x + (GRID_STEP/5)) >= (*newTir).x) ) || ( (Officer[i].x <= (*newTir).x + 3*GRID_STEP/4) && ( (Officer[i].x + (GRID_STEP/5) ) >= (*newTir).x + GRID_STEP/2) ) )
-                    && ((Officer[i].y - GRID_STEP/3) <= (*newTir).y) && ((Officer[i].y + GRID_STEP) >= (*newTir).y))
+                    && ((Officer[i].y - GRID_STEP/3) <= (*newTir).y) && ((Officer[i].y + GRID_STEP) >= (*newTir).y) && (*newTir).on == 1)
             {
-
-
 
                 if((*newTir).tireur > -1 && Tourelle[(*newTir).tireur].level == 4)
                 {
@@ -59,9 +57,17 @@ void collisionTir_Ennemi()
 
                 }
                 (*newTir).on = 0;
-                (*newTir).x = (*newTir).y = SCREEN_HEIGHT;
+                (*newTir).x = 0;
+		(*newTir).y = SCREEN_HEIGHT;
+		
+		printf("collision\n");
+                        newTir = supprimerTir(prec); 
+			//newTir = (*prec).suivant;
             }
-            newTir = (*newTir).suivant;
+            prec = newTir;
+            if(newTir != NULL) {
+	            newTir = (*newTir).suivant;
+            }          
         }
         newTir = Tir;
     }
@@ -100,7 +106,6 @@ void collisionEnnemi_Tourelle()
             }
 
 
-// this is a test
 
         }
     }

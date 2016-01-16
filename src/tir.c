@@ -6,8 +6,10 @@ void initTir(int x, int y, int dir,int tireur, int degat )
     tir *addTir = Tir;
     int created=0;
 
+	printf("entrer dans initTir\n");
     if(newTir == NULL)
     {
+	printf("cas 1: création du 1er maillon\n");
         Mix_PlayMusic(musiqueLaser, 1);
         newTir = (tir*)malloc(sizeof(tir));
         (*newTir).suivant =NULL;
@@ -30,6 +32,7 @@ void initTir(int x, int y, int dir,int tireur, int degat )
     }
     else
     {
+	printf("cas 2: création d'un maillon en fin de liste\n");
         newTir=(*Tir).suivant;
 
         while(created !=1 )
@@ -59,35 +62,79 @@ void initTir(int x, int y, int dir,int tireur, int degat )
                 created =1;
                 break;
             }
-            if((*newTir).on ==0)
-            {
-                Mix_PlayMusic(musiqueLaser, 1);
-                (*newTir).dir = dir;
-                (*newTir).tireur = tireur;
-                (*newTir).degat = degat;
-                if((*newTir).dir==0)
-                {
-                    (*newTir).x = x + (GRID_STEP/2);
-                }
-                if((*newTir).dir==1)
-                {
-                    (*newTir).x = x - GRID_STEP;
-                }
-
-                (*newTir).y = y;
-                (*newTir).on = 1;
-                created =1;
-            }
             addTir=newTir;
             newTir=(*newTir).suivant;
         }
     }
 }
 
+void showLink(tir* debut) {
+  if(debut != NULL) {
+    printf("[%d]->", (*debut).x);
+    debut = (*debut).suivant;
+    if(debut != NULL) {
+      showLink((*debut).suivant);
+    }else { printf("X\n"); }
+  } else { printf("X\n"); }
+}
+
+
+tir* supprimerTir(tir *prec) {
+	tir *temp;
+	
+	printf("entrer dans supprimerTir\n");
+	if(prec != NULL) {
+	printf("not null\n");
+	
+		
+		if(prec == Tir || (*prec).suivant == NULL) { 				//maillon unique
+			printf("cas 1: maillon seul\n");
+			free(prec); 
+			Tir = NULL;
+			printf("cas 1: post free \n");
+			temp = NULL;
+			
+					
+			
+		}else if((*prec).suivant == NULL){					//le dernier maillon
+			if((*(*prec).suivant).suivant == NULL) {
+				printf("cas 2: maillon en fin de liste\n");
+	SDL_Delay(500);
+				free((*prec).suivant);
+				printf("cas 2: post free \n");
+	SDL_Delay(500);
+				(*prec).suivant = NULL;
+				printf("cas 2: prec suivant = null \n");
+	SDL_Delay(500);
+				temp = NULL;	
+			}
+		
+			
+			
+			
+		} else if((*(*prec).suivant).suivant != NULL) {				//maillon au milieu de la lsc
+	printf("cas 3: maillon en milieu de liste\n");
+			temp = (*(*prec).suivant).suivant;
+			printf("cas 3: temp alouer");
+			free((*prec).suivant);
+			printf("cas 3: post free \n");
+			(*prec).suivant =  temp;
+			printf("cas 3: pre return");
+			temp = (*prec).suivant;
+		}
+	}
+	
+	
+	return temp;
+}
+
+
 void updateTir()
 {
     int i;
     tir *newTir= Tir;
+    tir *prec = Tir;
+    
     while(newTir !=NULL)
     {
         if((*newTir).on == 1)
@@ -98,36 +145,55 @@ void updateTir()
             {
                 for(i=0; i<5; i++)
                 {
-                    (*newTir).x +=10;
-                    if((*newTir).x >= SCREEN_WIDTH || (*newTir).x < 0)
-                    {
-                        (*newTir).x = (*newTir).y = (*newTir).on =0;
-                    }
+			    
                     collisionTir_Ennemi();
+                    if((*newTir).on == 1) {
+				 (*newTir).x +=10;
+			}
+                    if((*newTir).x >= SCREEN_WIDTH)
+                    {
+			    printf("sortie droite\n");
+			    showLink(Tir);
+	                    newTir = supprimerTir(prec); 
+			    i =5;
+                    }
                 }
             }
 
             if((*newTir).dir==1)
-            {
+            {         
                 for(i=0; i<5; i++)
                 {
-                    (*newTir).x -=10;
-                    if((*newTir).x <= 0)
+			collisionTir_Ennemi();
+			if((*newTir).on == 1) {
+				 (*newTir).x -=10;
+			}
+                   
+                    if((*newTir).x <= 0 && (*newTir).on == 1)
                     {
-                        (*newTir).x = (*newTir).y = (*newTir).on =0;
+			    showLink(Tir);
+			    if((*newTir).on != 0) {
+				    printf("entre gauche\n");
+		                    newTir = supprimerTir(prec); 
+				    printf("sortie gauche\n");	
+				    i =5;
+			    }
                     }
-                    collisionTir_Ennemi();
                 }
             }
-        }
-        newTir = (*newTir).suivant;
+        }       
+	if(newTir != NULL) {
+		prec = newTir;
+	        newTir = (*newTir).suivant;
+	}
     }
 
             SDL_Delay(1);
 }
 
-void freeTir(tir *Tir) {
-	if(Tir != NULL){ freeTir(Tir = (*Tir).suivant); }
+void freeTir(tir *aTir) {
+	if(aTir != NULL){ freeTir(aTir = (*aTir).suivant); }
+	free(aTir);
 	free(Tir);
 }
 

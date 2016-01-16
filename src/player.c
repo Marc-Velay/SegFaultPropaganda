@@ -6,7 +6,7 @@ void initPlayer()
 
     Player.x = 3*SCREEN_WIDTH / 4;
     Player.y = SCREEN_HEIGHT / 4;
-    Player.coins =300;
+    Player.coins =30000;
     Player.stun = 0;
     Player.stuntime =  0;
 }
@@ -47,7 +47,7 @@ int getLanePlayer()
     int temp=0;
 
 
-    while(temp <= Player.y - PATH_TOP_Y - GRID_STEP + STEPHEN_ACTUAL_HEIGHT )
+    while(temp <= Player.y - PATH_TOP_Y - GRID_STEP + 2*STEPHEN_ACTUAL_HEIGHT/3)
     {
         temp += GRID_STEP;
         lane++;

@@ -235,10 +235,13 @@ void UpgradeTourelle(int i);
 void UpTourelle1(int i);
 void UpTourelle2(int i);
 void UpTourelle3(int i);
+
 // ************** tir.c
 void initTir(int x, int y, int dir, int tireur, int degat);
 void updateTir();
 void Tirer(int x, int y, int dir);
+tir* supprimerTir(tir *prec);
+void showLink(tir* debut);
 
 // ************** collision.c
 void collision();
