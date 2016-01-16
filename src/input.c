@@ -46,7 +46,7 @@ void getInput()
     UpdateEvents(&in);
     int moux;
     int mouy;
-    unsigned int frameLimit = SDL_GetTicks() + 60;
+    unsigned int frameLimit = SDL_GetTicks() + 45;
     SDL_GetMouseState(&moux,&mouy);
 
     if(in.key[SDLK_ESCAPE] || in.quit)
@@ -183,7 +183,7 @@ void getInput()
         if ( (in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 160 && moux < 226) && (mouy >615 && mouy <682)) || in.key[SDLK_2]  )
         {
 
-            if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP && Player.coins >= (TOURELLE_2_PRICE + 10*(Game.nbWave-1)))
+            if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y -STEPHEN_ACTUAL_HEIGHT/2 && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP -STEPHEN_ACTUAL_WIDTH && Player.coins >= (TOURELLE_2_PRICE + 10*(Game.nbWave-1)))
             {
                 printf("CREATE TOURELLE 2 CLICKED\n");
                 createTourelle(2);
@@ -195,7 +195,7 @@ void getInput()
         if ((in.mousebuttons[SDL_BUTTON_LEFT] && (moux > 283 && moux < 355) && (mouy >615 && mouy <682)) || in.key[SDLK_3] )
         {
 
-            if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y && Player.y < PATH_BOTTOM_Y && Player.x < SCREEN_WIDTH - 3*GRID_STEP &&  Player.coins >= (TOURELLE_3_PRICE + 10*(Game.nbWave-1)))
+            if(Game.stade ==1 && Game.nbTourelle+1 < MAX_TOURELLES && Player.y >PATH_TOP_Y-STEPHEN_ACTUAL_HEIGHT/2 && Player.y < PATH_BOTTOM_Y  && Player.x < SCREEN_WIDTH - 3*GRID_STEP -STEPHEN_ACTUAL_WIDTH &&  Player.coins >= (TOURELLE_3_PRICE + 10*(Game.nbWave-1)))
             {
                 printf("CREATE TOURELLE 3 CLICKED\n");
                 createTourelle(3);
@@ -371,7 +371,7 @@ void getInput()
         Game.timer +=1;
         Player.reload++;
         delay(frameLimit);
-        frameLimit = SDL_GetTicks() + 60;
+        frameLimit = SDL_GetTicks() + 45;
          UpdateEvents(&in);
 
         }

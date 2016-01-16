@@ -22,8 +22,7 @@
 #define GRID_STEP 64			//Taille des carres de la grille sur le terrain
 
 #define MAX_OFFICERS 500		//Nombre arbitraire du nb max d'ennemis
-#define MAX_TOURELLES 40		//Nombre arbitraire du nb max de tourelles
-#define MAX_LASERDEFENSE 100
+#define MAX_TOURELLES 41		//Nombre arbitraire du nb max de tourelles
 
 #define TOURELLE_1_HP 4
 #define TOURELLE_1_RELOADRATE 40

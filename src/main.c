@@ -7,7 +7,7 @@
 int main(int argc, char *argv[])
 {
 	int go;
-	unsigned int frameLimit = SDL_GetTicks() + 60;
+	unsigned int frameLimit = SDL_GetTicks() + 45;
 	go = 1;
 
     while(go == 1){
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		doWave();
 		Player.reload++;
 		delay(frameLimit);
-		frameLimit = SDL_GetTicks() + 60;
+		frameLimit = SDL_GetTicks() + 45;
         }
 
         highscore();
