@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 		delay(frameLimit);
 		frameLimit = SDL_GetTicks() + 60;
         }
+
         highscore();
 
     }
