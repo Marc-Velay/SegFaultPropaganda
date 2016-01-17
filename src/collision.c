@@ -111,7 +111,8 @@ void collisionEnnemi_Base()
         {
             if(Officer[i].x >= (SCREEN_WIDTH - 3*GRID_STEP/2) && Officer[i].alive == 1)
             {
-
+		
+                    Officer[i].attack = 1;
                 if( Game.timer % Officer[i].reloadrate == 0 )
                 {
 
@@ -125,10 +126,7 @@ void collisionEnnemi_Base()
                     {
                         Game.MenuPointer =350;
                         Game.stade = 2;
-                        //Game.hpBase =0;
-
-
-
+  
                     }
                 }
             }
@@ -138,7 +136,8 @@ void collisionEnnemi_Base()
         {
             if(Officer[i].x >= (SCREEN_WIDTH - 3*GRID_STEP))
             {
-
+		
+                    Officer[i].attack = 1;
                 if( Game.timer % Officer[i].reloadrate == 0 )
                 {
 
