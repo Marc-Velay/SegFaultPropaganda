@@ -179,9 +179,7 @@ void moveOfficers()
 
 void doEnnemi()
 {
-    int tick = Game.timer % (20 - Game.nbWave/5);
-
-    if(Game.nbWave >= 20){ tick = Game.timer % 2;}
+    int tick = Game.timer % (20);
 
     if(tick == 0)
     {

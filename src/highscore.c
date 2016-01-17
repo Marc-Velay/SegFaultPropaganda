@@ -25,12 +25,12 @@ void getScore()
 
     if(highscore == NULL)
     {
-	    
+
          highscore = fopen("save/highscore.txt","w+");
 
          for(i=0;i<10;i++)
          {
-		 
+
              fprintf(highscore,"XXXXXXXXXX 0 0 ");
          }
     }
@@ -43,7 +43,7 @@ void getScore()
 		temp2 = &Game.nbWaveScore[i];
 		temp3 = &Game.nbKilledScore[i];
             fscanf(highscore,"%s %d %d", temp1, temp2,temp3);
-	
+
             if(Game.nbKilledScore[i] < Game.nbEnnemiKilled)
             {
                 if(i != 9)
@@ -85,21 +85,21 @@ void drawHighscore()
 {
      char Joueur[14],nbWaveScore[20],nbKilledScore[20],compteur[3] ;
      int i;
-     char *temp;
+     /*char *temp;
      int *temp1;
      int *temp2;
-     FILE* highscore = NULL;
+     FILE* highscore = NULL;*/
 
     getScore();
-    highscore = fopen("save/highscore.txt","r+");
+    //highscore = fopen("save/highscore.txt","r+");
 
         for(i=0;i<10;i++)
         {
-		temp = Game.Joueur[i];
+		/*temp = Game.Joueur[i];
 		temp1 =&Game.nbWaveScore[i];
-		temp2 = &Game.nbKilledScore[i];
+		temp2 = &Game.nbKilledScore[i];*/
             sprintf(compteur,"%d", i+1);
-            fscanf(highscore,"%s %d %d", temp, temp1, temp2);
+            //fscanf(highscore,"%s %d %d", temp, temp1, temp2);
             sprintf(Joueur,"%s", Game.Joueur[i]);
             sprintf(nbWaveScore,"%d", Game.nbWaveScore[i]);
             sprintf(nbKilledScore,"%d", Game.nbKilledScore[i]);
