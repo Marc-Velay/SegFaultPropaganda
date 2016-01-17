@@ -60,6 +60,7 @@ void getInput()
         if(((moux > 521 && moux < 760) && (mouy >277 && mouy <319)) && Game.stade ==0)
         {
             printf("START GAME PRESSED\n");
+            memset(&Player.name,0,sizeof(Player.name));
             Game.stade = -1;
 
         }
@@ -119,9 +120,9 @@ void getInput()
     }
 
     /************************************MENU*********************************/
-    
-    
-    
+
+
+
 
     /************************************GET NAME*********************************/
 
@@ -276,8 +277,8 @@ void getInput()
 
     /************************************GET NAME*********************************/
 
-    
-    
+
+
 
     /************************************LAST SCREEN*********************************/
 
@@ -331,8 +332,8 @@ void getInput()
     /************************************LAST SCREEN*********************************/
 
 
-    
-    
+
+
     /************************************HIGHSCORE SCREEN*********************************/
 
 
@@ -365,8 +366,8 @@ void getInput()
 
     /************************************HIGHSCORE SCREEN*********************************/
 
-    
-    
+
+
 
     /************************************TOURELLES*********************************/
     // bouton Tourelle de gauche
@@ -512,7 +513,7 @@ void getInput()
 
         /************************************TOURELLES*********************************/
 
-	
+
         /************************************DEPLACEMENTS*********************************/
 
 
@@ -584,39 +585,39 @@ void getInput()
                     Player.reload = 0;
                 }
             }
-            
+
             if(Player.direction ==0){
 		    if(annimationFrame <5){
 			    Player.sprite = getSprite(PLAYER_R1_SPRITE);
 		    } else if(annimationFrame <10){
 			    Player.sprite = getSprite(PLAYER_R2_SPRITE);
-			    
+
 		    }else if(annimationFrame <15){
 			    Player.sprite = getSprite(PLAYER_R3_SPRITE);
-			    
+
 		    }else if(annimationFrame <20){
 			    Player.sprite = getSprite(PLAYER_R4_SPRITE);
-			    
+
 		    } else if(annimationFrame <25){
-			    Player.sprite = getSprite(PLAYER_R5_SPRITE);		    
+			    Player.sprite = getSprite(PLAYER_R5_SPRITE);
 		    }
             }else if(Player.direction == 1) {
 		    if(annimationFrame <5){
 			    Player.sprite = getSprite(PLAYER_L1_SPRITE);
 		    } else if(annimationFrame <10){
 			    Player.sprite = getSprite(PLAYER_L2_SPRITE);
-			    
+
 		    }else if(annimationFrame <15){
 			    Player.sprite = getSprite(PLAYER_L3_SPRITE);
-			    
+
 		    }else if(annimationFrame <20){
 			    Player.sprite = getSprite(PLAYER_L4_SPRITE);
-			    
+
 		    } else if(annimationFrame <25){
-			    Player.sprite = getSprite(PLAYER_L5_SPRITE);		    
+			    Player.sprite = getSprite(PLAYER_L5_SPRITE);
 		    }
             }
-            
+
         /************************************DEPLACEMENTS*********************************/
 
         updateScreen();

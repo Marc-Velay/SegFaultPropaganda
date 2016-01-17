@@ -96,7 +96,7 @@ void drawOfficer()
 				if(Officer[i].hpOfficer != officerhp) {
 					if (Officer[i].hpOfficer >= 0) {
 						drawImage(getSprite(LIFE_SPRITE), Officer[i].x +10  , Officer[i].y - 10 );
-						
+
 						if(Officer[i].hpOfficer > (officerhp/5)) {
 							drawImage(getSprite(LIFE_SPRITE), Officer[i].x +10  +11, Officer[i].y - 10 );
 
@@ -114,27 +114,27 @@ void drawOfficer()
 							}
 						}
 					}
-					
+
 			        }
 			if(Officer[i].attack == 0) {
 				if(annimationFrame <6){
 					Officer[i].sprite = getSprite(OFFICER1_SPRITE);
 				}else if(annimationFrame <12){
-					Officer[i].sprite = getSprite(OFFICER2_SPRITE);				
+					Officer[i].sprite = getSprite(OFFICER2_SPRITE);
 				}else if(annimationFrame <18){
-					Officer[i].sprite = getSprite(OFFICER3_SPRITE);				
+					Officer[i].sprite = getSprite(OFFICER3_SPRITE);
 				}
 			} else if(Officer[i].attack == 1) {
 				if(annimationFrame <10){
 					Officer[i].sprite = getSprite(OFFICER_ATTACK1_SPRITE);
 				}else if(annimationFrame <18){
-					Officer[i].sprite = getSprite(OFFICER_ATTACK2_SPRITE);				
+					Officer[i].sprite = getSprite(OFFICER_ATTACK2_SPRITE);
 				}
 			}
-			
+
 			drawImage(Officer[i].sprite, Officer[i].x, Officer[i].y);
 			}
-		}	
+		}
 	}
 }
 
