@@ -1,5 +1,4 @@
 #include "fonctions.h"
-
 // Strip images using		 pngcrush -rem allb RogerShadeClean_64x64.png Roger_Clean.png
 
 
@@ -9,6 +8,7 @@ int main(int argc, char *argv[])
 	int go;
 	unsigned int frameLimit = SDL_GetTicks() + 45;
 	go = 1;
+
 
     while(go == 1){
 
