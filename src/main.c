@@ -1,6 +1,4 @@
 #include "fonctions.h"
-freopen("CON","w", stderr);
-freopen("CON","w", stdout);
 // Strip images using		 pngcrush -rem allb RogerShadeClean_64x64.png Roger_Clean.png
 
 
