@@ -4,7 +4,6 @@
 void init(char *title)
 {
     int i;
-    printf("top of init\n");
 	if(Game.restart == 0) {
 		 if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)  //Initialisation de l'API Mixer
 	    {
@@ -36,7 +35,6 @@ void init(char *title)
     
 
 
-    printf("empty officers and towers\n");
     for(i=0; i<=MAX_OFFICERS; i++)
             {
                 Officer[i].alive = 0;
@@ -47,7 +45,6 @@ void init(char *title)
                 Tourelle[i].x=Tourelle[i].y=SCREEN_WIDTH*2;
      }
 	
-    printf("get score\n");
     getScore();
     Game.countdown =300;
     Game.timer =0;
