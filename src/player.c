@@ -5,7 +5,7 @@ void initPlayer()
     int i;
 
     Player.sprite = getSprite(PLAYER_L_SPRITE);
-
+	Player.direction = 0;
     Player.x = 3*SCREEN_WIDTH / 4;
     Player.y = SCREEN_HEIGHT / 4;
     Player.coins =30000;

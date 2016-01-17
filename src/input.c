@@ -48,6 +48,7 @@ void getInput()
     int mouy;
     unsigned int frameLimit = SDL_GetTicks() + 45;
     SDL_GetMouseState(&moux,&mouy);
+    int annimationFrame = Game.timer % 25;
 
     if(in.key[SDLK_ESCAPE] || in.quit)
     {
@@ -534,7 +535,8 @@ void getInput()
         {
             if(in.key[SDLK_d] || in.key[SDLK_RIGHT])
             {
-                Player.sprite = getSprite(PLAYER_R_SPRITE);
+                //Player.sprite = getSprite(PLAYER_R_SPRITE);
+		    Player.direction =0;
                 Player.x +=10;
                 if(Player.x > SCREEN_WIDTH - STEPHEN_ACTUAL_WIDTH)
                 {
@@ -553,6 +555,7 @@ void getInput()
             if(in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_LEFT])
             {
                 Player.sprite = getSprite(PLAYER_L_SPRITE);
+		    Player.direction = 1;
                 Player.x -=10;
                 if(Player.x < 0)
                 {
@@ -570,16 +573,48 @@ void getInput()
             }
             if(in.key[SDLK_SPACE])
             {
-                if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
+                if(Player.direction == 0 && Player.reload > 20)
                 {
                     initTir(Player.x,Player.y+19,0,-1,1);
                     Player.reload = 0;
                 }
-                if(Player.sprite == getSprite(PLAYER_L_SPRITE) && Player.reload > 20)
+                if(Player.direction == 1 && Player.reload > 20)
                 {
                     initTir(Player.x,Player.y+19,1,-1,1);
                     Player.reload = 0;
                 }
+            }
+            
+            if(Player.direction ==0){
+		    if(annimationFrame <5){
+			    Player.sprite = getSprite(PLAYER_R1_SPRITE);
+		    } else if(annimationFrame <10){
+			    Player.sprite = getSprite(PLAYER_R2_SPRITE);
+			    
+		    }else if(annimationFrame <15){
+			    Player.sprite = getSprite(PLAYER_R3_SPRITE);
+			    
+		    }else if(annimationFrame <20){
+			    Player.sprite = getSprite(PLAYER_R4_SPRITE);
+			    
+		    } else if(annimationFrame <25){
+			    Player.sprite = getSprite(PLAYER_R5_SPRITE);		    
+		    }
+            }else if(Player.direction == 1) {
+		    if(annimationFrame <5){
+			    Player.sprite = getSprite(PLAYER_L1_SPRITE);
+		    } else if(annimationFrame <10){
+			    Player.sprite = getSprite(PLAYER_L2_SPRITE);
+			    
+		    }else if(annimationFrame <15){
+			    Player.sprite = getSprite(PLAYER_L3_SPRITE);
+			    
+		    }else if(annimationFrame <20){
+			    Player.sprite = getSprite(PLAYER_L4_SPRITE);
+			    
+		    } else if(annimationFrame <25){
+			    Player.sprite = getSprite(PLAYER_L5_SPRITE);		    
+		    }
             }
             
         /************************************DEPLACEMENTS*********************************/
@@ -591,8 +626,12 @@ void getInput()
         delay(frameLimit);
         frameLimit = SDL_GetTicks() + 45;
          UpdateEvents(&in);
+	    annimationFrame = Game.timer % 25;
 
         }
+                if(Player.direction == 1) {
+			Player.sprite = getSprite(PLAYER_L_SPRITE);
+		} else {Player.sprite = getSprite(PLAYER_R_SPRITE);}
     }
 }
 
