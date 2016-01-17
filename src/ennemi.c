@@ -84,35 +84,43 @@ void drawOfficer()
 {
 	int i,j;
 	float officerhp;
+	int annimationFrame = Game.timer%18;
 
-    for(j=0; j<5; j++)
-    {
-        for(i=0; i<Game.nbEnnemiCreated; i++)
-        {
+	for(j=0; j<5; j++) {
+		for(i=0; i<Game.nbEnnemiCreated; i++) {
 
-          //  if(Officer[i].alive == 1 && Officer[i].lane == j)
-		officerhp = OFFICIER_1_HP + (Game.nbWave*Game.nbWave/4) - Game.nbWave;
-	        drawImage(Officer[i].sprite, Officer[i].x, Officer[i].y);
+			if(Officer[i].alive == 1 && Officer[i].lane == j) {
+				officerhp = OFFICIER_1_HP + (Game.nbWave*Game.nbWave/2) - Game.nbWave;
+			        drawImage(Officer[i].sprite, Officer[i].x, Officer[i].y);
 
-	        if(Officer[i].hpOfficer != officerhp) {
-			if(Officer[i].hpOfficer >= (officerhp/5)) {
-				drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 , Officer[i].y - 10 );
+				if(Officer[i].hpOfficer != officerhp) {
+					if(Officer[i].hpOfficer >= (officerhp/5)) {
+						drawImage(getSprite(LIFE_SPRITE), Officer[i].x -15 , Officer[i].y - 10 );
 
-				if(Officer[i].hpOfficer >= (2*officerhp/5)) {
-					drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 +11, Officer[i].y - 10 );
+						if(Officer[i].hpOfficer >= (2*officerhp/5)) {
+							drawImage(getSprite(LIFE_SPRITE), Officer[i].x -15 +11, Officer[i].y - 10 );
 
-					if(Officer[i].hpOfficer >= (3*officerhp/5) ) {
-						drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 +22, Officer[i].y - 10 );
+							if(Officer[i].hpOfficer >= (3*officerhp/5) ) {
+								drawImage(getSprite(LIFE_SPRITE), Officer[i].x -15 +22, Officer[i].y - 10 );
 
-						if(Officer[i].hpOfficer >= (4*officerhp/5)) {
-							drawImage(getSprite(LIFE_SPRITE), Officer[i].x -20 +33, Officer[i].y - 10 );
+								if(Officer[i].hpOfficer >= (4*officerhp/5)) {
+									drawImage(getSprite(LIFE_SPRITE), Officer[i].x -15 +33, Officer[i].y - 10 );
 
+								}
+							}
 						}
 					}
-				}
+			        }
+			if(annimationFrame <6){
+				Officer[i].sprite = getSprite(OFFICER1_SPRITE);
+			}else if(annimationFrame <12){
+				Officer[i].sprite = getSprite(OFFICER2_SPRITE);				
+			}else if(annimationFrame <18){
+				Officer[i].sprite = getSprite(OFFICER3_SPRITE);				
 			}
-	        }
-	}
+			drawImage(Officer[i].sprite, Officer[i].x, Officer[i].y);
+			}
+		}	
 	}
 }
 

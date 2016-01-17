@@ -537,7 +537,7 @@ void getInput()
             {
                 //Player.sprite = getSprite(PLAYER_R_SPRITE);
 		    Player.direction =0;
-                Player.x +=10;
+                Player.x +=5;
                 if(Player.x > SCREEN_WIDTH - STEPHEN_ACTUAL_WIDTH)
                 {
                     Player.x = SCREEN_WIDTH - STEPHEN_ACTUAL_WIDTH;
@@ -546,7 +546,7 @@ void getInput()
             }
             if(in.key[SDLK_s] || in.key[SDLK_DOWN])
             {
-                Player.y +=10;
+                Player.y +=5;
                 if(Player.y > SCREEN_HEIGHT - STEPHEN_ACTUAL_HEIGHT - MENU_HEIGHT)
                 {
                     Player.y = SCREEN_HEIGHT - STEPHEN_ACTUAL_HEIGHT - MENU_HEIGHT;
@@ -556,7 +556,7 @@ void getInput()
             {
                 Player.sprite = getSprite(PLAYER_L_SPRITE);
 		    Player.direction = 1;
-                Player.x -=10;
+                Player.x -=5;
                 if(Player.x < 0)
                 {
                     Player.x =0;
@@ -565,7 +565,7 @@ void getInput()
             }
             if(in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_UP])
             {
-                Player.y -=10;
+                Player.y -=5;
                 if(Player.y < 0)
                 {
                     Player.y = 0;
