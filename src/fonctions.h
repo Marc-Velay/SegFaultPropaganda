@@ -67,12 +67,15 @@ typedef struct game			//toutes les variables du rungame, utilisee pour faire tou
     int hpBase;
     float restart;
     int drawOption,xOp,yOp,iOp;
-    int pushBack,doubleShot,deadAIM,AOE;
+    int nbWaveScore[10], nbKilledScore[10];
+    char Joueur[10][14];
     int MenuPointer;
 } game;
 
 typedef struct player			// structure de Stephen
 {
+    char name[14];
+    int nameInd;
     int x, y;
     int direction;
     int reload;
@@ -162,6 +165,7 @@ SDL_Surface *screen, *Background, *Text, *health;  //initialise les surfaces de 
 TTF_Font *TitleFont; 						//la police du texte
 TTF_Font *SubTitleFont;
 TTF_Font *textFont;
+TTF_Font *ClassicFont;
 TTF_Font *compteurFont;
 player Player;
 officer Officer[MAX_OFFICERS];			//Tableau contenant les ennemis cree
@@ -252,5 +256,5 @@ void Jeu();
 void loadAllMusic();
 
 //*************** highscore.c
-void highscore();
-int nbChiffres(int i);
+void getScore();
+void drawHighscore();

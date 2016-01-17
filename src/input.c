@@ -59,7 +59,8 @@ void getInput()
         if(((moux > 521 && moux < 760) && (mouy >277 && mouy <319)) && Game.stade ==0)
         {
             printf("START GAME PRESSED\n");
-            Game.stade = 1;
+            Game.stade = -1;
+
         }
         printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
     }
@@ -84,7 +85,7 @@ void getInput()
 
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
-        if(((moux > 595 && moux < 684) && (mouy >580 && mouy <620)) && Game.stade ==0)
+        if(((moux > 595 && moux < 684) && (mouy >580 && mouy <620)) && Game.stade == 0)
         {
             printf("QUIT PRESSED\n");
             SDL_Quit();
@@ -118,8 +119,172 @@ void getInput()
 
     /************************************MENU*********************************/
 
+    /************************************GET NAME*********************************/
+
+        //strlen (const char *cs);
+        if(Game.stade == -1)
+        {
+            if(Player.nameInd < 13)
+            {
+                if(in.key[SDLK_a])
+                {
+                    Player.name[Player.nameInd] = 'A';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_b])
+                {
+                    Player.name[Player.nameInd] = 'B';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_c])
+                {
+                    Player.name[Player.nameInd] = 'C';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_d])
+                {
+                    Player.name[Player.nameInd] = 'D';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_e])
+                {
+                    Player.name[Player.nameInd] = 'E';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_f])
+                {
+                    Player.name[Player.nameInd] = 'F';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_g])
+                {
+                    Player.name[Player.nameInd] = 'G';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_h])
+                {
+                    Player.name[Player.nameInd] = 'H';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_i])
+                {
+                    Player.name[Player.nameInd] = 'I';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_j])
+                {
+                    Player.name[Player.nameInd] = 'J';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_k])
+                {
+                    Player.name[Player.nameInd] = 'K';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_l])
+                {
+                    Player.name[Player.nameInd] = 'L';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_m])
+                {
+                    Player.name[Player.nameInd] = 'M';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_n])
+                {
+                    Player.name[Player.nameInd] = 'N';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_o])
+                {
+                    Player.name[Player.nameInd] = 'O';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_p])
+                {
+                    Player.name[Player.nameInd] = 'P';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_q])
+                {
+                    Player.name[Player.nameInd] = 'Q';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_r])
+                {
+                    Player.name[Player.nameInd] = 'R';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_s])
+                {
+                    Player.name[Player.nameInd] = 'S';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_t])
+                {
+                    Player.name[Player.nameInd] = 'T';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_u])
+                {
+                    Player.name[Player.nameInd] = 'U';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_v])
+                {
+                    Player.name[Player.nameInd] = 'V';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_w])
+                {
+                    Player.name[Player.nameInd] = 'W';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_x])
+                {
+                    Player.name[Player.nameInd] = 'X';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_y])
+                {
+                    Player.name[Player.nameInd] = 'Y';
+                    Player.nameInd++;
+                }
+                else if(in.key[SDLK_z])
+                {
+                    Player.name[Player.nameInd] = 'Z';
+                    Player.nameInd++;
+                }
+            }
+                if(in.key[SDLK_BACKSPACE] && Player.nameInd > 0)
+                {
+                    Player.name[Player.nameInd-1] = ' ' ;
+                    Player.nameInd--;
+                }
+                else if(in.key[SDLK_RETURN])
+                {
+                    Game.stade = 1;
+                }
+
+
+        }
+
+    /************************************GET NAME*********************************/
+
 
     /************************************LAST SCREEN*********************************/
+
+
+      if (in.mousebuttons[SDL_BUTTON_LEFT])
+    {
+        if(((moux > 540 && moux < 735) && (mouy >250 && mouy <290)) && Game.stade ==2)
+        {
+            printf("HIGHSCORE PRESSED\n");
+           Game.stade = 3;
+        }
+    }
+
 
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
@@ -151,7 +316,47 @@ void getInput()
     {
         Game.MenuPointer = 340;
     }
+
+     if( (mouy >250 && mouy <290) && Game.stade ==2)
+    {
+        Game.MenuPointer = 240;
+    }
+
     /************************************LAST SCREEN*********************************/
+
+
+    /************************************HIGHSCORE SCREEN*********************************/
+
+
+
+    if (in.mousebuttons[SDL_BUTTON_LEFT])
+    {
+        if(((moux > 600 && moux < 675) && (mouy >650 && mouy <690)) && Game.stade ==3)
+        {
+            printf("RETURN MENU PRESSED\n");
+            Game.restart = 1;
+        }
+    }
+
+
+
+    if( (mouy >449 && mouy <489) && Game.stade ==2)
+    {
+        Game.MenuPointer = 440;
+    }
+
+    if( (mouy >349 && mouy <389) && Game.stade ==2)
+    {
+        Game.MenuPointer = 340;
+    }
+
+     if( (mouy >250 && mouy <290) && Game.stade ==2)
+    {
+        Game.MenuPointer = 240;
+    }
+
+    /************************************HIGHSCORE SCREEN*********************************/
+
 
     /************************************TOURELLES*********************************/
     // bouton Tourelle de gauche
@@ -159,7 +364,7 @@ void getInput()
     while(in.key[SDLK_p])
     {
         updateScreen();
-	doWave();
+        doWave();
         Game.timer +=1;
         Player.reload++;
         SDL_Delay(1);
@@ -299,7 +504,7 @@ void getInput()
 
 
 
-        if(in.key[SDLK_SPACE])
+        if(in.key[SDLK_SPACE] && Game.stade == 1)
         {
             if(Player.sprite == getSprite(PLAYER_R_SPRITE) && Player.reload > 20)
             {
@@ -314,7 +519,7 @@ void getInput()
         }
 
 
-        while((in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_DOWN] || in.key[SDLK_UP] || in.key[SDLK_LEFT] || in.key[SDLK_RIGHT]) && Player.stun ==0)
+        while((in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_DOWN] || in.key[SDLK_UP] || in.key[SDLK_LEFT] || in.key[SDLK_RIGHT]) && Player.stun ==0  && Game.stade == 1)
         {
             if(in.key[SDLK_d] || in.key[SDLK_RIGHT])
             {

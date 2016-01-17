@@ -43,7 +43,7 @@ void init(char *title)
                 Tourelle[i].x=Tourelle[i].y=SCREEN_WIDTH*2;
             }
 
-    Game.stade=0;
+    getScore();
     Game.countdown =300;
     Game.timer =0;
     Game.nbWave=1;
@@ -58,6 +58,7 @@ void init(char *title)
     loadAllSprites();
     loadAllMusic();
     initPlayer();
+
 }
 
 

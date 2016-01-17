@@ -127,10 +127,12 @@ void collisionEnnemi_Base()
 
                     if(Game.hpBase == 0)
                     {
-
                         Game.MenuPointer =350;
                         Game.stade = 2;
                         //Game.hpBase =0;
+
+
+
                     }
                 }
             }

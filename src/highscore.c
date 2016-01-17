@@ -3,39 +3,15 @@
 #include <stdlib.h>
 #include "fonctions.h"
 
-void swapScore(int* a, int* b)
-{
-    int tmp;
-
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
 
 
-}
-
-int nbChiffres(int i)
-{
-
-	int nb = 0;
-
-	do
-    {
-		nb++;
-
-	}while((i /= 10) > 0);
-
-	return nb;
-}
-
-void highscore()
+void getScore()
 {
     FILE* highscore = NULL;
 
-    char noms[10][14];
     char nomTemp[14] = "sauce";
+    strcpy (nomTemp, Player.name);
 
-    int nbWaveScore[10], nbKilledScore[10];
     int nbWaveScoreTemp, nbKilledScoreTemp;
     int i;
 
@@ -50,7 +26,7 @@ void highscore()
 
          for(i=0;i<10;i++)
          {
-             fprintf(highscore,"XXXXXXXXXXXXX 0 0 ");
+             fprintf(highscore,"XXXXXXXXXX 0 0 ");
          }
     }
 
@@ -58,28 +34,27 @@ void highscore()
 
         for(i=0;i<10;i++)
         {
-            fscanf(highscore, "%s", &noms[i]);
-            fscanf(highscore, "%d %d", &nbWaveScore[i], &nbKilledScore[i]);
+            fscanf(highscore,"%s %d %d", &Game.Joueur[i], &Game.nbWaveScore[i], &Game.nbKilledScore[i]);
 
-            if(nbKilledScore[i] < Game.nbEnnemiKilled)
+            if(Game.nbKilledScore[i] < Game.nbEnnemiKilled)
             {
                 if(i != 9)
                 {
-                    strcpy (noms[i+1], noms[i]);
-                    nbKilledScore[i+1] = nbKilledScore[i];
-                    nbWaveScore[i+1] = nbWaveScore[i];
+                    strcpy (Game.Joueur[i+1], Game.Joueur[i]);
+                    Game.nbKilledScore[i+1] = Game.nbKilledScore[i];
+                    Game.nbWaveScore[i+1] = Game.nbWaveScore[i];
 
-                    strcpy (noms[i], nomTemp);
-                    nbKilledScore[i] = nbKilledScoreTemp;
-                    nbWaveScore[i] = nbWaveScoreTemp;
+                    strcpy (Game.Joueur[i], nomTemp);
+                    Game.nbKilledScore[i] = nbKilledScoreTemp;
+                    Game.nbWaveScore[i] = nbWaveScoreTemp;
                     Game.nbEnnemiKilled = 0;
                     i++;
                 }
                 else
                 {
-                    strcpy (noms[i], nomTemp);
-                    nbKilledScore[i] = Game.nbEnnemiKilled;
-                    nbWaveScore[i] = Game.nbWave;
+                    strcpy (Game.Joueur[i], nomTemp);
+                    Game.nbKilledScore[i] = Game.nbEnnemiKilled;
+                    Game.nbWaveScore[i] = Game.nbWave;
                 }
             }
         }
@@ -90,11 +65,38 @@ void highscore()
          for(i=0;i<10;i++)
          {
 
-             fprintf(highscore, "%s ", noms[i]);
-             fprintf(highscore,"%d %d ",nbWaveScore[i], nbKilledScore[i]);
+             fprintf(highscore,"%s %d %d ", Game.Joueur[i],Game.nbWaveScore[i], Game.nbKilledScore[i]);
          }
 
          fclose(highscore);
 
 
 }
+
+void drawHighscore()
+{
+
+     char Joueur[14],nbWaveScore[20],nbKilledScore[20],compteur[3] ;
+     int i;
+     FILE* highscore = NULL;
+
+    getScore();
+
+        for(i=0;i<10;i++)
+        {
+
+            sprintf(compteur,"%d", i+1);
+            fscanf(highscore,"%s %d %d", &Game.Joueur[i], &Game.nbWaveScore[i], &Game.nbKilledScore[i]);
+            sprintf(Joueur,"%s", Game.Joueur[i]);
+            sprintf(nbWaveScore,"%d", Game.nbWaveScore[i]);
+            sprintf(nbKilledScore,"%d", Game.nbKilledScore[i]);
+
+            drawMenu(compteur,-550, -80 + 50*i, compteurFont);
+            drawMenu(Joueur,-445, -80 + 50*i, compteurFont);
+            drawMenu(nbWaveScore,0, -80 + 50*i, compteurFont);
+            drawMenu(nbKilledScore,450 , -80 +  50*i , compteurFont);
+        }
+
+}
+
+

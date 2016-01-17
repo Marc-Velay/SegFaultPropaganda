@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     while(go == 1){
 
            Game.restart = 0;
+           Game.stade=0;
 
         init("Tower Defense: Stephen VS Langley Falls");
         atexit(cleanup);
@@ -28,8 +29,6 @@ int main(int argc, char *argv[])
 		delay(frameLimit);
 		frameLimit = SDL_GetTicks() + 45;
         }
-
-        highscore();
 
     }
 
