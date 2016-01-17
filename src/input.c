@@ -52,7 +52,8 @@ void getInput()
 
     if(in.key[SDLK_ESCAPE] || in.quit)
     {
-        exit(0);
+	    SDL_Quit();
+	    exit(0);
     }
     /************************************MENU*********************************/
     if (in.mousebuttons[SDL_BUTTON_LEFT])
@@ -627,7 +628,7 @@ void getInput()
         delay(frameLimit);
         frameLimit = SDL_GetTicks() + 45;
          UpdateEvents(&in);
-	    annimationFrame = Game.timer % 25;
+	 annimationFrame = Game.timer % 25;
 
         }
                 if(Player.direction == 1) {

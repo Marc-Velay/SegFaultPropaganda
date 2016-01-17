@@ -8,7 +8,6 @@
 #include "SDL/SDL_ttf.h"
 #include "SDL/SDL_mixer.h"
 
-//caca
 
 #define SCREEN_WIDTH 1280		//Defini la taille de la fenetre
 #define SCREEN_HEIGHT 720

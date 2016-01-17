@@ -12,17 +12,17 @@ int main(int argc, char *argv[])
 
     while(go == 1){
 
+	   if(Game.restart ==1) { Game.nbWave =0; }
            Game.restart = 0;
            Game.stade=0;
-
         init("Tower Defense: Stephen VS Langley Falls");
         atexit(cleanup);
 
 
         while (Game.restart != 1)
         {
-        updateScreen();
-        getInput();
+	        updateScreen();
+	        getInput();
 		Game.timer +=1;
 		doWave();
 		Player.reload++;

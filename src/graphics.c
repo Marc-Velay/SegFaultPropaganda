@@ -513,7 +513,6 @@ void delay(unsigned int frameLimit)
 
 void updateScreen()
 {
-    /* Blank the screen */
     SDL_FillRect(screen, NULL, 0);
 
     switch(Game.stade)

@@ -4,45 +4,50 @@
 void init(char *title)
 {
     int i;
+    printf("top of init\n");
+	if(Game.restart == 0) {
+		 if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)  //Initialisation de l'API Mixer
+	    {
+	        printf("%s", Mix_GetError());
+	    }
 
-     if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)  //Initialisation de l'API Mixer
-    {
-        printf("%s", Mix_GetError());
-    }
+	    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	    {
+	        printf("Could not initialize SDL: %s\n", SDL_GetError());
+	        exit(1);
+	    }
 
-    if (SDL_Init(SDL_INIT_VIDEO) < 0)
-    {
-        printf("Could not initialize SDL: %s\n", SDL_GetError());
-        exit(1);
-    }
+	    screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE);
 
-    screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE);
+	    if (screen == NULL)
+	    {
+	        printf("Couldn't set screen mode to 1280 x 720: %s\n", SDL_GetError());
+	        exit(1);
+	    }
 
-    if (screen == NULL)
-    {
-        printf("Couldn't set screen mode to 1280 x 720: %s\n", SDL_GetError());
-        exit(1);
-    }
+	    if (TTF_Init() < 0)
+	    {
+	        printf("Couldn't initialize SDL TTF: %s\n", SDL_GetError());
+	        exit(1);
+	    }
+		
+	    SDL_WM_SetCaption(title, NULL);
+	}	
+    
 
-    if (TTF_Init() < 0)
-    {
-        printf("Couldn't initialize SDL TTF: %s\n", SDL_GetError());
-        exit(1);
-    }
 
-    SDL_WM_SetCaption(title, NULL);
-
+    printf("empty officers and towers\n");
     for(i=0; i<=MAX_OFFICERS; i++)
             {
                 Officer[i].alive = 0;
                 Officer[i].x=Officer[i].y=-3*SCREEN_WIDTH;
             }
-            for(i=0; i<=MAX_TOURELLES; i++)
-            {
+    for(i=0; i<=MAX_TOURELLES; i++) {
                 Tourelle[i].alive = 0;
                 Tourelle[i].x=Tourelle[i].y=SCREEN_WIDTH*2;
-            }
-
+     }
+	
+    printf("get score\n");
     getScore();
     Game.countdown =300;
     Game.timer =0;
