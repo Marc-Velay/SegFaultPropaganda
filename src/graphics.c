@@ -320,46 +320,46 @@ void loadAllSprites()
     textFont = loadFont("sfd/FreeSans.ttf", 15);
     compteurFont = loadFont("sfd/PIXEL.ttf", 30);
     ClassicFont = loadFont("sfd/PIXEL.ttf", 40);
-    
+
     loadSprite(PLAYER_R_SPRITE, "gfx/Roger_CleanR.png");
     loadSprite(PLAYER_R1_SPRITE, "gfx/Roger_CleanR_Walking1.png");
     loadSprite(PLAYER_R2_SPRITE, "gfx/Roger_CleanR_Walking2.png");
     loadSprite(PLAYER_R3_SPRITE, "gfx/Roger_CleanR_Walking3.png");
     loadSprite(PLAYER_R4_SPRITE, "gfx/Roger_CleanR_Walking4.png");
     loadSprite(PLAYER_R5_SPRITE, "gfx/Roger_CleanR_Walking15.png");
-    
+
     loadSprite(PLAYER_L_SPRITE, "gfx/Roger_CleanL.png");
     loadSprite(PLAYER_L1_SPRITE, "gfx/Roger_CleanL_Walking1.png");
     loadSprite(PLAYER_L2_SPRITE, "gfx/Roger_CleanL_Walking2.png");
     loadSprite(PLAYER_L3_SPRITE, "gfx/Roger_CleanL_Walking3.png");
     loadSprite(PLAYER_L4_SPRITE, "gfx/Roger_CleanL_Walking4.png");
     loadSprite(PLAYER_L5_SPRITE, "gfx/Roger_CleanL_Walking5.png");
-    
+
     loadSprite(BACKGROUND_LAUNCH_SPRITE, "gfx/Menu.png");
     loadSprite(BACKGROUND_END_SPRITE, "gfx/TerrainV2.png");
     loadSprite(BACKGROUND_SPRITE, "gfx/TerrainV4.png");
-    
+
     loadSprite(OFFICER_SPRITE, "gfx/Agent_Clean.png");
     loadSprite(OFFICER1_SPRITE, "gfx/Agent_Segway_Clean1.png");
     loadSprite(OFFICER2_SPRITE, "gfx/Agent_Segway_Clean2.png");
     loadSprite(OFFICER3_SPRITE, "gfx/Agent_Segway_Clean3.png");
-    
-    loadSprite(OFFICER_ATTACK1_SPRITE, "gfx/Agent_Segway_Cut_Clean1.png");    
-    loadSprite(OFFICER_ATTACK2_SPRITE, "gfx/Agent_Segway_Cut_Clean2.png");    
-    
-    loadSprite(OFFICER_BLACK_SPRITE, "gfx/AgentBlack_Clean.png");    
-    loadSprite(OFFICER_BLACK1_SPRITE, "gfx/AgentBlack_Segway_Clean1.png");    
-    loadSprite(OFFICER_BLACK2_SPRITE, "gfx/AgentBlack_Segway_Clean2.png");    
-    loadSprite(OFFICER_BLACK3_SPRITE, "gfx/AgentBlack_Segway_Clean3.png");    
-    
-    loadSprite(OFFICER_BLACK_ATTACK_SPRITE, "gfx/AgentBlack_Segway_Cut_Clean1.png");      
-    loadSprite(OFFICER_BLACK_ATTACK1_SPRITE, "gfx/AgentBlack_Segway_Cut_Clean2.png");     
-    loadSprite(OFFICER_BLACK_ATTACK2_SPRITE, "gfx/AgentBlack_Segway_Cut_Clean3.png"); 
-    
+
+    loadSprite(OFFICER_ATTACK1_SPRITE, "gfx/Agent_Segway_Cut_Clean1.png");
+    loadSprite(OFFICER_ATTACK2_SPRITE, "gfx/Agent_Segway_Cut_Clean2.png");
+
+    loadSprite(OFFICER_BLACK_SPRITE, "gfx/AgentBlack_Clean.png");
+    loadSprite(OFFICER_BLACK1_SPRITE, "gfx/AgentBlack_Segway_Clean1.png");
+    loadSprite(OFFICER_BLACK2_SPRITE, "gfx/AgentBlack_Segway_Clean2.png");
+    loadSprite(OFFICER_BLACK3_SPRITE, "gfx/AgentBlack_Segway_Clean3.png");
+
+    loadSprite(OFFICER_BLACK_ATTACK_SPRITE, "gfx/AgentBlack_Segway_Cut_Clean1.png");
+    loadSprite(OFFICER_BLACK_ATTACK1_SPRITE, "gfx/AgentBlack_Segway_Cut_Clean2.png");
+    loadSprite(OFFICER_BLACK_ATTACK2_SPRITE, "gfx/AgentBlack_Segway_Cut_Clean3.png");
+
     loadSprite(TOURELLE_1_SPRITE, "gfx/Tourelle_Clean.png");
     loadSprite(TOURELLE_2_SPRITE, "gfx/TourelleTriple.png");
     loadSprite(TOURELLE_3_SPRITE, "gfx/Tourelle_Clean2.png");
-    
+
     loadSprite(BASE_HEALTH_0_SPRITE, "gfx/FullHPBar.png");
     loadSprite(BASE_HEALTH_1_SPRITE, "gfx/HPBar-1.png");
     loadSprite(BASE_HEALTH_2_SPRITE, "gfx/HPBar-2.png");
@@ -371,10 +371,10 @@ void loadAllSprites()
     loadSprite(BASE_HEALTH_8_SPRITE, "gfx/HPBar-8.png");
     loadSprite(BASE_HEALTH_9_SPRITE, "gfx/HPBar-9.png");
     loadSprite(LIFE_SPRITE, "gfx/Life.png");
-    
+
     loadSprite(LASER_R_SPRITE, "gfx/Laser_R_Clean.png");
     loadSprite(LASER_L_SPRITE, "gfx/Laser_L_Clean.png");
-    
+
     loadSprite(UPGRADE_1_SPRITE,"gfx/Upgrade1.png");
     loadSprite(UPGRADE_2_SPRITE,"gfx/Upgrade2.png");
     loadSprite(UPGRADE_3_SPRITE,"gfx/Upgrade3.png");
@@ -406,24 +406,24 @@ void doInterface() {
 	char string[20] ;
 
 	drawText("Prix: ", 10, 685, textFont,97,117,18);
-	
-        sprintf(string,"%d", TOURELLE_1_PRICE);	
+
+        sprintf(string,"%d", TOURELLE_1_PRICE);
         drawText(string, 50, 685, textFont,97,117,18);
-	
+
         sprintf(string,"%d", TOURELLE_2_PRICE + 10*(Game.nbWave-1));
         drawText(string, 180, 685, textFont,97,117,18);
-	
+
         sprintf(string,"%d", TOURELLE_3_PRICE + 10*(Game.nbWave-1));
         drawText(string, 310, 685, textFont,97,117,18);
-	
+
         drawText("Coins: ", 950, 685, textFont,97,117,18);
         sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
         drawText(string, 1000, 685, textFont,97,117,18);
-	
+
         sprintf(string,"%d", Game.nbWave);
         drawText("Vague: ", 410, 600, textFont,97,117,18);
         drawText(string, 470, 600, textFont,97,117,18);
-	
+
         sprintf(string,"%d", Game.nbEnnemiKilled);
         drawText("Nombre d'ennemis tués: ", 410, 660, textFont,97,117,18);
         drawText(string, 580, 660, textFont,97,117,18);

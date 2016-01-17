@@ -28,7 +28,7 @@ void collisionTir_Ennemi()
                 {
                     if(Tourelle[(*newTir).tireur].effet == 1)
                     {
-                        Officer[i].x -= GRID_STEP;
+                        Officer[i].x -= GRID_STEP/5;
                     }
 
                     else if(Tourelle[(*newTir).tireur].effet == 2 && (*newTir).degat > Officer[i].hpOfficer)
@@ -40,7 +40,7 @@ void collisionTir_Ennemi()
                     {
                         for(j=0; j<MAX_OFFICERS; j++)
                         {
-                            if((Officer[j].x > Officer[i].x - 2*GRID_STEP && Officer[j].x < Officer[i].x + 2*GRID_STEP ) && (Officer[j].y > Officer[i].y - 2*GRID_STEP && Officer[j].y < Officer[i].y + 2*GRID_STEP ))
+                            if((Officer[j].x > Officer[i].x - GRID_STEP && Officer[j].x < Officer[i].x + GRID_STEP ) && (Officer[j].y > Officer[i].y - GRID_STEP && Officer[j].y < Officer[i].y + GRID_STEP ))
                             {
                                 Officer[j].hpOfficer -= (*newTir).degat;
                             }
@@ -54,7 +54,7 @@ void collisionTir_Ennemi()
                 {
                     Officer[i].alive = 0;
                     Officer[i].x = Officer[i].y = -3 * SCREEN_HEIGHT;
-                    Player.coins+=20 + 2*Game.nbWave ;
+                    Player.coins+=20 ;
                     Game.nbEnnemiKilled++;
 
                 }
@@ -111,7 +111,7 @@ void collisionEnnemi_Base()
         {
             if(Officer[i].x >= (SCREEN_WIDTH - 3*GRID_STEP/2) && Officer[i].alive == 1)
             {
-		
+
                     Officer[i].attack = 1;
                 if( Game.timer % Officer[i].reloadrate == 0 )
                 {
@@ -126,7 +126,7 @@ void collisionEnnemi_Base()
                     {
                         Game.MenuPointer =350;
                         Game.stade = 2;
-  
+
                     }
                 }
             }
@@ -136,7 +136,7 @@ void collisionEnnemi_Base()
         {
             if(Officer[i].x >= (SCREEN_WIDTH - 3*GRID_STEP))
             {
-		
+
                     Officer[i].attack = 1;
                 if( Game.timer % Officer[i].reloadrate == 0 )
                 {

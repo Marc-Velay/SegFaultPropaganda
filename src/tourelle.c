@@ -163,13 +163,13 @@ void drawTourelle()
             {
                 drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
             }
-            
+
             Tourellehp = Tourelle[i].inithpTourelle;
 
             if(Tourelle[i].hpTourelle < Tourellehp) {
 		if (Tourelle[i].hpTourelle >= 0) {
 			drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x +10  , Tourelle[i].y - 10 );
-						
+
 			if(Tourelle[i].hpTourelle > (Tourellehp/5)) {
 			drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x +10  +11, Tourelle[i].y - 10 );
 
@@ -186,7 +186,7 @@ void drawTourelle()
 						}
 					}
 				}
-			}				
+			}
 		}
         }
     }
@@ -277,7 +277,7 @@ void UpTourelle3(int i)
 {
     Tourelle[i].hpTourelle += 2 + Tourelle[i].level;
     Tourelle[i].inithpTourelle = Tourelle[i].hpTourelle;
-    Tourelle[i].reloadrate -= 3;
+    Tourelle[i].reloadrate -= 2;
     Tourelle[i].degat += 1 + (Tourelle[i].level-1) ;
 }
 void UpgradeTourelle(int i)
