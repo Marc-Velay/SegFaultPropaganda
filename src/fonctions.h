@@ -90,6 +90,7 @@ typedef struct tourelle
     int x, y;
     int alive;
     float hpTourelle;
+    float inithpTourelle;
     int lane;
     int reloadrate;
     int type;

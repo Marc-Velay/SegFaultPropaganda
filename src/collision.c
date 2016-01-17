@@ -75,7 +75,7 @@ void collisionEnnemi_Tourelle()
     {
         for(j=0; j<=MAX_TOURELLES; j++)
         {
-            if(Officer[i].x >= Tourelle[j].x - GRID_STEP/2 && Officer[i].x  < Tourelle[j].x + GRID_STEP/2 && Officer[i].lane == Tourelle[j].lane )
+            if(Officer[i].x >= Tourelle[j].x - GRID_STEP && Officer[i].x  < Tourelle[j].x + GRID_STEP/2 && Officer[i].lane == Tourelle[j].lane )
             {
 
 
@@ -98,10 +98,6 @@ void collisionEnnemi_Tourelle()
                     Officer[i].attack = 0;
                 }
             }
-
-
-// this is a test
-
         }
     }
 }

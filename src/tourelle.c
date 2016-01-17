@@ -9,6 +9,7 @@ void creerTourelle1(int n,int colonne, int lane)
     Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y;
     Tourelle[n].alive =1;
     Tourelle[n].hpTourelle=TOURELLE_1_HP;
+    Tourelle[n].inithpTourelle = TOURELLE_1_HP;
     Tourelle[n].lane = lane;
     Tourelle[n].effet = 0;
     Tourelle[n].level = 0;
@@ -25,6 +26,7 @@ void creerTourelle2(int n,int colonne, int lane)
     Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y;
     Tourelle[n].alive =1;
     Tourelle[n].hpTourelle = TOURELLE_2_HP;
+    Tourelle[n].inithpTourelle = TOURELLE_2_HP;
     Tourelle[n].lane = lane;
     Tourelle[n].effet = 0;
     Tourelle[n].level = 0;
@@ -41,6 +43,7 @@ void creerTourelle3(int n,int colonne, int lane)
     Tourelle[n].y =(lane*GRID_STEP)+PATH_TOP_Y;
     Tourelle[n].alive =1;
     Tourelle[n].hpTourelle = TOURELLE_3_HP;
+    Tourelle[n].inithpTourelle = TOURELLE_3_HP;
     Tourelle[n].lane = lane;
     Tourelle[n].effet = 0;
     Tourelle[n].level = 0;
@@ -77,7 +80,6 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
                 break;
             }
             created = 1;
-            printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
         }
     }
     if(created == 0)
@@ -87,20 +89,17 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
         case 1:
             creerTourelle1(n, colonne, lane);
             created =1;
-            printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
             break;
 
 
         case 2:
             creerTourelle2(n, colonne, lane);
             created =1;
-            printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
             break;
 
         case 3:
             creerTourelle3(n, colonne, lane);
             created=1;
-            printf("Tourelle %d at: %d,%d\n", n, Tourelle[n].x, Tourelle[n].y);
             break;
         default:
             printf("Tourelle type does not exist\n");
@@ -113,7 +112,7 @@ void initTourelle(int n, int colonne, int lane, int choixTourelle)
 void drawTourelle()
 {
     int i;
-    float tourellehp;
+    float Tourellehp;
 
     for(i=0; i<=MAX_TOURELLES; i++)
     {
@@ -123,14 +122,12 @@ void drawTourelle()
             {
                 drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
                 drawImage(getSprite(UPGRADE_1_SPRITE),Tourelle[i].x-5, Tourelle[i].y-10);
-                tourellehp = TOURELLE_1_HP;
             }
 
             else if(Tourelle[i].level == 2)
             {
                 drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
                 drawImage(getSprite(UPGRADE_2_SPRITE),Tourelle[i].x-5, Tourelle[i].y-10);
-                tourellehp = TOURELLE_2_HP;
             }
 
             else if(Tourelle[i].level == 3)
@@ -138,7 +135,6 @@ void drawTourelle()
 
                 drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
                 drawImage(getSprite(UPGRADE_3_SPRITE),Tourelle[i].x-5, Tourelle[i].y-10);
-                tourellehp = TOURELLE_3_HP;
             }
 
             else if(Tourelle[i].level == 4)
@@ -148,21 +144,18 @@ void drawTourelle()
                 {
                     drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
                     drawImage(getSprite(UPGRADE_PUNCH_SPRITE),Tourelle[i].x-5, Tourelle[i].y-10);
-                    tourellehp = TOURELLE_3_HP;
                 }
 
                 else if(Tourelle[i].effet == 2)
                 {
                     drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
                     drawImage(getSprite(UPGRADE_DOUBLE_SPRITE),Tourelle[i].x-5, Tourelle[i].y-10);
-                    tourellehp = TOURELLE_3_HP;
                 }
 
                 else if(Tourelle[i].effet == 3)
                 {
                     drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
                     drawImage(getSprite(UPGRADE_AOE_SPRITE),Tourelle[i].x-5, Tourelle[i].y-10);
-                    tourellehp = TOURELLE_3_HP;
                 }
 
             }
@@ -170,30 +163,31 @@ void drawTourelle()
             {
                 drawImage(Tourelle[i].sprite, Tourelle[i].x, Tourelle[i].y);
             }
+            
+            Tourellehp = Tourelle[i].inithpTourelle;
 
-            if(Tourelle[i].hpTourelle < tourellehp)
-            {
-                if(Tourelle[i].hpTourelle >= (tourellehp/5))
-                {
-                    drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x -20 , Tourelle[i].y - 10 );
+            if(Tourelle[i].hpTourelle < Tourellehp) {
+		if (Tourelle[i].hpTourelle >= 0) {
+			drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x +10  , Tourelle[i].y - 10 );
+						
+			if(Tourelle[i].hpTourelle > (Tourellehp/5)) {
+			drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x +10  +11, Tourelle[i].y - 10 );
 
-                    if(Tourelle[i].hpTourelle >= (2*tourellehp/5))
-                    {
-                        drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x -20 +11, Tourelle[i].y - 10 );
+				if(Tourelle[i].hpTourelle >= (2*Tourellehp/5)) {
+					drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x +10  +22, Tourelle[i].y - 10 );
 
-                        if(Tourelle[i].hpTourelle >= (3*tourellehp/5) )
-                        {
-                            drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x -20 +22, Tourelle[i].y - 10 );
+						if(Tourelle[i].hpTourelle >= (3*Tourellehp/5) ) {
+							drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x +10 +33, Tourelle[i].y - 10 );
 
-                            if(Tourelle[i].hpTourelle >= (4*tourellehp/5))
-                            {
-                                drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x -20 +33, Tourelle[i].y - 10 );
+							if(Tourelle[i].hpTourelle >= (4*Tourellehp/5)) {
+								drawImage(getSprite(LIFE_SPRITE), Tourelle[i].x +10  +44, Tourelle[i].y - 10 );
 
-                            }
-                        }
-                    }
-                }
-            }
+							}
+						}
+					}
+				}
+			}				
+		}
         }
     }
 }
@@ -265,6 +259,7 @@ void doTourelle()
 void UpTourelle1(int i)
 {
     Tourelle[i].hpTourelle += 2 + Tourelle[i].level;
+    Tourelle[i].inithpTourelle = Tourelle[i].hpTourelle;
     Tourelle[i].reloadrate -= 3;
     Tourelle[i].degat += 2 + (Tourelle[i].level-1) ;
 }
@@ -272,6 +267,7 @@ void UpTourelle1(int i)
 void UpTourelle2(int i)
 {
     Tourelle[i].hpTourelle += 2 + Tourelle[i].level;
+    Tourelle[i].inithpTourelle = Tourelle[i].hpTourelle;
     Tourelle[i].reloadrate -= 3;
     Tourelle[i].degat += 2 + (Tourelle[i].level-1) ;
 
@@ -280,6 +276,7 @@ void UpTourelle2(int i)
 void UpTourelle3(int i)
 {
     Tourelle[i].hpTourelle += 2 + Tourelle[i].level;
+    Tourelle[i].inithpTourelle = Tourelle[i].hpTourelle;
     Tourelle[i].reloadrate -= 3;
     Tourelle[i].degat += 1 + (Tourelle[i].level-1) ;
 }
