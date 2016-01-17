@@ -1,5 +1,6 @@
 #include "fonctions.h"
 
+
 void initOfficer(int n, int lane)
 {
     Officer[n].sprite = getSprite(OFFICER_SPRITE);

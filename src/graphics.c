@@ -319,6 +319,7 @@ void loadAllSprites()
     SubTitleFont = loadFont("sfd/PIXEL.ttf", 50);
     textFont = loadFont("sfd/FreeSans.ttf", 15);
     compteurFont = loadFont("sfd/PIXEL.ttf", 30);
+    ClassicFont = loadFont("sfd/PIXEL.ttf", 40);
     loadSprite(PLAYER_R_SPRITE, "gfx/Roger_CleanR.png");
     loadSprite(PLAYER_L_SPRITE, "gfx/Roger_CleanL.png");
     loadSprite(BACKGROUND_LAUNCH_SPRITE, "gfx/Menu.png");
@@ -482,7 +483,10 @@ void updateScreen()
 	drawMenuPointer();
         break;
 
-
+    case -1:
+        drawMenu("Entrez votre nom:",-450,120,ClassicFont);
+        drawMenu(Player.name,-160,120,ClassicFont);
+        break;
     case 1:
         doEnnemi();
         doTourelle();
@@ -501,10 +505,19 @@ void updateScreen()
 
     case 2:
         drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
-        drawMenu("GaME OVER !", 0, -100, TitleFont);
+        drawMenu("HIGHSCORE",0,20, SubTitleFont);
         drawMenu("Play again?", 0, 120, SubTitleFont);
         drawMenu("Quit", 0, 220, SubTitleFont);
 	drawMenuPointer();
+        break;
+    case 3:
+        drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
+        drawMenu("HIGHSCORE", 0, -210, SubTitleFont);
+        drawMenu("Joueur",-450 , -140 , ClassicFont);
+        drawMenu("Vague atteinte",0 , -140 , ClassicFont);
+        drawMenu("Ennemies abbatus",450 , -140 , ClassicFont);
+        drawHighscore();
+        drawMenu("Return menu", 0, 420, ClassicFont);
         break;
     }
 

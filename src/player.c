@@ -2,6 +2,8 @@
 
 void initPlayer()
 {
+    int i;
+
     Player.sprite = getSprite(PLAYER_L_SPRITE);
 
     Player.x = 3*SCREEN_WIDTH / 4;
@@ -9,6 +11,13 @@ void initPlayer()
     Player.coins =30000;
     Player.stun = 0;
     Player.stuntime =  0;
+
+    for(i=0;i<13;i++)
+    {
+        Player.name[i] == ' ';
+    }
+
+    Player.nameInd = 0;
 }
 
 void drawPlayer()
@@ -59,3 +68,5 @@ int getLanePlayer()
 
     return lane;
 }
+
+
