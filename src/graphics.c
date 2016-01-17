@@ -406,15 +406,27 @@ void doInterface() {
 	char string[20] ;
 
 	drawText("Prix: ", 10, 685, textFont,97,117,18);
-        sprintf(string,"%d", TOURELLE_1_PRICE);
+	
+        sprintf(string,"%d", TOURELLE_1_PRICE);	
         drawText(string, 50, 685, textFont,97,117,18);
+	
         sprintf(string,"%d", TOURELLE_2_PRICE + 10*(Game.nbWave-1));
         drawText(string, 180, 685, textFont,97,117,18);
+	
         sprintf(string,"%d", TOURELLE_3_PRICE + 10*(Game.nbWave-1));
         drawText(string, 310, 685, textFont,97,117,18);
+	
         drawText("Coins: ", 950, 685, textFont,97,117,18);
         sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
         drawText(string, 1000, 685, textFont,97,117,18);
+	
+        sprintf(string,"%d", Game.nbWave);
+        drawText("Vague: ", 410, 600, textFont,97,117,18);
+        drawText(string, 470, 600, textFont,97,117,18);
+	
+        sprintf(string,"%d", Game.nbEnnemiKilled);
+        drawText("Nombre d'ennemis tués: ", 410, 660, textFont,97,117,18);
+        drawText(string, 580, 660, textFont,97,117,18);
 
 	drawImage(getSprite(TOURELLE_1_SPRITE), 35, 617);
 	drawImage(getSprite(TOURELLE_2_SPRITE), 162, 617);
