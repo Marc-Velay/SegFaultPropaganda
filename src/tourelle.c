@@ -261,7 +261,7 @@ void UpTourelle1(int i)
     Tourelle[i].hpTourelle += 2 + Tourelle[i].level;
     Tourelle[i].inithpTourelle = Tourelle[i].hpTourelle;
     Tourelle[i].reloadrate -= 3;
-    Tourelle[i].degat += 2 + (Tourelle[i].level-1) ;
+    Tourelle[i].degat += 1 + (Tourelle[i].level-1) ;
 }
 
 void UpTourelle2(int i)
@@ -269,7 +269,7 @@ void UpTourelle2(int i)
     Tourelle[i].hpTourelle += 2 + Tourelle[i].level;
     Tourelle[i].inithpTourelle = Tourelle[i].hpTourelle;
     Tourelle[i].reloadrate -= 3;
-    Tourelle[i].degat += 2 + (Tourelle[i].level-1) ;
+    Tourelle[i].degat += 1 + (Tourelle[i].level-1) ;
 
 }
 
@@ -278,7 +278,7 @@ void UpTourelle3(int i)
     Tourelle[i].hpTourelle += 2 + Tourelle[i].level;
     Tourelle[i].inithpTourelle = Tourelle[i].hpTourelle;
     Tourelle[i].reloadrate -= 2;
-    Tourelle[i].degat += 1 + (Tourelle[i].level-1) ;
+    Tourelle[i].degat += (Tourelle[i].level)/2 ;
 }
 void UpgradeTourelle(int i)
 {

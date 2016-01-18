@@ -2,20 +2,18 @@
 
 void initPlayer()
 {
-    int i;
-
     Player.sprite = getSprite(PLAYER_L_SPRITE);
 	Player.direction = 0;
     Player.x = 3*SCREEN_WIDTH / 4;
     Player.y = SCREEN_HEIGHT / 4;
-    Player.coins =300;
+    Player.coins = 300;
     Player.stun = 0;
     Player.stuntime =  0;
 
-    for(i=0;i<13;i++)
+    /*for(i=0;i<13;i++)
     {
         Player.name[i] == ' ';
-    }
+    }*/
 
     Player.nameInd = 0;
 }

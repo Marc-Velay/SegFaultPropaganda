@@ -29,7 +29,8 @@ void collisionTir_Ennemi()
                     if(Tourelle[(*newTir).tireur].effet == 1)
                     {
                         Officer[i].x -= GRID_STEP/5;
-                    }
+                         Officer[i].attack = 0;
+                   }
 
                     else if(Tourelle[(*newTir).tireur].effet == 2 && (*newTir).degat > Officer[i].hpOfficer)
                     {
@@ -84,6 +85,8 @@ void collisionEnnemi_Tourelle()
 
                     if( Game.timer % Officer[i].reloadrate == 0 )
                     {
+                        Mix_VolumeChunk(musiqueKick, 15);
+                        Mix_PlayChannel(1, musiqueKick, 0);
                         Tourelle[j].hpTourelle --;
                         if(Tourelle[j].hpTourelle == 0)
                         {
@@ -115,7 +118,8 @@ void collisionEnnemi_Base()
                     Officer[i].attack = 1;
                 if( Game.timer % Officer[i].reloadrate == 0 )
                 {
-
+                    Mix_VolumeChunk(musiqueKick, 15);
+                    Mix_PlayChannel(1, musiqueKick, 0);
                     Game.hpBase --;
                     if(Game.hpBase <= 0)
                     {
@@ -126,7 +130,8 @@ void collisionEnnemi_Base()
                     {
                         Game.MenuPointer =350;
                         Game.stade = 2;
-
+                        Mix_HaltMusic();
+                        Mix_PlayMusic(musiqueMenu, -1);
                     }
                 }
             }
@@ -140,7 +145,8 @@ void collisionEnnemi_Base()
                     Officer[i].attack = 1;
                 if( Game.timer % Officer[i].reloadrate == 0 )
                 {
-
+                    Mix_VolumeChunk(musiqueKick, 15);
+                    Mix_PlayChannel(1, musiqueKick, 0);
                     Game.hpBase --;
                     if(Game.hpBase <= 0)
                     {
@@ -151,6 +157,8 @@ void collisionEnnemi_Base()
                     {
                         Game.stade = 2;
                         Game.hpBase =0;
+                        Mix_HaltMusic();
+                        Mix_PlayMusic(musiqueMenu, -1);
                     }
                 }
             }
@@ -176,7 +184,8 @@ void collisionEnnemi_Roger()
                     || (Officer[i].x <  (Player.x + STEPHEN_ACTUAL_WIDTH) &&   (Officer[i].x + GRID_STEP/2) > (Player.x + STEPHEN_ACTUAL_WIDTH)    &&   Officer[i].y <  (Player.y + STEPHEN_ACTUAL_HEIGHT/3)  && (Officer[i].y + 3*GRID_STEP/2) >  (Player.y + STEPHEN_ACTUAL_HEIGHT/3) )
                 ) && Officer[i].alive == 1 )
             {
-
+                Mix_VolumeChunk(musiqueKick, 15);
+                Mix_PlayChannel(1, musiqueKick, 0);
                 Player.stun = 1;
                 Player.stuntime = Game.timer + 200;
 

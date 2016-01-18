@@ -54,7 +54,19 @@ TTF_Font *loadFont(char *name, int size)
     return Font;
 }
 
+void drawAbout()
+{
+    drawMenu("Il y a fort pas longtemps dans notre galaxie, enfin sur la Terre pour être plus précis,",0,-150,compteurFont);
+    drawMenu("s’est échoué un extraterrestre tout gris et tout moche : Stephen.",0,-70,compteurFont);
+    drawMenu("Il fut très vite poursuivit par des agents de la CIA qui voulaient le trouver",00,10,compteurFont);
+    drawMenu("car il était le seul de son espèce présent sur notre planète",0,90,compteurFont);
+    drawMenu("(bon c’est aussi parce qu’il n’a pas d’amis mais ça c’est une autre histoire …).",0,170,compteurFont);
+    drawMenu("Il savait que ceux qui le poursuivaient feraient tout pour l’attraper.",0,250,compteurFont);
+    drawMenu("Là démarra son combat : Stephen VS Langley Falls.",0,330,compteurFont);
 
+
+
+}
 
 void drawImage(SDL_Surface *image, int x, int y)
 {
@@ -160,7 +172,7 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
 
     /* Blit the entire surface to the screen */
 
-    dest.x = ((*screen).w - (*surface).w )/ 2 +x;
+    dest.x = ((*screen).w - (*surface).w )/ 2 + x;
     dest.y = ((*screen).h - (*surface).h) / 3 + y;
     dest.w = (*surface).w;
     dest.h = (*surface).h;
@@ -182,13 +194,13 @@ void drawText(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)
 
     /* White text on a black background */
 
-    foregroundColor.r = 0;
-    foregroundColor.g = 0;
-    foregroundColor.b = 0;
+    foregroundColor.r = 250;
+    foregroundColor.g = 250;
+    foregroundColor.b = 250;
 
-    backgroundColor.r = r;
-    backgroundColor.g = g;
-    backgroundColor.b = b;
+    backgroundColor.r = 0;
+    backgroundColor.g = 0;
+    backgroundColor.b = 0;
 
     /* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
@@ -231,9 +243,9 @@ void drawCompteur(char *text, int x, int y, TTF_Font *compteurFont)
 
     /* White text on a black background */
 
-    foregroundColor.r = 25;
-    foregroundColor.g = 25;
-    foregroundColor.b = 112;
+    foregroundColor.r = 250;
+    foregroundColor.g = 250;
+    foregroundColor.b = 250;
 
     /* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
@@ -381,6 +393,10 @@ void loadAllSprites()
     loadSprite(UPGRADE_PUNCH_SPRITE,"gfx/Upgrade_Punch.png");
     loadSprite(UPGRADE_DOUBLE_SPRITE,"gfx/Upgrade_Double.png");
     loadSprite(UPGRADE_AOE_SPRITE,"gfx/Upgrade_AOE.png");
+
+    loadSprite(TUTO_1_SPRITE,"gfx/Tuto1.png");
+    loadSprite(TUTO_2_SPRITE,"gfx/Tuto2.png");
+    loadSprite(TUTO_3_SPRITE,"gfx/Tuto3.png");
 }
 
 void doOption()
@@ -442,7 +458,7 @@ void Compteur()
      if(Game.countdown - Game.timer > 0 && Game.countdown - Game.timer < 280 &&  Game.nbEnnemiAlive == 0 )
             {
             sprintf(string,"Assault dans %d !", (Game.countdown+1 - Game.timer)/30 );
-            drawCompteur(string, SCREEN_WIDTH/3 + 5*GRID_STEP/3 ,  3*GRID_STEP/2, compteurFont);
+            drawCompteur(string, SCREEN_WIDTH/3 + 5*GRID_STEP/3 ,  3*GRID_STEP, compteurFont);
             }
 }
 
@@ -552,7 +568,7 @@ void updateScreen()
         drawMenu("HIGHSCORE",0,20, SubTitleFont);
         drawMenu("Play again?", 0, 120, SubTitleFont);
         drawMenu("Quit", 0, 220, SubTitleFont);
-	drawMenuPointer();
+        drawMenuPointer();
         break;
     case 3:
         drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
@@ -563,6 +579,22 @@ void updateScreen()
         drawHighscore();
         drawMenu("Return menu", 0, 420, ClassicFont);
         break;
+
+    case 4:
+        drawImage(getSprite(TUTO_1_SPRITE), 0, 0);
+        break;
+
+    case 5:
+        drawImage(getSprite(TUTO_2_SPRITE), 0, 0);
+        break;
+
+    case 6:
+        drawImage(getSprite(TUTO_3_SPRITE), 0, 0);
+        break;
+
+    case 7:
+         drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
+         drawAbout();
     }
 
 

@@ -178,6 +178,9 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     UPGRADE_PUNCH_SPRITE,
     UPGRADE_DOUBLE_SPRITE,
     UPGRADE_AOE_SPRITE,
+    TUTO_1_SPRITE,
+    TUTO_2_SPRITE,
+    TUTO_3_SPRITE,
     MAX_SPRITES
 };
 
@@ -196,7 +199,9 @@ game Game;
 Sprites sprite[MAX_SPRITES];
 tir *Tir;
 Mix_Music *musiqueMenu;
-Mix_Music *musiqueLaser;
+Mix_Chunk *musiqueLaser;
+Mix_Music *musiqueGame;
+Mix_Chunk *musiqueKick;
 
 // ************** graphics.c
 SDL_Surface *loadImage(char *name);		//fct pour recup les images à partir du disk

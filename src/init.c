@@ -29,10 +29,10 @@ void init(char *title)
 	        printf("Couldn't initialize SDL TTF: %s\n", SDL_GetError());
 	        exit(1);
 	    }
-		
+
 	    SDL_WM_SetCaption(title, NULL);
-	}	
-    
+	}
+
 
 
     for(i=0; i<=MAX_OFFICERS; i++)
@@ -44,7 +44,7 @@ void init(char *title)
                 Tourelle[i].alive = 0;
                 Tourelle[i].x=Tourelle[i].y=SCREEN_WIDTH*2;
      }
-	
+
     getScore();
     Game.countdown =300;
     Game.timer =0;
@@ -60,7 +60,7 @@ void init(char *title)
     loadAllSprites();
     loadAllMusic();
     initPlayer();
-
+    Mix_PlayMusic(musiqueMenu, -1);
 }
 
 
@@ -69,7 +69,7 @@ void init(char *title)
 
 void cleanup()
 {
-    freeSprites();
+    //freeSprites();
 
     TTF_Quit();
 

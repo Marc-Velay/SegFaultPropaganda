@@ -55,6 +55,34 @@ void getInput()
 	    SDL_Quit();
 	    exit(0);
     }
+
+
+    /************************************TUTORIAL*********************************/
+    if(Game.stade == 6 && in.mousebuttons[SDL_BUTTON_LEFT])
+    {
+        Game.stade = 0;
+    }
+
+    if(Game.stade == 5 && in.mousebuttons[SDL_BUTTON_LEFT])
+    {
+        Game.stade = 6;
+    }
+
+    if(Game.stade == 4 && in.mousebuttons[SDL_BUTTON_LEFT])
+    {
+        Game.stade = 5;
+    }
+
+    /************************************TUTORIAL*********************************/
+
+    /************************************ABOUT*********************************/
+    if(Game.stade == 7 && in.mousebuttons[SDL_BUTTON_LEFT])
+    {
+        Game.stade = 0;
+    }
+    /************************************ABOUT*********************************/
+
+
     /************************************MENU*********************************/
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
@@ -63,7 +91,6 @@ void getInput()
             printf("START GAME PRESSED\n");
             memset(&Player.name,0,sizeof(Player.name));
             Game.stade = -1;
-
         }
         printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
     }
@@ -73,7 +100,7 @@ void getInput()
         if(((moux > 550 && moux < 726) && (mouy >379 && mouy <416)) && Game.stade ==0)
         {
             printf("TUTORIAL PRESSED\n");
-            Game.stade = 1;
+            Game.stade = 4;
         }
     }
 
@@ -82,7 +109,7 @@ void getInput()
         if(((moux > 581 && moux < 696) && (mouy >477 && mouy <518)) && Game.stade ==0)
         {
             printf("ABOUT PRESSED\n");
-            Game.stade = 2;
+            Game.stade = 7;
         }
     }
 
@@ -121,7 +148,6 @@ void getInput()
     }
 
     /************************************MENU*********************************/
-
 
 
 
@@ -271,6 +297,10 @@ void getInput()
                 else if(in.key[SDLK_RETURN])
                 {
                     Game.stade = 1;
+                    Mix_HaltMusic();
+                    Mix_VolumeChunk(musiqueLaser, 5);
+                    Mix_PlayChannel(0, musiqueLaser, 0);
+                    Mix_PlayMusic(musiqueGame, -1);
                 }
 
 
