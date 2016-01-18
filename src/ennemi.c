@@ -116,21 +116,45 @@ void drawOfficer()
 					}
 
 			        }
-			if(Officer[i].attack == 0) {
-				if(annimationFrame <6){
-					Officer[i].sprite = getSprite(OFFICER1_SPRITE);
-				}else if(annimationFrame <12){
-					Officer[i].sprite = getSprite(OFFICER2_SPRITE);
-				}else if(annimationFrame <18){
-					Officer[i].sprite = getSprite(OFFICER3_SPRITE);
-				}
-			} else if(Officer[i].attack == 1) {
-				if(annimationFrame <10){
-					Officer[i].sprite = getSprite(OFFICER_ATTACK1_SPRITE);
-				}else if(annimationFrame <18){
-					Officer[i].sprite = getSprite(OFFICER_ATTACK2_SPRITE);
-				}
-			}
+             if(Game.nbWave%20 <= 10)
+            {
+                if(Officer[i].attack == 0) {
+                    if(annimationFrame <6){
+                        Officer[i].sprite = getSprite(OFFICER1_SPRITE);
+                    }else if(annimationFrame <12){
+                        Officer[i].sprite = getSprite(OFFICER2_SPRITE);
+                    }else if(annimationFrame <18){
+                        Officer[i].sprite = getSprite(OFFICER3_SPRITE);
+                    }
+                } else if(Officer[i].attack == 1) {
+                    if(annimationFrame <10){
+                        Officer[i].sprite = getSprite(OFFICER_ATTACK1_SPRITE);
+                    }else if(annimationFrame <18){
+                        Officer[i].sprite = getSprite(OFFICER_ATTACK2_SPRITE);
+                    }
+                }
+             }
+             else
+             {
+                if(Officer[i].attack == 0) {
+                    if(annimationFrame <6){
+                        Officer[i].sprite = getSprite(OFFICER_BLACK1_SPRITE);
+                    }else if(annimationFrame <12){
+                        Officer[i].sprite = getSprite(OFFICER_BLACK2_SPRITE);
+                    }else if(annimationFrame <18){
+                        Officer[i].sprite = getSprite(OFFICER_BLACK3_SPRITE);
+                    }
+                } else if(Officer[i].attack == 1) {
+                    if(annimationFrame <6){
+                        Officer[i].sprite = getSprite(OFFICER_BLACK_ATTACK_SPRITE);
+                    }else if(annimationFrame <12){
+                        Officer[i].sprite = getSprite(OFFICER_BLACK_ATTACK1_SPRITE);
+                    }else if(annimationFrame <18){
+                        Officer[i].sprite = getSprite(OFFICER_BLACK_ATTACK2_SPRITE);
+                    }
+                }
+             }
+
 
 			drawImage(Officer[i].sprite, Officer[i].x, Officer[i].y);
 			}

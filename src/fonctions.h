@@ -143,6 +143,7 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     BACKGROUND_LAUNCH_SPRITE,
     BACKGROUND_END_SPRITE,
     BACKGROUND_SPRITE,
+    BACKGROUND2_SPRITE,
     OFFICER_SPRITE,
     OFFICER1_SPRITE,
     OFFICER2_SPRITE,

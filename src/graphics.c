@@ -350,6 +350,7 @@ void loadAllSprites()
     loadSprite(BACKGROUND_LAUNCH_SPRITE, "gfx/Menu.png");
     loadSprite(BACKGROUND_END_SPRITE, "gfx/TerrainV2.png");
     loadSprite(BACKGROUND_SPRITE, "gfx/TerrainV4.png");
+    loadSprite(BACKGROUND2_SPRITE, "gfx/TerrainV5.png");
 
     loadSprite(OFFICER_SPRITE, "gfx/Agent_Clean.png");
     loadSprite(OFFICER1_SPRITE, "gfx/Agent_Segway_Clean1.png");
@@ -458,7 +459,7 @@ void Compteur()
      if(Game.countdown - Game.timer > 0 && Game.countdown - Game.timer < 280 &&  Game.nbEnnemiAlive == 0 )
             {
             sprintf(string,"Assault dans %d !", (Game.countdown+1 - Game.timer)/30 );
-            drawCompteur(string, SCREEN_WIDTH/3 + 5*GRID_STEP/3 ,  3*GRID_STEP, compteurFont);
+            drawCompteur(string, SCREEN_WIDTH/3 + 12*GRID_STEP/10 ,  5*GRID_STEP/2, compteurFont);
             }
 }
 
@@ -550,8 +551,8 @@ void updateScreen()
     case 1:
         doEnnemi();
         doTourelle();
-        drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);
-
+        if(Game.nbWave%20 <= 10){drawImage(getSprite(BACKGROUND2_SPRITE), 0, 0);}
+        else{drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);}
 	doInterface();
 	if(Game.hpBase >0 ) {doBaseHealth();}
         drawOfficer();
