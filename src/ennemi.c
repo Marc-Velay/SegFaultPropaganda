@@ -90,7 +90,7 @@ void drawOfficer()
 		for(i=0; i<Game.nbEnnemiCreated; i++) {
 
 			if(Officer[i].alive == 1 && Officer[i].lane == j) {
-				officerhp = OFFICIER_1_HP + (Game.nbWave*Game.nbWave/2) - Game.nbWave;
+				officerhp = 2*(Game.nbWave+1)/3 *( OFFICIER_1_HP ) + Game.nbWave/2;
 			        drawImage(Officer[i].sprite, Officer[i].x, Officer[i].y);
 
 				if(Officer[i].hpOfficer != officerhp) {
