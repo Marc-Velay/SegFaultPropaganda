@@ -48,7 +48,7 @@ void getInput()
     int mouy;
     unsigned int frameLimit = SDL_GetTicks() + 45;
     SDL_GetMouseState(&moux,&mouy);
-    int annimationFrame = Game.timer % 25;
+    int annimationFrame = Game.timer % 15;
 
     if(in.key[SDLK_ESCAPE] || in.quit)
     {
@@ -588,33 +588,33 @@ void getInput()
             }
 
             if(Player.direction ==0){
-		    if(annimationFrame <5){
+		    if(annimationFrame <3){
 			    Player.sprite = getSprite(PLAYER_R1_SPRITE);
-		    } else if(annimationFrame <10){
+		    } else if(annimationFrame <6){
 			    Player.sprite = getSprite(PLAYER_R2_SPRITE);
 
-		    }else if(annimationFrame <15){
-			    Player.sprite = getSprite(PLAYER_R3_SPRITE);
-
-		    }else if(annimationFrame <20){
+		    }else if(annimationFrame <9){
 			    Player.sprite = getSprite(PLAYER_R4_SPRITE);
 
-		    } else if(annimationFrame <25){
+		    }else if(annimationFrame <12){
+			    Player.sprite = getSprite(PLAYER_R3_SPRITE);
+
+		    } else if(annimationFrame <15){
 			    Player.sprite = getSprite(PLAYER_R5_SPRITE);
 		    }
             }else if(Player.direction == 1) {
-		    if(annimationFrame <5){
+		    if(annimationFrame <3){
 			    Player.sprite = getSprite(PLAYER_L1_SPRITE);
-		    } else if(annimationFrame <10){
+		    } else if(annimationFrame <6){
 			    Player.sprite = getSprite(PLAYER_L2_SPRITE);
 
-		    }else if(annimationFrame <15){
-			    Player.sprite = getSprite(PLAYER_L3_SPRITE);
-
-		    }else if(annimationFrame <20){
+		    }else if(annimationFrame <9){
 			    Player.sprite = getSprite(PLAYER_L4_SPRITE);
 
-		    } else if(annimationFrame <25){
+		    }else if(annimationFrame <12){
+			    Player.sprite = getSprite(PLAYER_L3_SPRITE);
+
+		    } else if(annimationFrame <15){
 			    Player.sprite = getSprite(PLAYER_L5_SPRITE);
 		    }
             }
@@ -628,7 +628,7 @@ void getInput()
         delay(frameLimit);
         frameLimit = SDL_GetTicks() + 45;
          UpdateEvents(&in);
-	 annimationFrame = Game.timer % 25;
+	 annimationFrame = Game.timer % 15;
 
         }
                 if(Player.direction == 1) {

@@ -85,21 +85,12 @@ void drawHighscore()
 {
      char Joueur[14],nbWaveScore[20],nbKilledScore[20],compteur[3] ;
      int i;
-     /*char *temp;
-     int *temp1;
-     int *temp2;
-     FILE* highscore = NULL;*/
 
     getScore();
-    //highscore = fopen("save/highscore.txt","r+");
 
         for(i=0;i<10;i++)
         {
-		/*temp = Game.Joueur[i];
-		temp1 =&Game.nbWaveScore[i];
-		temp2 = &Game.nbKilledScore[i];*/
             sprintf(compteur,"%d", i+1);
-            //fscanf(highscore,"%s %d %d", temp, temp1, temp2);
             sprintf(Joueur,"%s", Game.Joueur[i]);
             sprintf(nbWaveScore,"%d", Game.nbWaveScore[i]);
             sprintf(nbKilledScore,"%d", Game.nbKilledScore[i]);
