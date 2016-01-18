@@ -182,6 +182,7 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     TUTO_1_SPRITE,
     TUTO_2_SPRITE,
     TUTO_3_SPRITE,
+    CONTROLE_SPRITE,
     MAX_SPRITES
 };
 

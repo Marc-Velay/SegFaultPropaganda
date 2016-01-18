@@ -397,7 +397,7 @@ void loadAllSprites()
 
     loadSprite(TUTO_1_SPRITE,"gfx/Tuto1.png");
     loadSprite(TUTO_2_SPRITE,"gfx/Tuto2.png");
-    loadSprite(TUTO_3_SPRITE,"gfx/Tuto3.png");
+    loadSprite(CONTROLE_SPRITE,"gfx/controle_Clean.png");
 }
 
 void doOption()
@@ -590,12 +590,13 @@ void updateScreen()
         break;
 
     case 6:
-        drawImage(getSprite(TUTO_3_SPRITE), 0, 0);
+	    drawImage(getSprite(CONTROLE_SPRITE), 0, 0);
         break;
 
     case 7:
          drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
          drawAbout();
+	 break;
     }
 
 

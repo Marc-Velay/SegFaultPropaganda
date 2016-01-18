@@ -61,6 +61,7 @@ void getInput()
     if(Game.stade == 6 && in.mousebuttons[SDL_BUTTON_LEFT])
     {
         Game.stade = 0;
+	moux = mouy =0;
     }
 
     if(Game.stade == 5 && in.mousebuttons[SDL_BUTTON_LEFT])
@@ -76,9 +77,10 @@ void getInput()
     /************************************TUTORIAL*********************************/
 
     /************************************ABOUT*********************************/
-    if(Game.stade == 7 && in.mousebuttons[SDL_BUTTON_LEFT])
+    if(Game.stade == 7 && in.mousebuttons[SDL_BUTTON_LEFT] )
     {
         Game.stade = 0;
+	moux = mouy =0;
     }
     /************************************ABOUT*********************************/
 
