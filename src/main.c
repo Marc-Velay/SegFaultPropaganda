@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	go = 1;
 
 
-    while(go == 1){
+    while(go == 1){//Lance le jeu et boucle jusqu'à ce que l'utilisateur quitte le jeu
 
 	   if(Game.restart ==1) { Game.nbWave =0; }
            Game.restart = 0;
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
         atexit(cleanup);
 
 
-        while (Game.restart != 1)
+        while (Game.restart != 1)//tant qu'une partie n'est pas relancée on boucle
         {
 	        updateScreen();
 	        getInput();
