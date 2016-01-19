@@ -35,6 +35,9 @@ Problèmes rencontrés
 
 	_ Gestion du temps écoulée
 		_ Utilisation variable globale timer
+		
+	_ Gestion des meilleurs scores
+		_ Manipulation de fichiers .txt
 
 Ouverture
 
