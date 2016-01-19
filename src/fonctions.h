@@ -23,21 +23,21 @@
 #define MAX_OFFICERS 500		//Nombre arbitraire du nb max d'ennemis
 #define MAX_TOURELLES 41		//Nombre arbitraire du nb max de tourelles
 
-#define TOURELLE_1_HP 4
+#define TOURELLE_1_HP 4             // Statistiques des tourelles vertes
 #define TOURELLE_1_RELOADRATE 40
 #define TOURELLE_1_PRICE 100
 
-#define TOURELLE_2_HP 5
+#define TOURELLE_2_HP 5             // Statistiques des tourelles bleues
 #define TOURELLE_2_RELOADRATE 60
 #define TOURELLE_2_PRICE 125
 
-#define TOURELLE_3_HP 3
+#define TOURELLE_3_HP 3             // Statistiques des tourelles rouges
 #define TOURELLE_3_RELOADRATE 30
 #define TOURELLE_3_PRICE 200
 
 #define UPGRADE_PRICE 20
 
-#define OFFICIER_1_HP 5
+#define OFFICIER_1_HP 5             // Statistiques des Agents
 #define OFFICIER_1_RELOADRATE 20
 
 
@@ -84,7 +84,7 @@ typedef struct player			// structure de Stephen
     SDL_Surface *sprite;
 } player;
 
-typedef struct tourelle
+typedef struct tourelle         // structure des tourelles
 {
     int x, y;
     int alive;
@@ -98,7 +98,7 @@ typedef struct tourelle
     SDL_Surface *sprite;
 } tourelle;
 
-typedef struct tir
+typedef struct tir              // structure des lasers
 {
     int x, y;
     int dir;
@@ -110,7 +110,7 @@ typedef struct tir
 
 } tir;
 
-typedef struct officer
+typedef struct officer          // structure des ennemis
 {
     int x, y;
     int alive;
@@ -121,7 +121,7 @@ typedef struct officer
     SDL_Surface *sprite;
 } officer;
 
-typedef struct Sprites
+typedef struct Sprites          // structure des images (sprites)
 {
     SDL_Surface *image;
 } Sprites;
@@ -186,24 +186,26 @@ enum						//Contient les numéros des cases du tableau sprite contenant chaque i
     MAX_SPRITES
 };
 
-
-
 SDL_Surface *screen, *Background, *Text, *health;  //initialise les surfaces de la fenetre, fond et où on affiche le texte
-TTF_Font *TitleFont; 						//la police du texte
+/****** pointeurs de polices *****/
+TTF_Font *TitleFont;
 TTF_Font *SubTitleFont;
 TTF_Font *textFont;
 TTF_Font *ClassicFont;
 TTF_Font *compteurFont;
+/****** pointeurs de polices *****/
 player Player;
 officer Officer[MAX_OFFICERS];			//Tableau contenant les ennemis cree
 tourelle Tourelle[MAX_TOURELLES];
 game Game;
 Sprites sprite[MAX_SPRITES];
 tir *Tir;
+/******* pointeurs de musique *****/
 Mix_Music *musiqueMenu;
 Mix_Chunk *musiqueLaser;
 Mix_Music *musiqueGame;
 Mix_Chunk *musiqueKick;
+/******* pointeurs de musique *****/
 
 // ************** graphics.c
 SDL_Surface *loadImage(char *name);		//fct pour recup les images à partir du disk
@@ -283,6 +285,7 @@ void Jeu();
 
 //*************** sound.c
 void loadAllMusic();
+void freeMusic();
 
 //*************** highscore.c
 void getScore();

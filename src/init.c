@@ -1,22 +1,22 @@
 #include "fonctions.h"
 
 
-void init(char *title)
+void init(char *title)              // Initialisation de la fenêtre, des bibliothèques utilisées et des variables utiles au début du jeu
 {
     int i;
 	if(Game.restart == 0) {
-		 if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)  //Initialisation de l'API Mixer
+		 if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)  //Initialisation de l'API Mixer (bibliothèque audio)
 	    {
 	        printf("%s", Mix_GetError());
 	    }
 
-	    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	    if (SDL_Init(SDL_INIT_VIDEO) < 0)   // Initialisation des fonctions Image dans SDL
 	    {
 	        printf("Could not initialize SDL: %s\n", SDL_GetError());
 	        exit(1);
 	    }
 
-	    screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE);
+	    screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWPALETTE); // Chargement en mémoire d'une fenêtre de 1280x720 pixels
 
 	    if (screen == NULL)
 	    {
@@ -30,10 +30,11 @@ void init(char *title)
 	        exit(1);
 	    }
 
-	    SDL_WM_SetCaption(title, NULL);
+	    SDL_WM_SetCaption(title, NULL); // Titre de la fenêtre
 	}
 
 
+/*************************Initalisation des variables utiles au début du jeu*****************************/
 
     for(i=0; i<=MAX_OFFICERS; i++)
             {
@@ -60,16 +61,20 @@ void init(char *title)
     loadAllSprites();
     loadAllMusic();
     initPlayer();
-    Mix_PlayMusic(musiqueMenu, -1);
+    Mix_PlayMusic(musiqueMenu, -1); // Lancement de la musique du menu
+
+/*************************Initalisation des variables utiles au début du jeu*****************************/
 }
 
 
 
 
 
-void cleanup()
+void cleanup() // Libération des bibliothèques et images chargées en mémoire
 {
     //freeSprites();
+
+    freeMusic();
 
     TTF_Quit();
 

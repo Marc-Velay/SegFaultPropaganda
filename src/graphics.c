@@ -61,14 +61,6 @@ SDL_Surface *loadImageFULL(char *name)
         return NULL;
     }
 
-    /*if( image != NULL )
-    {
-        //Map the color key, 3* 0xFF pour transparent, sans font blanc
-        Uint32 colorkey = SDL_MapRGB( (*image).format, 0xFF, 0xFF, 0xFF );
-        SDL_SetColorKey( image, SDL_SRCCOLORKEY, colorkey );
-    }*/
-
-
     /* Return the processed image */
     return image;
 }
@@ -89,7 +81,7 @@ TTF_Font *loadFont(char *name, int size)
     return Font;
 }
 
-void drawAbout()
+void drawAbout()        // Affichage de l'option "About" du menu
 {
     drawMenu("Il y a fort pas longtemps dans notre galaxie, enfin sur la Terre pour être plus précis,",0,-150,compteurFont);
     drawMenu("s’est échoué un extraterrestre tout gris et tout moche : Stephen.",0,-70,compteurFont);
@@ -126,7 +118,7 @@ void drawString(char *text, int x, int y, TTF_Font *Font)
     SDL_Surface *surface;
     SDL_Color foregroundColor, backgroundColor;
 
-    /* White text on a black background */
+    /* Black text on a white background */
 
     foregroundColor.r = 0;
     foregroundColor.g = 0;
@@ -176,7 +168,7 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
     SDL_Surface *surface;
     SDL_Color foregroundColor, backgroundColor;
 
-    /* White text on a black background */
+    /* Blue text on a black background */
 
     foregroundColor.r = 0;
     foregroundColor.g = 150;
@@ -189,14 +181,6 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
     /* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
     surface = TTF_RenderUTF8_Shaded(Font, text, foregroundColor, backgroundColor);
-
-    if( surface != NULL )
-    {
-
-        //Map the color key, 3* 0xFF pour transparent, sans font blanc
-        // Uint32 colorkey = SDL_MapRGB( (*surface).format, 0, 0, 0 );
-        // SDL_SetColorKey( surface, SDL_SRCCOLORKEY, colorkey );
-    }
 
     if (surface == NULL)
     {
@@ -221,7 +205,7 @@ void drawMenu(char *text, int x, int y, TTF_Font *Font)
 }
 
 
-void drawText(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)
+void drawText(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)    // Paramètres d'affichage de l'interface sur la carte noir/bleu
 {
     SDL_Rect dest;
     SDL_Surface *surface;
@@ -240,13 +224,6 @@ void drawText(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)
     /* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
     surface = TTF_RenderUTF8_Shaded(textFont, text, foregroundColor, backgroundColor);
-
-    if( surface != NULL )
-    {
-        //Map the color key, 3* 0xFF pour transparent, sans font blanc
-        // Uint32 colorkey = SDL_MapRGB( (*surface).format, 0, 0, 0 );
-        // SDL_SetColorKey( surface, SDL_SRCCOLORKEY, colorkey );
-    }
 
     if (surface == NULL)
     {
@@ -270,13 +247,13 @@ void drawText(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)
     SDL_FreeSurface(surface);
 }
 
-void drawText2(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)
+void drawText2(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)   // Paramètres d'affichage de l'interface sur la carte vert/marron
 {
     SDL_Rect dest;
     SDL_Surface *surface;
     SDL_Color foregroundColor, backgroundColor;
 
-    /* White text on a black background */
+    /* Black text on a transparent background */
 
     foregroundColor.r = 0;
     foregroundColor.g = 0;
@@ -289,13 +266,6 @@ void drawText2(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b
     /* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
 
     surface = TTF_RenderUTF8_Shaded(textFont, text, foregroundColor, backgroundColor);
-
-    if( surface != NULL )
-    {
-        //Map the color key, 3* 0xFF pour transparent, sans font blanc
-        // Uint32 colorkey = SDL_MapRGB( (*surface).format, 0, 0, 0 );
-        // SDL_SetColorKey( surface, SDL_SRCCOLORKEY, colorkey );
-    }
 
     if (surface == NULL)
     {
@@ -325,7 +295,7 @@ void drawCompteur(char *text, int x, int y, TTF_Font *compteurFont)
     SDL_Surface *surface;
     SDL_Color foregroundColor;
 
-    /* White text on a black background */
+    /* White text */
 
     foregroundColor.r = 250;
     foregroundColor.g = 250;
@@ -401,7 +371,7 @@ void loadSpriteFULL(int index, char *name)
 }
 
 
-SDL_Surface *getSprite(int index)
+SDL_Surface *getSprite(int index)       // Vérifie si l'image que l'on appelle existe
 {
     if (index >= MAX_SPRITES || index < 0)
     {
@@ -428,7 +398,7 @@ void freeSprites()
     }
 }
 
-void loadAllSprites()
+void loadAllSprites()       // Chargement de toutes les images utilisées dans le programme et les polices d'écriture
 {
     TitleFont = loadFont("sfd/PIXEL.ttf", 90);
     SubTitleFont = loadFont("sfd/PIXEL.ttf", 50);
@@ -503,7 +473,7 @@ void loadAllSprites()
     loadSpriteFULL(CONTROLE_SPRITE,"gfx/Menu2.png");
 }
 
-void doOption()
+void doOption() // Affichage des options du menu contextuel : clic droit sur une tourelle
 {
 
         if(Game.drawOption >= 1)
@@ -522,10 +492,10 @@ void doOption()
 }
 
 
-void doInterface() {
+void doInterface() {    // Affichage de l'interface d'information sur la carte
 	char string[20] ;
-if(Game.nbWave <= 10){
-	drawText("Prix: ", 10, 685, textFont,97,117,18);
+    if(Game.nbWave%20 <= 10){                                            // Affichage de l'interface de la carte bleu/noir
+        drawText("Prix: ", 10, 685, textFont,97,117,18);
 
         sprintf(string,"%d", TOURELLE_1_PRICE);
         drawText(string, 50, 685, textFont,97,117,18);
@@ -537,7 +507,7 @@ if(Game.nbWave <= 10){
         drawText(string, 310, 685, textFont,97,117,18);
 
         drawText("Coins: ", 950, 685, textFont,97,117,18);
-        sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
+        sprintf(string,"%d", Player.coins);	    //prints the integer Player.coins into a string to enable drawText to show value
         drawText(string, 1000, 685, textFont,97,117,18);
 
         sprintf(string,"%d", Game.nbWave);
@@ -547,7 +517,7 @@ if(Game.nbWave <= 10){
         sprintf(string,"%d", Game.nbEnnemiKilled);
         drawText("Nombre d'ennemis tués: ", 410, 660, textFont,97,117,18);
         drawText(string, 580, 660, textFont,97,117,18);
-}else{
+    }else{                                                               // Affichage de l'interface de la carte verte/marron
         drawText2("Prix: ", 10, 685, textFont,97,117,18);
 
         sprintf(string,"%d", TOURELLE_1_PRICE);
@@ -570,7 +540,7 @@ if(Game.nbWave <= 10){
         sprintf(string,"%d", Game.nbEnnemiKilled);
         drawText2("Nombre d'ennemis tués: ", 410, 660, textFont,97,117,18);
         drawText2(string, 580, 660, textFont,97,117,18);
-}
+    }
 	drawImage(getSprite(TOURELLE_1_SPRITE), 35, 617);
 	drawImage(getSprite(TOURELLE_2_SPRITE), 162, 617);
 	drawImage(getSprite(TOURELLE_3_SPRITE), 292, 617);
@@ -578,7 +548,7 @@ if(Game.nbWave <= 10){
 
     }
 
-void Compteur()
+void Compteur() // Affichage du compte à rebours sur la carte avant la prochaine vague d'ennemis
 {
     char string[20] ;
 
@@ -589,7 +559,7 @@ void Compteur()
             }
 }
 
-void doBaseHealth() {
+void doBaseHealth() {                   // Affichage des différents états de la barre de vie du vaisseau de Stephen
 	if(Game.stade == 1 ) {
 	switch(Game.hpBase%11) {
 		case 0:
@@ -630,11 +600,11 @@ void doBaseHealth() {
 }
 
 
-void drawMenuPointer() {
+void drawMenuPointer() {                // Affichage du curseur (sprite de Stephen) dans le menu en fonction de la position de la souris
         drawImage(getSprite(PLAYER_R_SPRITE), 380, Game.MenuPointer);
 }
 
-void delay(unsigned int frameLimit)
+void delay(unsigned int frameLimit)     // Limite le nombre de frames par seconde du jeu
 {
 	unsigned int ticks = SDL_GetTicks();
 
@@ -654,13 +624,13 @@ void delay(unsigned int frameLimit)
 	}
 }
 
-void updateScreen()
+void updateScreen() // Actualise l'affichage de la fenêtre en fonction de l'état du jeu
 {
     SDL_FillRect(screen, NULL, 0);
 
     switch(Game.stade)
     {
-    case 0:
+    case 0:                             // Affichage du Menu
         drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
         drawMenu("Stephen VS Langley Falls", 0, -120, TitleFont);
         drawMenu("Start Game", 0, 50, SubTitleFont);
@@ -670,17 +640,19 @@ void updateScreen()
 	drawMenuPointer();
         break;
 
-    case -1:
+    case -1:                            // Affichage de la saisie du nom du joueur
         drawMenu("Entrez votre nom:",-450,120,ClassicFont);
         drawMenu(Player.name,-160,120,ClassicFont);
         break;
-    case 1:
+    case 1:                             // Affichage du jeu (Start Game)
         doEnnemi();
         doTourelle();
+
         if(Game.nbWave%20 <= 10){drawImage(getSprite(BACKGROUND2_SPRITE), 0, 0);}
         else{drawImage(getSprite(BACKGROUND_SPRITE), 0, 0);}
-	doInterface();
-	if(Game.hpBase >0 ) {doBaseHealth();}
+
+        doInterface();
+        if(Game.hpBase >0 ) {doBaseHealth();}
         drawOfficer();
         drawTourelle();
         drawPlayer();
@@ -690,14 +662,14 @@ void updateScreen()
         break;
 
 
-    case 2:
+    case 2:                             // Affichage de fin de jeu (Game Over)
         drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
         drawMenu("HIGHSCORE",0,20, SubTitleFont);
         drawMenu("Play again?", 0, 120, SubTitleFont);
         drawMenu("Quit", 0, 220, SubTitleFont);
         drawMenuPointer();
         break;
-    case 3:
+    case 3:                             // Affichage du Highscore
         drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
         drawMenu("HIGHSCORE", 0, -210, SubTitleFont);
         drawMenu("Joueur",-450 , -140 , ClassicFont);
@@ -707,19 +679,19 @@ void updateScreen()
         drawMenu("Return menu", 0, 420, ClassicFont);
         break;
 
-    case 4:
+    case 4:                             // Affichage du premier screen de tutoriel
         drawImage(getSprite(TUTO_1_SPRITE), 0, 0);
         break;
 
-    case 5:
+    case 5:                             // Affichage du second screen de tutoriel
         drawImage(getSprite(TUTO_2_SPRITE), 0, 0);
         break;
 
-    case 6:
+    case 6:                             // Affichage du troisième screen de tutoriel
 	    drawImage(getSprite(CONTROLE_SPRITE), 0, 0);
         break;
 
-    case 7:
+    case 7:                             // Affichage de l'option "About" dans le menu
          drawImage(getSprite(BACKGROUND_LAUNCH_SPRITE), 0, 0);
          drawAbout();
 	 break;
