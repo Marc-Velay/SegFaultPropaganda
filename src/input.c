@@ -1,9 +1,9 @@
 #include "fonctions.h"
 
 
-//Capture toutes les entrées utilisateur (clavier et souris)
+//Capture toutes les entrÃ©es utilisateur (clavier et souris)
 void UpdateEvents(Input* in)
-{
+{	//remplis un tableau, oÃ¹ chaque case correspond Ã  une touche par des 1 si la case a Ã©tÃ© appuyÃ©.
     SDL_Event event;
     while(SDL_PollEvent(&event))
     {
@@ -15,7 +15,7 @@ void UpdateEvents(Input* in)
         case SDL_KEYUP:
             (*in).key[event.key.keysym.sym]=0;
             break;
-        case SDL_MOUSEMOTION:
+        case SDL_MOUSEMOTION:		//Les entrees de la souris.
             (*in).mousex=event.motion.x;
             (*in).mousey=event.motion.y;
             (*in).mousexrel=event.motion.xrel;
@@ -38,7 +38,7 @@ void UpdateEvents(Input* in)
 
 
 
-//Gère les intéractions du joueur avec le jeu (navigation dans le menu, poser tourelle, tirer, ecrire son nom...)
+//GÃ¨re les intÃ©ractions du joueur avec le jeu (navigation dans le menu, poser tourelle, tirer, ecrire son nom...)
 void getInput()
 {
     Input in;
@@ -46,9 +46,9 @@ void getInput()
     int i;
     UpdateEvents(&in);
     int moux;
-    int mouy;
+    int mouy;	// coordonnÃ©es de la souris
     unsigned int frameLimit = SDL_GetTicks() + 45;
-    SDL_GetMouseState(&moux,&mouy);
+    SDL_GetMouseState(&moux,&mouy);	// rentre les coord en x et y de la souris dans les deux entiers moux et mouy
     int annimationFrame = Game.timer % 15;
 
     if(in.key[SDLK_ESCAPE] || in.quit)
@@ -58,13 +58,13 @@ void getInput()
     }
 
 
-        //Gère les entrées dans le tutoriel
+        //GÃ¨re les entrÃ©es dans le tutoriel
     /************************************TUTORIAL*********************************/
-    //Il suffit de clic gauche avec la souris pour défiler le tutoriel en jeu
+    //Il suffit de clic gauche avec la souris pour dÃ©filer le tutoriel en jeu
     if(Game.stade == 6 && in.mousebuttons[SDL_BUTTON_LEFT])
     {
         Game.stade = 0;
-	moux = mouy =0;//Remet la position de la souris à zéro pour eviter de cliquer sur une touche du menu
+	moux = mouy =0;//Remet la position de la souris Ã  zÃ©ro pour eviter de cliquer sur une touche du menu
     }
 
     if(Game.stade == 5 && in.mousebuttons[SDL_BUTTON_LEFT])
@@ -84,18 +84,18 @@ void getInput()
     if(Game.stade == 7 && in.mousebuttons[SDL_BUTTON_LEFT] )
     {
         Game.stade = 0;
-	moux = mouy =0;//Remet la position de la souris à zéro pour eviter de cliquer sur une touche du menu
+	moux = mouy =0;//Remet la position de la souris Ã  zÃ©ro pour eviter de cliquer sur une touche du menu
     }
     /************************************ABOUT*********************************/
 
-    //Gère les entrées dans le menu
+    //GÃ¨re les entrÃ©es dans le menu
     /************************************MENU*********************************/
     if (in.mousebuttons[SDL_BUTTON_LEFT])//Si le joueur clic sur start game
     {
         if(((moux > 521 && moux < 760) && (mouy >277 && mouy <319)) && Game.stade ==0)
         {
             printf("START GAME PRESSED\n");
-            memset(&Player.name,0,sizeof(Player.name));//Met le nom du joueur à zéro avant le début de la partie
+            memset(&Player.name,0,sizeof(Player.name));//Met le nom du joueur Ã  zÃ©ro avant le dÃ©but de la partie
             Game.stade = -1;
         }
         printf("LEFT BUTTON PRESSED in: %d, %d\n", moux, mouy);
@@ -130,7 +130,7 @@ void getInput()
     }
 
     if (Game.stade == 0) // Place le pointeur dans le menu en fonction de la position de la souris
-    {
+    {			// Annimation Stephen sur le menu
         if((mouy >277 && mouy <319))
         {
             Game.MenuPointer = 260;
@@ -156,13 +156,13 @@ void getInput()
     /************************************MENU*********************************/
 
 
-    //Gère la saisie du nom de joueur
+    //GÃ¨re la saisie du nom de joueur
     /************************************GET NAME*********************************/
 
         //strlen (const char *cs);
         if(Game.stade == -1)
         {
-            if(Player.nameInd < 13)//Si le nom comporte moins de 13 lettres, ajouter lettre préssée
+            if(Player.nameInd < 13)//Si le nom comporte moins de 13 lettres, ajouter lettre prÃ©ssÃ©e
             {
                 if(in.key[SDLK_a])
                 {
@@ -294,12 +294,12 @@ void getInput()
                     Player.name[Player.nameInd] = 'Z';
                     Player.nameInd++;
                 }
-            }       //Si la touche retour est préssé, effacer lettre et décrémenter indice chaine
+            }       //Si la touche retour est prÃ©ssÃ©, effacer lettre et dÃ©crÃ©menter indice chaine
                 if(in.key[SDLK_BACKSPACE] && Player.nameInd > 0)
                 {
                     Player.name[Player.nameInd-1] = ' ' ;
                     Player.nameInd--;
-                } //Si touche entrée pressé, lancer la partie et la musique de jeu
+                } //Si touche entrÃ©e pressÃ©, lancer la partie et la musique de jeu
                 else if(in.key[SDLK_RETURN])
                 {
                     Game.stade = 1;
@@ -316,11 +316,11 @@ void getInput()
 
 
 
-    //Gères les entrées sur l'écran de fin de jeu
+    //GÃ¨res les entrÃ©es sur l'Ã©cran de fin de jeu
     /************************************LAST SCREEN*********************************/
 
 
-      if (in.mousebuttons[SDL_BUTTON_LEFT])//Cas highscore cliquée
+      if (in.mousebuttons[SDL_BUTTON_LEFT])//Cas highscore cliquÃ©e
     {
         if(((moux > 540 && moux < 735) && (mouy >250 && mouy <290)) && Game.stade ==2)
         {
@@ -330,7 +330,7 @@ void getInput()
     }
 
 
-    if (in.mousebuttons[SDL_BUTTON_LEFT])//Cas quitter cliquée
+    if (in.mousebuttons[SDL_BUTTON_LEFT])//Cas quitter cliquÃ©e
     {
         if(((moux > 595 && moux < 679) && (mouy >449 && mouy <489)) && Game.stade ==2)
         {
@@ -341,7 +341,7 @@ void getInput()
     }
 
 
-    if (in.mousebuttons[SDL_BUTTON_LEFT])//Cas restart cliquée
+    if (in.mousebuttons[SDL_BUTTON_LEFT])//Cas restart cliquÃ©e
     {
         if(((moux > 518 && moux < 758) && (mouy >349 && mouy <389)) && Game.stade ==2)
         {
@@ -374,7 +374,7 @@ void getInput()
 
     /************************************HIGHSCORE SCREEN*********************************/
 
-        //Test si le bouton quitter du highscore et pressé
+        //Test si le bouton quitter du highscore et pressÃ©
 
     if (in.mousebuttons[SDL_BUTTON_LEFT])
     {
@@ -392,7 +392,7 @@ void getInput()
     /************************************HIGHSCORE SCREEN*********************************/
 
 
-    //Gères les demande de création de tourelles de l'utilisateur
+    //GÃ¨res les demande de crÃ©ation de tourelles de l'utilisateur
 
     /************************************TOURELLES*********************************/
 
@@ -447,11 +447,11 @@ void getInput()
         if ((in.mousebuttons[SDL_BUTTON_RIGHT] && (moux < SCREEN_WIDTH - 3*GRID_STEP) && (mouy >PATH_TOP_Y && mouy < PATH_BOTTOM_Y)) && Game.stade ==1 )
         {
 
-            //Gères le menu d'upgrade et de vente des tourelles
+            //GÃ¨res le menu d'upgrade et de vente des tourelles
             for(i=0; i<MAX_TOURELLES; i++)
             {
                 if(Tourelle[i].x < moux && Tourelle[i].x + 60 > moux  && Tourelle[i].y < mouy && Tourelle[i].y + 50 > mouy && Tourelle[i].alive == 1)
-                {//Si un clic droit est effectué sur la tourelle, ouvrir le menu
+                {//Si un clic droit est effectuÃ© sur la tourelle, ouvrir le menu
                     Game.drawOption = 1;
                     Game.xOp = Tourelle[i].x ;
                     Game.yOp = Tourelle[i].y ;
@@ -461,12 +461,12 @@ void getInput()
             }
         }
 
-        //Gères les intéractions avec le menu des tourelles
+        //GÃ¨res les intÃ©ractions avec le menu des tourelles
         if(in.mousebuttons[SDL_BUTTON_LEFT] && Game.drawOption == 2 )
         {
 
             if((!(moux > Game.xOp +57 && moux < Game.xOp+107) && !(mouy > Game.yOp +10 && mouy < Game.yOp+85)) || Player.coins < UPGRADE_PRICE * (Tourelle[Game.iOp].level * Tourelle[Game.iOp].level) + UPGRADE_PRICE)
-            {//Quitte le menu si cliquée en dehors
+            {//Quitte le menu si cliquÃ©e en dehors
                 Game.drawOption = 0;
             }
         }
@@ -494,12 +494,12 @@ void getInput()
             }
 
             else if((moux > Game.xOp && moux < Game.xOp+60) && (mouy > Game.yOp +35 && mouy < Game.yOp+55))
-            {//Vend la tourelle si cliquée sur vendre
+            {//Vend la tourelle si cliquÃ©e sur vendre
                 SellTourelle(Game.iOp);
                 Game.drawOption = 0;
             }
             else
-            {//Quitte si cliquée en dehors du menu
+            {//Quitte si cliquÃ©e en dehors du menu
                 Game.drawOption = 0;
             }
         }
@@ -541,11 +541,11 @@ void getInput()
 
 
 
-        //Gères les déplacements et tirs de roger
+        //GÃ¨res les dÃ©placements et tirs de roger
         /************************************DEPLACEMENTS*********************************/
 
 
-        //Tir si barre espace pressée
+        //Tir si barre espace pressÃ©e
         if(in.key[SDLK_SPACE] && Game.stade == 1)
         {
             //A gauche ou a droite en fonction du sens du joueur
@@ -561,11 +561,11 @@ void getInput()
             }
         }
 
-        //Tant qu'une touche de déplacement est préssé, se déplacer
+        //Tant qu'une touche de dÃ©placement est prÃ©ssÃ©, se dÃ©placer
         while((in.key[SDLK_d] || in.key[SDLK_s] || in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_DOWN] || in.key[SDLK_UP] || in.key[SDLK_LEFT] || in.key[SDLK_RIGHT]) && Player.stun ==0  && Game.stade == 1)
         {
             if(in.key[SDLK_d] || in.key[SDLK_RIGHT])
-            {//Si droite pressée
+            {//Si droite pressÃ©e
 
                 //Player.sprite = getSprite(PLAYER_R_SPRITE);
 		    Player.direction =0;
@@ -577,7 +577,7 @@ void getInput()
 
             }
             if(in.key[SDLK_s] || in.key[SDLK_DOWN])
-            {//Si bas pressée
+            {//Si bas pressÃ©e
                 Player.y +=5;
                 if(Player.y > SCREEN_HEIGHT - STEPHEN_ACTUAL_HEIGHT - MENU_HEIGHT)
                 {
@@ -585,7 +585,7 @@ void getInput()
                 }
             }
             if(in.key[SDLK_q] || in.key[SDLK_a] || in.key[SDLK_LEFT])
-            {//Si gauche pressée
+            {//Si gauche pressÃ©e
                 Player.sprite = getSprite(PLAYER_L_SPRITE);
 		    Player.direction = 1;
                 Player.x -=5;
@@ -596,7 +596,7 @@ void getInput()
 
             }
             if(in.key[SDLK_z] || in.key[SDLK_w] || in.key[SDLK_UP])
-            {//Si haut pressée
+            {//Si haut pressÃ©e
                 Player.y -=5;
                 if(Player.y < 0)
                 {
@@ -604,7 +604,7 @@ void getInput()
                 }
             }
             if(in.key[SDLK_SPACE])
-            {//Si tir pressé pendant un déplacement
+            {//Si tir pressÃ© pendant un dÃ©placement
                 if(Player.direction == 0 && Player.reload > 20)
                 {
                     initTir(Player.x,Player.y+19,0,-1,1);
@@ -618,7 +618,7 @@ void getInput()
             }
 
             if(Player.direction ==0){
-                    //Animation en cas de déplacement de roger vers la droite
+                    //Animation en cas de dÃ©placement de roger vers la droite
 		    if(annimationFrame <3){
 			    Player.sprite = getSprite(PLAYER_R1_SPRITE);
 		    } else if(annimationFrame <6){
@@ -634,7 +634,7 @@ void getInput()
 			    Player.sprite = getSprite(PLAYER_R5_SPRITE);
 		    }
             }else if(Player.direction == 1) {
-                 //Animation en cas de déplacement de roger vers la gauche
+                 //Animation en cas de dÃ©placement de roger vers la gauche
 		    if(annimationFrame <3){
 			    Player.sprite = getSprite(PLAYER_L1_SPRITE);
 		    } else if(annimationFrame <6){
@@ -652,7 +652,7 @@ void getInput()
             }
 
         /************************************DEPLACEMENTS*********************************/
-        //Boucle le jeu aussi pour ne pas avoir de désynchronisation des frames
+        //Boucle le jeu aussi pour ne pas avoir de dÃ©synchronisation des frames
         updateScreen();
 	doWave();
         Game.timer +=1;
