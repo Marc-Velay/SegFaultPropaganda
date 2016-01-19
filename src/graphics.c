@@ -37,6 +37,41 @@ SDL_Surface *loadImage(char *name)
     return image;
 }
 
+SDL_Surface *loadImageFULL(char *name)
+{
+    /* Load the image using SDL Image */
+
+    SDL_Surface *temp = IMG_Load(name);
+    SDL_Surface *image=  NULL;
+
+    if (temp == NULL)
+    {
+        printf("Failed to load image %s\n", name);
+        return NULL;
+    }
+
+    image = SDL_DisplayFormat(temp);
+
+    SDL_FreeSurface(temp);
+
+    if (image == NULL)
+    {
+        printf("Failed to convert image %s to native format\n", name);
+
+        return NULL;
+    }
+
+    /*if( image != NULL )
+    {
+        //Map the color key, 3* 0xFF pour transparent, sans font blanc
+        Uint32 colorkey = SDL_MapRGB( (*image).format, 0xFF, 0xFF, 0xFF );
+        SDL_SetColorKey( image, SDL_SRCCOLORKEY, colorkey );
+    }*/
+
+
+    /* Return the processed image */
+    return image;
+}
 
 TTF_Font *loadFont(char *name, int size)
 {
@@ -298,6 +333,25 @@ void loadSprite(int index, char *name)
     }
 }
 
+void loadSpriteFULL(int index, char *name)
+{
+    /* Load the image into the next slot in the sprite bank */
+    if (index >= MAX_SPRITES || index < 0)
+    {
+        printf("Invalid index for sprite! Index: %d Maximum: %d\n", index, MAX_SPRITES);
+
+        exit(1);
+    }
+
+    sprite[index].image = loadImageFULL(name);
+
+    if (sprite[index].image == NULL)
+    {
+        exit(1);
+    }
+}
+
+
 SDL_Surface *getSprite(int index)
 {
     if (index >= MAX_SPRITES || index < 0)
@@ -397,7 +451,7 @@ void loadAllSprites()
 
     loadSprite(TUTO_1_SPRITE,"gfx/Tuto1.png");
     loadSprite(TUTO_2_SPRITE,"gfx/Tuto2.png");
-    loadSprite(CONTROLE_SPRITE,"gfx/controle_Clean.png");
+    loadSpriteFULL(CONTROLE_SPRITE,"gfx/Menu2.png");
 }
 
 void doOption()
