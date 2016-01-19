@@ -1,23 +1,45 @@
 # SegFaultPropaganda
-Projet X 2A ESIEA
+Installation & Déploiement
 
-hello!
+	_ Langage de programmation : C
 
-git branch <nom de la branche> 		//créer une branche du nom <>
-git checkout <nom de la branche>		//switch sur la branche <>
+	_ Bibliothèques spécifiques : SDL (version antérieure à 2.0), en utilisant aussi SDL_ttf et SDL_Mixer
 
-git commit -a -m '<commentaire du push>'	//commit (envoie le code) de la branche sur laquelle on est (le dernier checkout)
+	_ Fonctionnel sous toutes distributions récente pouvant installer SDL 1.*
 
-git checkout master					// switch sur la branche master
-git merge hotfix					// assemble la branche <hotfix> et le dernier checkout
+	_ Environnements de programmation : Fedora 20 et CodeBlocks
 
-git push https://github.com/Marc-Velay/SegFaultPropaganda master //envoie sur le serveur
-git pull https://github.com/Marc-Velay/SegFaultPropaganda master //récupère le code du serveur
+	
+Problèmes rencontrés
 
-pour mettre à jour:
+	_ Temps pour réaliser les sprites
+		_ PIXEL ART
+		_ Utilisation image libre de droit (map)
+	
+	_ Stockage des éléments mobiles du jeu
+		_ Tableaux pour Ennemis et Tourelles
+		_ LSC pour les tirs lasers
+	
+	_ Gérer l'affichage du jeu
+		_ Fonctions de la bibliothèque SDL
+	
+	_ Gérer les sons du jeu
+		_ Fonctions de la bibliothèque SDL_Mixer
+	
+	_ Optimisation de l'utilisation du CPU
+		_ Libération de la mémoire entre les vagues
+		_ Framerate capé à 30 FPS
+	
+	_ Agencement des fonctionnalités du jeu, très nombreuses.
+		_ Utilisation d'un WBS (Work ...)
 
-git add .			//met tous le dossier en mode commit, pour être ajouté
+	_ Gestion du temps écoulée
+		_ Utilisation variable globale timer
 
-git commit -m 'update tourelle.c et readme.txt'	//marque les nouveaux dossiers ayant besoin d'être push
+Ouverture
 
-git push https://github.com/Marc-Velay/SegFaultPropaganda master	//Envoie les fichiers marques à commit sur l'url 
+	_ Ajout de gameplay, soit plus de niveaux
+
+	_ Ajout de contenu design	
+
+	_ Ajout de fonctionnalités pour le personnage jouable
