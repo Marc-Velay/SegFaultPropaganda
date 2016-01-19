@@ -270,6 +270,55 @@ void drawText(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)
     SDL_FreeSurface(surface);
 }
 
+void drawText2(char *text, int x, int y, TTF_Font *textFont, int r, int g, int b)
+{
+    SDL_Rect dest;
+    SDL_Surface *surface;
+    SDL_Color foregroundColor, backgroundColor;
+
+    /* White text on a black background */
+
+    foregroundColor.r = 0;
+    foregroundColor.g = 0;
+    foregroundColor.b = 0;
+
+    backgroundColor.r = r;
+    backgroundColor.g = g;
+    backgroundColor.b = b;
+
+    /* Use SDL_TTF to generate a string image, this returns an SDL_Surface */
+
+    surface = TTF_RenderUTF8_Shaded(textFont, text, foregroundColor, backgroundColor);
+
+    if( surface != NULL )
+    {
+        //Map the color key, 3* 0xFF pour transparent, sans font blanc
+        // Uint32 colorkey = SDL_MapRGB( (*surface).format, 0, 0, 0 );
+        // SDL_SetColorKey( surface, SDL_SRCCOLORKEY, colorkey );
+    }
+
+    if (surface == NULL)
+    {
+        printf("Couldn't create String %s: %s\n", text, SDL_GetError());
+
+        return;
+    }
+
+    /* Blit the entire surface to the screen */
+
+    dest.x = x;
+    dest.y = y;
+    dest.w = (*surface).w;
+    dest.h = (*surface).h;
+
+
+    SDL_BlitSurface(surface, NULL, screen, &dest);
+
+    /* Free the generated string image */
+
+    SDL_FreeSurface(surface);
+}
+
 void drawCompteur(char *text, int x, int y, TTF_Font *compteurFont)
 {
     SDL_Rect dest;
@@ -475,7 +524,7 @@ void doOption()
 
 void doInterface() {
 	char string[20] ;
-
+if(Game.nbWave <= 10){
 	drawText("Prix: ", 10, 685, textFont,97,117,18);
 
         sprintf(string,"%d", TOURELLE_1_PRICE);
@@ -498,7 +547,30 @@ void doInterface() {
         sprintf(string,"%d", Game.nbEnnemiKilled);
         drawText("Nombre d'ennemis tués: ", 410, 660, textFont,97,117,18);
         drawText(string, 580, 660, textFont,97,117,18);
+}else{
+        drawText2("Prix: ", 10, 685, textFont,97,117,18);
 
+        sprintf(string,"%d", TOURELLE_1_PRICE);
+        drawText2(string, 50, 685, textFont,97,117,18);
+
+        sprintf(string,"%d", TOURELLE_2_PRICE + 10*(Game.nbWave-1));
+        drawText2(string, 180, 685, textFont,97,117,18);
+
+        sprintf(string,"%d", TOURELLE_3_PRICE + 10*(Game.nbWave-1));
+        drawText2(string, 310, 685, textFont,97,117,18);
+
+        drawText2("Coins: ", 950, 685, textFont,97,117,18);
+        sprintf(string,"%d", Player.coins);	//prints the integer Player.coins into a string to enable drawText to show value
+        drawText2(string, 1000, 685, textFont,97,117,18);
+
+        sprintf(string,"%d", Game.nbWave);
+        drawText2("Vague: ", 410, 600, textFont,97,117,18);
+        drawText2(string, 470, 600, textFont,97,117,18);
+
+        sprintf(string,"%d", Game.nbEnnemiKilled);
+        drawText2("Nombre d'ennemis tués: ", 410, 660, textFont,97,117,18);
+        drawText2(string, 580, 660, textFont,97,117,18);
+}
 	drawImage(getSprite(TOURELLE_1_SPRITE), 35, 617);
 	drawImage(getSprite(TOURELLE_2_SPRITE), 162, 617);
 	drawImage(getSprite(TOURELLE_3_SPRITE), 292, 617);
