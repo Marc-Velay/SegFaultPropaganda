@@ -127,23 +127,23 @@ void getInput()
 
     if (Game.stade == 0)
     {
-        if((mouy >277 && mouy <319) && Game.stade ==0)
+        if((mouy >277 && mouy <319))
         {
             Game.MenuPointer = 260;
         }
 
 
-        if((mouy >379 && mouy <416) && Game.stade ==0)
+        if((mouy >379 && mouy <416) )
         {
             Game.MenuPointer = 360;
         }
 
-        if((mouy >477 && mouy <518) && Game.stade ==0)
+        if((mouy >477 && mouy <518))
         {
             Game.MenuPointer = 460;
         }
 
-        if((mouy >580 && mouy <620) && Game.stade ==0)
+        if((mouy >580 && mouy <620))
         {
             Game.MenuPointer = 560;
         }
